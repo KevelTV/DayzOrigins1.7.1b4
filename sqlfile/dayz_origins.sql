@@ -1,19 +1,850 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : devel
-Source Server Version : 50516
+Source Server         : 1
+Source Server Version : 50533
 Source Host           : localhost:3306
 Source Database       : dayz_origins
 
 Target Server Type    : MYSQL
-Target Server Version : 50516
+Target Server Version : 50533
 File Encoding         : 65001
 
-Date: 2013-05-01 12:48:57
+Date: 2013-08-30 20:32:10
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for `adm_objects`
+-- ----------------------------
+DROP TABLE IF EXISTS `adm_objects`;
+CREATE TABLE `adm_objects` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `class_name` varchar(60) NOT NULL,
+  `name` varchar(60) NOT NULL,
+  `type` varchar(10) NOT NULL,
+  `subtype` varchar(20) NOT NULL,
+  `transport_max_weapons` mediumint(5) NOT NULL,
+  `transport_max_magazines` smallint(5) NOT NULL,
+  `transport_max_backpacks` tinyint(2) NOT NULL,
+  `cargo` tinyint(2) NOT NULL,
+  `slots` tinyint(2) NOT NULL,
+  `icon_type` varchar(20) NOT NULL,
+  `rmod_supported` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0 - not checked, 1 -supported, 2 -not supported',
+  `allowed` tinyint(1) NOT NULL DEFAULT '0' COMMENT '1 - allowed, 0 - not allowed',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `class_name` (`class_name`)
+) ENGINE=MyISAM AUTO_INCREMENT=813 DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of adm_objects
+-- ----------------------------
+INSERT INTO `adm_objects` VALUES ('1', 'An2_1_TK_CIV_EP1', 'An-2 (Aeroshrot)', 'vehicle', 'Air', '3', '20', '0', '15', '0', 'aircraftsmall', '0', '0');
+INSERT INTO `adm_objects` VALUES ('2', 'An2_2_TK_CIV_EP1', 'An-2 (TakAir)', 'vehicle', 'Air', '3', '20', '0', '15', '0', 'aircraftsmall', '0', '0');
+INSERT INTO `adm_objects` VALUES ('3', 'Mi17_Civilian', 'Mi-17 (Civilian)', 'vehicle', 'Air', '3', '20', '10', '16', '0', 'helicopter', '1', '0');
+INSERT INTO `adm_objects` VALUES ('4', 'ParachuteC', 'Parachute', 'vehicle', 'Air', '3', '20', '1', '0', '0', 'other', '0', '0');
+INSERT INTO `adm_objects` VALUES ('5', 'An2_TK_EP1', 'An-2', 'vehicle', 'Air', '3', '20', '0', '15', '0', 'aircraftsmall', '0', '0');
+INSERT INTO `adm_objects` VALUES ('6', 'L39_TK_EP1', 'L-39ZA', 'vehicle', 'Air', '3', '20', '0', '0', '0', 'Air', '0', '0');
+INSERT INTO `adm_objects` VALUES ('7', 'TentStorage', 'Tent Storage', 'vehicle', 'deployable', '10', '50', '5', '0', '0', 'tent', '0', '0');
+INSERT INTO `adm_objects` VALUES ('8', 'Mi17_TK_EP1', 'Mi-8', 'vehicle', 'Air', '3', '20', '10', '16', '0', 'helicopter', '1', '0');
+INSERT INTO `adm_objects` VALUES ('9', 'Mi24_D_TK_EP1', 'Mi-24D', 'vehicle', 'Air', '30', '150', '10', '8', '0', 'helicopter', '2', '0');
+INSERT INTO `adm_objects` VALUES ('10', 'Parachute_TK_EP1', 'Parachute', 'vehicle', 'Air', '3', '20', '1', '0', '0', 'other', '0', '0');
+INSERT INTO `adm_objects` VALUES ('11', 'ParachuteBigEast_EP1', 'Cargo parachute (Large)', 'vehicle', 'Air', '3', '20', '1', '0', '0', 'other', '0', '0');
+INSERT INTO `adm_objects` VALUES ('12', 'ParachuteMediumEast_EP1', 'Cargo parachute', 'vehicle', 'Air', '3', '20', '1', '0', '0', 'other', '0', '0');
+INSERT INTO `adm_objects` VALUES ('13', 'Su25_TK_EP1', 'Su-25', 'vehicle', 'Air', '3', '20', '0', '0', '0', 'jetfighter', '0', '0');
+INSERT INTO `adm_objects` VALUES ('14', 'UH1H_TK_EP1', 'UH-1H', 'vehicle', 'Air', '3', '20', '1', '5', '0', 'helicopter', '2', '0');
+INSERT INTO `adm_objects` VALUES ('15', 'Mi17_Ins', 'Mi-8MT', 'vehicle', 'Air', '3', '20', '10', '16', '0', 'helicopter', '1', '0');
+INSERT INTO `adm_objects` VALUES ('16', 'Su25_Ins', 'Su-25', 'vehicle', 'Air', '3', '20', '0', '0', '0', 'jetfighter', '0', '0');
+INSERT INTO `adm_objects` VALUES ('17', 'Ka52', 'Ka-52', 'vehicle', 'Air', '3', '20', '1', '0', '0', 'helicopter', '1', '0');
+INSERT INTO `adm_objects` VALUES ('18', 'Ka52Black', 'Ka-52 (black)', 'vehicle', 'Air', '3', '20', '1', '0', '0', 'helicopter', '1', '0');
+INSERT INTO `adm_objects` VALUES ('19', 'Mi17_rockets_RU', 'Mi-8MTV-3', 'vehicle', 'Air', '3', '20', '10', '16', '0', 'helicopter', '1', '0');
+INSERT INTO `adm_objects` VALUES ('20', 'Mi24_P', 'Mi-24P', 'vehicle', 'Air', '30', '150', '10', '8', '0', 'helicopter', '1', '0');
+INSERT INTO `adm_objects` VALUES ('21', 'Mi24_V', 'Mi-24V', 'vehicle', 'Air', '30', '150', '10', '8', '0', 'helicopter', '1', '0');
+INSERT INTO `adm_objects` VALUES ('22', 'ParachuteBigEast', 'Cargo parachute (Large)', 'vehicle', 'Air', '3', '20', '1', '0', '0', 'other', '0', '0');
+INSERT INTO `adm_objects` VALUES ('23', 'ParachuteEast', 'Parachute', 'vehicle', 'Air', '3', '20', '1', '0', '0', 'other', '0', '0');
+INSERT INTO `adm_objects` VALUES ('24', 'ParachuteMediumEast', 'Cargo parachute', 'vehicle', 'Air', '3', '20', '1', '0', '0', 'other', '0', '0');
+INSERT INTO `adm_objects` VALUES ('25', 'Pchela1T', 'Pchela-1T', 'vehicle', 'Air', '3', '20', '0', '0', '0', 'other', '0', '0');
+INSERT INTO `adm_objects` VALUES ('26', 'Su34', 'Su-34', 'vehicle', 'Air', '3', '20', '0', '0', '0', 'jetfighter', '0', '0');
+INSERT INTO `adm_objects` VALUES ('27', 'Su39', 'Su-25', 'vehicle', 'Air', '3', '20', '0', '0', '0', 'jetfighter', '0', '0');
+INSERT INTO `adm_objects` VALUES ('28', 'Parachute_TK_GUE_EP1', 'Parachute', 'vehicle', 'Air', '3', '20', '1', '0', '0', 'other', '0', '0');
+INSERT INTO `adm_objects` VALUES ('29', 'UH1H_TK_GUE_EP1', 'UH-1H', 'vehicle', 'Air', '3', '20', '1', '5', '0', 'helicopter', '2', '0');
+INSERT INTO `adm_objects` VALUES ('30', 'Mi17_UN_CDF_EP1', 'Mi-8', 'vehicle', 'Air', '3', '20', '10', '16', '0', 'helicopter', '2', '0');
+INSERT INTO `adm_objects` VALUES ('31', 'ParachuteG', 'Parachute', 'vehicle', 'Air', '3', '20', '1', '0', '0', 'other', '0', '0');
+INSERT INTO `adm_objects` VALUES ('32', 'CruiseMissile1', 'Cruise Missile', 'vehicle', 'Air', '3', '20', '1', '0', '0', 'other', '0', '0');
+INSERT INTO `adm_objects` VALUES ('33', 'AW159_Lynx_BAF', 'Wildcat AH11', 'vehicle', 'Air', '18', '180', '5', '8', '0', 'helicopter', '0', '0');
+INSERT INTO `adm_objects` VALUES ('34', 'BAF_Apache_AH1_D', 'Apache AH1', 'vehicle', 'Air', '18', '180', '1', '0', '0', 'helicopter', '0', '0');
+INSERT INTO `adm_objects` VALUES ('35', 'BAF_Merlin_HC3_D', 'Merlin HC3', 'vehicle', 'Air', '18', '180', '10', '17', '0', 'helicopter', '0', '0');
+INSERT INTO `adm_objects` VALUES ('36', 'CH_47F_BAF', 'Chinook HC4', 'vehicle', 'Air', '36', '360', '10', '24', '0', 'helicopter', '0', '0');
+INSERT INTO `adm_objects` VALUES ('37', 'Mi171Sh_CZ_EP1', 'Mi-171Sh', 'vehicle', 'Air', '3', '20', '10', '16', '0', 'helicopter', '1', '0');
+INSERT INTO `adm_objects` VALUES ('38', 'Mi171Sh_rockets_CZ_EP1', 'Mi-171Sh (rockets)', 'vehicle', 'Air', '3', '20', '10', '16', '0', 'helicopter', '1', '0');
+INSERT INTO `adm_objects` VALUES ('39', 'A10_US_EP1', 'A-10', 'vehicle', 'Air', '3', '20', '0', '0', '0', 'airplanearmed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('40', 'AH64D_EP1', 'AH-64D', 'vehicle', 'Air', '3', '20', '1', '0', '0', 'helicopter', '1', '0');
+INSERT INTO `adm_objects` VALUES ('41', 'AH6J_EP1', 'AH-6J', 'vehicle', 'Air', '3', '20', '1', '1', '0', 'helicopter', '0', '0');
+INSERT INTO `adm_objects` VALUES ('42', 'AH6X_EP1', 'AH-6X', 'vehicle', 'Air', '3', '20', '5', '1', '0', 'helicopter', '0', '0');
+INSERT INTO `adm_objects` VALUES ('43', 'C130J_US_EP1', 'C-130J', 'vehicle', 'Air', '3', '20', '0', '25', '0', 'kingair', '0', '0');
+INSERT INTO `adm_objects` VALUES ('44', 'CH_47F_EP1', 'CH-47F', 'vehicle', 'Air', '3', '20', '10', '24', '0', 'helicopter', '1', '0');
+INSERT INTO `adm_objects` VALUES ('45', 'MH6J_EP1', 'MH-6J', 'vehicle', 'Air', '3', '20', '1', '5', '0', 'helicopter', '1', '0');
+INSERT INTO `adm_objects` VALUES ('46', 'MQ9PredatorB_US_EP1', 'MQ-9', 'vehicle', 'Air', '3', '20', '0', '0', '0', 'airplanearmed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('47', 'Parachute_US_EP1', 'Parachute', 'vehicle', 'Air', '3', '20', '1', '0', '0', 'other', '0', '0');
+INSERT INTO `adm_objects` VALUES ('48', 'ParachuteBigWest_EP1', 'Cargo parachute (Large)', 'vehicle', 'Air', '3', '20', '1', '0', '0', 'other', '0', '0');
+INSERT INTO `adm_objects` VALUES ('49', 'ParachuteMediumWest_EP1', 'Cargo parachute', 'vehicle', 'Air', '3', '20', '1', '0', '0', 'other', '0', '0');
+INSERT INTO `adm_objects` VALUES ('50', 'UH60M_EP1', 'UH-60M', 'vehicle', 'Air', '3', '20', '10', '13', '0', 'helicopter', '0', '0');
+INSERT INTO `adm_objects` VALUES ('51', 'Mi17_CDF', 'Mi-17', 'vehicle', 'Air', '3', '20', '10', '16', '0', 'helicopter', '1', '0');
+INSERT INTO `adm_objects` VALUES ('52', 'Mi24_D', 'Mi-24D', 'vehicle', 'Air', '30', '150', '10', '8', '0', 'helicopter', '1', '0');
+INSERT INTO `adm_objects` VALUES ('53', 'Su25_CDF', 'Su-25', 'vehicle', 'Air', '3', '20', '0', '0', '0', 'jetfighter', '0', '0');
+INSERT INTO `adm_objects` VALUES ('54', 'Steerable_Parachute_EP1', 'Steerable parachute', 'vehicle', 'Air', '3', '20', '0', '0', '0', 'other', '0', '0');
+INSERT INTO `adm_objects` VALUES ('55', 'A10', 'A-10', 'vehicle', 'Air', '3', '20', '0', '0', '0', 'airplanearmed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('56', 'AH1Z', 'AH-1Z', 'vehicle', 'Air', '3', '20', '1', '0', '0', 'helicopter', '0', '0');
+INSERT INTO `adm_objects` VALUES ('57', 'AH64D', 'AH-64D', 'vehicle', 'Air', '3', '20', '1', '0', '0', 'helicopter', '0', '0');
+INSERT INTO `adm_objects` VALUES ('58', 'AH64D_Sidewinders', 'AH-64D', 'vehicle', 'Air', '3', '20', '1', '0', '0', 'helicopter', '1', '0');
+INSERT INTO `adm_objects` VALUES ('59', 'AV8B', 'AV-8B (LGB)', 'vehicle', 'Air', '3', '20', '0', '0', '0', 'jetfighter', '0', '0');
+INSERT INTO `adm_objects` VALUES ('60', 'AV8B2', 'AV-8B', 'vehicle', 'Air', '3', '20', '0', '0', '0', 'jetfighter', '0', '0');
+INSERT INTO `adm_objects` VALUES ('61', 'C130J', 'C-130J', 'vehicle', 'Air', '3', '20', '0', '25', '0', 'kingair', '0', '0');
+INSERT INTO `adm_objects` VALUES ('62', 'CruiseMissile2', 'Cruise Missile 2', 'vehicle', 'Air', '3', '20', '0', '0', '0', 'other', '0', '0');
+INSERT INTO `adm_objects` VALUES ('63', 'F35B', 'F-35B', 'vehicle', 'Air', '3', '20', '0', '0', '0', 'jetfighter', '0', '0');
+INSERT INTO `adm_objects` VALUES ('64', 'MH60S', 'MH-60S', 'vehicle', 'Air', '30', '150', '10', '13', '0', 'helicopter', '1', '0');
+INSERT INTO `adm_objects` VALUES ('65', 'MQ9PredatorB', 'MQ-9', 'vehicle', 'Air', '3', '20', '0', '0', '0', 'airplanearmed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('66', 'MQ9PredatorB_campaign', 'MQ-9', 'vehicle', 'Air', '3', '20', '0', '0', '0', 'airplanearmed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('67', 'MV22', 'MV-22', 'vehicle', 'Air', '3', '20', '0', '24', '0', 'airplane', '2', '0');
+INSERT INTO `adm_objects` VALUES ('68', 'Parachute', 'Parachute', 'vehicle', 'Air', '3', '20', '1', '0', '0', 'other', '0', '0');
+INSERT INTO `adm_objects` VALUES ('69', 'ParachuteBigWest', 'Cargo parachute (Large)', 'vehicle', 'Air', '3', '20', '1', '0', '0', 'other', '0', '0');
+INSERT INTO `adm_objects` VALUES ('70', 'ParachuteMediumWest', 'Cargo parachute', 'vehicle', 'Air', '3', '20', '1', '0', '0', 'other', '0', '0');
+INSERT INTO `adm_objects` VALUES ('71', 'ParachuteWest', 'Parachute', 'vehicle', 'Air', '3', '20', '1', '0', '0', 'other', '0', '0');
+INSERT INTO `adm_objects` VALUES ('72', 'UH1Y', 'UH-1Y', 'vehicle', 'Air', '30', '150', '1', '7', '0', 'helicopter', '1', '0');
+INSERT INTO `adm_objects` VALUES ('73', 'UH1Y_cutscene', 'UH-1Y', 'vehicle', 'Air', '30', '150', '1', '7', '0', 'helicopter', '0', '0');
+INSERT INTO `adm_objects` VALUES ('74', 'BAF_BasicAmmunitionBox', 'BAF Basic Ammo', 'vehicle', 'Ammo', '5000', '20000', '1', '0', '0', 'Ammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('75', 'BAF_BasicWeapons', 'BAF Basic Weapons', 'vehicle', 'Ammo', '5000', '20000', '1', '0', '0', 'Ammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('76', 'BAF_IEDBox', 'Explosives Stash', 'vehicle', 'Ammo', '5000', '20000', '1', '0', '0', 'Ammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('77', 'BAF_Launchers', 'BAF Launchers', 'vehicle', 'Ammo', '5000', '20000', '1', '0', '0', 'Ammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('78', 'BAF_OrdnanceBox', 'BAF Ordnance', 'vehicle', 'Ammo', '5000', '20000', '1', '0', '0', 'Ammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('79', 'BAF_VehicleBox', 'BAF Vehicle Ammo', 'vehicle', 'Ammo', '5000', '20000', '1', '0', '0', 'Ammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('80', 'CZBasicWeapons_EP1', 'CZ Weapons', 'vehicle', 'Ammo', '5000', '20000', '1', '0', '0', 'Ammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('81', 'GERBasicWeapons_EP1', 'GER Weapons', 'vehicle', 'Ammo', '5000', '20000', '1', '0', '0', 'Ammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('82', 'GuerillaCacheBox', 'Guerilla Cache', 'vehicle', 'Ammo', '5000', '20000', '1', '0', '0', 'Ammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('83', 'GuerillaCacheBox_EP1', 'Guerilla Cache', 'vehicle', 'Ammo', '5000', '20000', '1', '0', '0', 'Ammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('84', 'Gunrack1', 'Gun rack', 'vehicle', 'Ammo', '20', '100', '0', '0', '0', 'Ammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('85', 'Gunrack2', 'Gun rack (rifles)', 'vehicle', 'Ammo', '20', '100', '0', '0', '0', 'Ammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('86', 'GunrackTK_EP1', 'Gun rack (TK)', 'vehicle', 'Ammo', '20', '100', '0', '0', '0', 'Ammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('87', 'GunrackUS_EP1', 'Gun rack (US)', 'vehicle', 'Ammo', '20', '100', '0', '0', '0', 'Ammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('88', 'LocalBasicAmmunitionBox', 'Local Basic Ammunition', 'vehicle', 'Ammo', '5000', '20000', '1', '0', '0', 'Ammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('89', 'LocalBasicWeaponsBox', 'Local Basic Weapons', 'vehicle', 'Ammo', '5000', '20000', '1', '0', '0', 'Ammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('90', 'ReammoBox_EP1', 'Ammo Crates', 'vehicle', 'Ammo', '5000', '20000', '1', '0', '0', 'Ammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('91', 'RUBasicAmmunitionBox', 'RU Basic Ammunition', 'vehicle', 'Ammo', '5000', '20000', '1', '0', '0', 'Ammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('92', 'RUBasicWeaponsBox', 'RU Basic Weapons', 'vehicle', 'Ammo', '5000', '20000', '1', '0', '0', 'Ammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('93', 'RULaunchersBox', 'RU Launchers', 'vehicle', 'Ammo', '5000', '20000', '1', '0', '0', 'Ammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('94', 'RUOrdnanceBox', 'RU Ordnance', 'vehicle', 'Ammo', '5000', '20000', '1', '0', '0', 'Ammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('95', 'RUSpecialWeaponsBox', 'RU Special Weapons', 'vehicle', 'Ammo', '5000', '20000', '1', '0', '0', 'Ammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('96', 'RUVehicleBox', 'RU Vehicle', 'vehicle', 'Ammo', '5000', '20000', '1', '0', '0', 'Ammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('97', 'SpecialWeaponsBox', 'Special Weapons', 'vehicle', 'Ammo', '5000', '20000', '1', '0', '0', 'Ammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('98', 'TKBasicAmmunitionBox_EP1', 'TK Basic Ammo', 'vehicle', 'Ammo', '5000', '20000', '1', '0', '0', 'Ammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('99', 'TKBasicWeapons_EP1', 'TK Basic Weapons', 'vehicle', 'Ammo', '5000', '20000', '1', '0', '0', 'Ammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('100', 'TKLaunchers_EP1', 'TK Launchers', 'vehicle', 'Ammo', '5000', '20000', '1', '0', '0', 'Ammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('101', 'TKOrdnanceBox_EP1', 'TK Ordnance', 'vehicle', 'Ammo', '5000', '20000', '1', '0', '0', 'Ammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('102', 'TKSpecialWeapons_EP1', 'TK Special Weapons', 'vehicle', 'Ammo', '5000', '20000', '1', '0', '0', 'Ammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('103', 'TKVehicleBox_EP1', 'TK Vehicle Ammo', 'vehicle', 'Ammo', '5000', '20000', '1', '0', '0', 'Ammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('104', 'UNBasicAmmunitionBox_EP1', 'UN Basic Ammo', 'vehicle', 'Ammo', '5000', '20000', '1', '0', '0', 'Ammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('105', 'UNBasicWeapons_EP1', 'UN Basic Weapons', 'vehicle', 'Ammo', '5000', '20000', '1', '0', '0', 'Ammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('106', 'USBasicAmmunitionBox', 'US Basic Ammunition', 'vehicle', 'Ammo', '5000', '20000', '1', '0', '0', 'Ammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('107', 'USBasicAmmunitionBox_EP1', 'US Army Basic Ammo', 'vehicle', 'Ammo', '5000', '20000', '1', '0', '0', 'Ammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('108', 'USBasicWeapons_EP1', 'US Army Basic Weapons', 'vehicle', 'Ammo', '5000', '20000', '1', '0', '0', 'Ammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('109', 'USBasicWeaponsBox', 'US Basic Weapons', 'vehicle', 'Ammo', '5000', '20000', '1', '0', '0', 'Ammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('110', 'USLaunchers_EP1', 'US Army Launchers', 'vehicle', 'Ammo', '5000', '20000', '1', '0', '0', 'Ammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('111', 'USLaunchersBox', 'US Launchers', 'vehicle', 'Ammo', '5000', '20000', '1', '0', '0', 'Ammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('112', 'USOrdnanceBox', 'US Ordnance', 'vehicle', 'Ammo', '5000', '20000', '1', '0', '0', 'Ammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('113', 'USOrdnanceBox_EP1', 'US Army Ordnance', 'vehicle', 'Ammo', '5000', '20000', '1', '0', '0', 'Ammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('114', 'USSpecialWeapons_EP1', 'US Army Special Weapons', 'vehicle', 'Ammo', '5000', '20000', '1', '0', '0', 'Ammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('115', 'USSpecialWeaponsBox', 'US Special Weapons', 'vehicle', 'Ammo', '5000', '20000', '1', '0', '0', 'Ammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('116', 'USVehicleBox', 'US Vehicle Ammo', 'vehicle', 'Ammo', '5000', '20000', '1', '0', '0', 'Ammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('117', 'USVehicleBox_EP1', 'US Army Vehicle Ammo', 'vehicle', 'Ammo', '5000', '20000', '1', '0', '0', 'Ammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('118', '1', 'WeaponHolder', 'vehicle', 'Ammo', '1', '0', '0', '0', '0', 'Ammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('119', 'BMP2_HQ_TK_EP1', 'BMP-2 (HQ)', 'vehicle', 'Armored', '10', '100', '5', '0', '0', 'trackedarmed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('120', 'BMP2_TK_EP1', 'BMP-2', 'vehicle', 'Armored', '10', '100', '5', '7', '0', 'trackedarmed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('121', 'BRDM2_ATGM_TK_EP1', 'BRDM-2 (ATGM)', 'vehicle', 'Armored', '10', '100', '5', '0', '0', 'wheeledarmed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('122', 'BRDM2_TK_EP1', 'BRDM-2', 'vehicle', 'Armored', '10', '100', '5', '3', '0', 'wheeledarmed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('123', 'BTR60_TK_EP1', 'BTR-60', 'vehicle', 'Armored', '10', '100', '5', '8', '0', 'wheeledarmed', '1', '0');
+INSERT INTO `adm_objects` VALUES ('124', 'M113_TK_EP1', 'M113', 'vehicle', 'Armored', '20', '100', '0', '11', '0', 'trackedarmed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('125', 'T34_TK_EP1', 'T-34', 'vehicle', 'Armored', '10', '100', '0', '0', '0', 'tank', '0', '0');
+INSERT INTO `adm_objects` VALUES ('126', 'T55_TK_EP1', 'T-55', 'vehicle', 'Armored', '10', '100', '0', '0', '0', 'tank', '0', '0');
+INSERT INTO `adm_objects` VALUES ('127', 'T72_TK_EP1', 'T-72', 'vehicle', 'Armored', '10', '100', '0', '0', '0', 'tank', '0', '0');
+INSERT INTO `adm_objects` VALUES ('128', 'ZSU_TK_EP1', 'ZSU-23 Shilka', 'vehicle', 'Armored', '10', '100', '0', '0', '0', 'tank', '0', '0');
+INSERT INTO `adm_objects` VALUES ('129', 'BTR40_MG_TK_INS_EP1', 'BTR-40 (DshKM)', 'vehicle', 'Armored', '10', '50', '5', '6', '0', 'wheeledarmed', '1', '0');
+INSERT INTO `adm_objects` VALUES ('130', 'BTR40_TK_INS_EP1', 'BTR-40', 'vehicle', 'Armored', '10', '50', '5', '6', '0', 'Armored', '1', '0');
+INSERT INTO `adm_objects` VALUES ('131', 'BMP2_HQ_INS', 'BMP-2 (HQ)', 'vehicle', 'Armored', '10', '100', '5', '0', '0', 'tank', '0', '0');
+INSERT INTO `adm_objects` VALUES ('132', 'BMP2_INS', 'BMP-2', 'vehicle', 'Armored', '10', '100', '5', '7', '0', 'trackedarmed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('133', 'BRDM2_ATGM_INS', 'BRDM-2 (ATGM)', 'vehicle', 'Armored', '10', '100', '5', '0', '0', 'Armored', '1', '0');
+INSERT INTO `adm_objects` VALUES ('134', 'BRDM2_INS', 'BRDM-2', 'vehicle', 'Armored', '10', '100', '5', '3', '0', 'wheeledarmed', '1', '0');
+INSERT INTO `adm_objects` VALUES ('135', 'T72_INS', 'T-72', 'vehicle', 'Armored', '10', '100', '0', '0', '0', 'tank', '0', '0');
+INSERT INTO `adm_objects` VALUES ('136', 'ZSU_INS', 'ZSU-23 Shilka', 'vehicle', 'Armored', '10', '100', '0', '0', '0', 'trackedarmed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('137', '2S6M_Tunguska', '2S6M Tunguska', 'vehicle', 'Armored', '10', '100', '0', '0', '0', 'trackedarmed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('138', 'BMP3', 'BMP-3', 'vehicle', 'Armored', '10', '100', '5', '5', '0', 'tank', '0', '0');
+INSERT INTO `adm_objects` VALUES ('139', 'BTR90', 'BTR-90', 'vehicle', 'Armored', '10', '100', '5', '7', '0', 'wheeledarmed', '2', '0');
+INSERT INTO `adm_objects` VALUES ('140', 'BTR90_HQ', 'BTR-90 (HQ)', 'vehicle', 'Armored', '10', '100', '5', '0', '0', 'wheeledarmed', '2', '0');
+INSERT INTO `adm_objects` VALUES ('141', 'GAZ_Vodnik', 'Vodnik (2xPK)', 'vehicle', 'Armored', '10', '50', '5', '10', '0', 'Armored', '1', '0');
+INSERT INTO `adm_objects` VALUES ('142', 'GAZ_Vodnik_HMG', 'Vodnik (BPPU)', 'vehicle', 'Armored', '10', '50', '5', '2', '0', 'wheeledarmed', '1', '0');
+INSERT INTO `adm_objects` VALUES ('143', 'T72_RU', 'T-72', 'vehicle', 'Armored', '10', '100', '0', '0', '0', 'tank', '0', '0');
+INSERT INTO `adm_objects` VALUES ('144', 'T90', 'T-90', 'vehicle', 'Armored', '10', '100', '0', '0', '0', 'tank', '0', '0');
+INSERT INTO `adm_objects` VALUES ('145', 'BRDM2_HQ_TK_GUE_EP1', 'BRDM-2 (HQ)', 'vehicle', 'Armored', '10', '100', '5', '0', '0', 'wheeledarmed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('146', 'BRDM2_TK_GUE_EP1', 'BRDM-2', 'vehicle', 'Armored', '10', '100', '5', '3', '0', 'wheeledarmed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('147', 'BTR40_MG_TK_GUE_EP1', 'BTR-40 (DshKM)', 'vehicle', 'Armored', '10', '50', '5', '6', '0', 'wheeledarmed', '2', '0');
+INSERT INTO `adm_objects` VALUES ('148', 'BTR40_TK_GUE_EP1', 'BTR-40', 'vehicle', 'Armored', '10', '50', '5', '6', '0', 'Armored', '1', '0');
+INSERT INTO `adm_objects` VALUES ('149', 'T34_TK_GUE_EP1', 'T-34', 'vehicle', 'Armored', '10', '100', '0', '0', '0', 'tank', '0', '0');
+INSERT INTO `adm_objects` VALUES ('150', 'T55_TK_GUE_EP1', 'T-55', 'vehicle', 'Armored', '10', '100', '0', '0', '0', 'tank', '0', '0');
+INSERT INTO `adm_objects` VALUES ('151', 'BMP2_UN_EP1', 'BMP-2', 'vehicle', 'Armored', '10', '100', '5', '7', '0', 'trackedarmed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('152', 'M113_UN_EP1', 'M113', 'vehicle', 'Armored', '20', '100', '0', '11', '0', 'trackedarmed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('153', 'BMP2_Gue', 'BMP-2', 'vehicle', 'Armored', '10', '100', '5', '7', '0', 'trackedarmed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('154', 'BRDM2_Gue', 'BRDM-2', 'vehicle', 'Armored', '10', '100', '5', '3', '0', 'wheeledarmed', '1', '0');
+INSERT INTO `adm_objects` VALUES ('155', 'BRDM2_HQ_Gue', 'BRDM-2 (HQ)', 'vehicle', 'Armored', '10', '100', '5', '0', '0', 'Armored', '1', '0');
+INSERT INTO `adm_objects` VALUES ('156', 'T34', 'T-34', 'vehicle', 'Armored', '10', '100', '0', '0', '0', 'tank', '0', '0');
+INSERT INTO `adm_objects` VALUES ('157', 'T72_Gue', 'T-72', 'vehicle', 'Armored', '10', '100', '0', '0', '0', 'tank', '0', '0');
+INSERT INTO `adm_objects` VALUES ('158', 'M1126_ICV_M2_EP1', 'Stryker ICV (M2)', 'vehicle', 'Armored', '10', '50', '5', '9', '0', 'wheeledarmed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('159', 'M1126_ICV_mk19_EP1', 'Stryker ICV (Mk19)', 'vehicle', 'Armored', '10', '50', '5', '9', '0', 'wheeledarmed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('160', 'M1128_MGS_EP1', 'Stryker MGS', 'vehicle', 'Armored', '10', '50', '5', '0', '0', 'wheeledarmed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('161', 'M1129_MC_EP1', 'Stryker MC', 'vehicle', 'Armored', '10', '50', '5', '0', '0', 'wheeledarmed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('162', 'M1130_CV_EP1', 'Stryker CV', 'vehicle', 'Armored', '10', '50', '5', '0', '0', 'wheeledarmed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('163', 'M1135_ATGMV_EP1', 'Stryker (TOW)', 'vehicle', 'Armored', '10', '50', '5', '0', '0', 'wheeledarmed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('164', 'M1A1_US_DES_EP1', 'M1A1', 'vehicle', 'Armored', '10', '100', '0', '0', '0', 'tank', '0', '0');
+INSERT INTO `adm_objects` VALUES ('165', 'M1A2_US_TUSK_MG_EP1', 'M1A2 TUSK', 'vehicle', 'Armored', '10', '100', '0', '0', '0', 'tank', '0', '0');
+INSERT INTO `adm_objects` VALUES ('166', 'M2A2_EP1', 'M2A2 Bradley IFV', 'vehicle', 'Armored', '10', '100', '0', '6', '0', 'trackedarmed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('167', 'M2A3_EP1', 'M2A3 ERA Bradley IFV', 'vehicle', 'Armored', '10', '100', '0', '6', '0', 'trackedarmed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('168', 'M6_EP1', 'M6 Linebacker', 'vehicle', 'Armored', '10', '100', '0', '6', '0', 'trackedarmed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('169', 'MLRS_DES_EP1', 'M270 MLRS', 'vehicle', 'Armored', '10', '100', '0', '1', '0', 'tracked', '0', '0');
+INSERT INTO `adm_objects` VALUES ('170', 'BMP2_CDF', 'BMP-2', 'vehicle', 'Armored', '10', '100', '5', '7', '0', 'trackedarmed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('171', 'BMP2_HQ_CDF', 'BMP-2 (HQ)', 'vehicle', 'Armored', '10', '100', '5', '0', '0', 'trackedarmed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('172', 'BRDM2_ATGM_CDF', 'BRDM-2 (ATGM)', 'vehicle', 'Armored', '10', '100', '5', '0', '0', 'wheeledarmed', '1', '0');
+INSERT INTO `adm_objects` VALUES ('173', 'BRDM2_CDF', 'BRDM-2', 'vehicle', 'Armored', '10', '100', '5', '3', '0', 'wheeledarmed', '1', '0');
+INSERT INTO `adm_objects` VALUES ('174', 'T72_CDF', 'T-72', 'vehicle', 'Armored', '10', '100', '0', '0', '0', 'tank', '0', '0');
+INSERT INTO `adm_objects` VALUES ('175', 'ZSU_CDF', 'ZSU-23 Shilka', 'vehicle', 'Armored', '10', '100', '0', '0', '0', 'trackedarmed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('176', 'AAV', 'AAVP7A1', 'vehicle', 'Armored', '10', '100', '5', '19', '0', 'trackedarmed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('177', 'AAV_cutscene', 'AAVP7A1', 'vehicle', 'Armored', '10', '100', '5', '4', '0', 'trackedarmed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('178', 'LAV25', 'LAV-25', 'vehicle', 'Armored', '10', '100', '5', '6', '0', 'wheeledarmed', '1', '0');
+INSERT INTO `adm_objects` VALUES ('179', 'LAV25_HQ', 'LAV-25 (HQ)', 'vehicle', 'Armored', '10', '100', '5', '0', '0', 'wheeledarmed', '2', '0');
+INSERT INTO `adm_objects` VALUES ('180', 'M1A1', 'M1A1', 'vehicle', 'Armored', '10', '100', '0', '0', '0', 'tank', '0', '0');
+INSERT INTO `adm_objects` VALUES ('181', 'M1A2_TUSK_MG', 'M1A2 TUSK', 'vehicle', 'Armored', '10', '100', '0', '0', '0', 'tank', '0', '0');
+INSERT INTO `adm_objects` VALUES ('182', 'MLRS', 'M270 MLRS', 'vehicle', 'Armored', '10', '100', '0', '1', '0', 'tracked', '0', '0');
+INSERT INTO `adm_objects` VALUES ('183', 'BAF_FV510_D', 'FV510 Warrior 2', 'vehicle', 'ArmouredD', '22', '500', '0', '7', '0', 'trackedarmed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('184', 'BAF_FV510_W', 'FV510 Warrior 2', 'vehicle', 'ArmouredW', '22', '500', '0', '7', '0', 'trackedarmed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('185', 'BAF_AssaultPack_ARAmmo', 'British Assault Pack', 'vehicle', 'Backpacks', '1', '13', '1', '0', '0', 'Backpacks', '0', '0');
+INSERT INTO `adm_objects` VALUES ('186', 'BAF_AssaultPack_ATAmmo', 'British Assault Pack', 'vehicle', 'Backpacks', '1', '13', '1', '0', '0', 'Backpacks', '0', '0');
+INSERT INTO `adm_objects` VALUES ('187', 'BAF_AssaultPack_FAC', 'British Assault Pack', 'vehicle', 'Backpacks', '1', '13', '1', '0', '0', 'Backpacks', '0', '0');
+INSERT INTO `adm_objects` VALUES ('188', 'BAF_AssaultPack_HAAAmmo', 'British Assault Pack', 'vehicle', 'Backpacks', '1', '13', '1', '0', '0', 'Backpacks', '0', '0');
+INSERT INTO `adm_objects` VALUES ('189', 'BAF_AssaultPack_HATAmmo', 'British Assault Pack', 'vehicle', 'Backpacks', '1', '13', '1', '0', '0', 'Backpacks', '0', '0');
+INSERT INTO `adm_objects` VALUES ('190', 'BAF_AssaultPack_LRRAmmo', 'British Assault Pack', 'vehicle', 'Backpacks', '1', '13', '1', '0', '0', 'Backpacks', '0', '0');
+INSERT INTO `adm_objects` VALUES ('191', 'BAF_AssaultPack_MGAmmo', 'British Assault Pack', 'vehicle', 'Backpacks', '1', '13', '1', '0', '0', 'Backpacks', '0', '0');
+INSERT INTO `adm_objects` VALUES ('192', 'BAF_AssaultPack_RifleAmmo', 'British Assault Pack', 'vehicle', 'Backpacks', '1', '13', '1', '0', '0', 'Backpacks', '0', '0');
+INSERT INTO `adm_objects` VALUES ('193', 'BAF_AssaultPack_Special', 'British Assault Pack', 'vehicle', 'Backpacks', '1', '13', '1', '0', '0', 'Backpacks', '0', '0');
+INSERT INTO `adm_objects` VALUES ('194', 'CZ_Backpack_Ammo_EP1', 'Czech Backpack', 'vehicle', 'Backpacks', '1', '14', '1', '0', '0', 'Backpacks', '0', '0');
+INSERT INTO `adm_objects` VALUES ('195', 'CZ_Backpack_AmmoMG_EP1', 'Czech Backpack', 'vehicle', 'Backpacks', '1', '14', '1', '0', '0', 'Backpacks', '0', '0');
+INSERT INTO `adm_objects` VALUES ('196', 'CZ_Backpack_EP1', 'Czech Backpack', 'vehicle', 'Backpacks', '1', '14', '1', '0', '0', 'Backpacks', '0', '0');
+INSERT INTO `adm_objects` VALUES ('197', 'CZ_Backpack_Specops_EP1', 'Czech Backpack', 'vehicle', 'Backpacks', '1', '14', '1', '0', '0', 'Backpacks', '0', '0');
+INSERT INTO `adm_objects` VALUES ('199', 'CZ_VestPouch_M4_EP1', 'Czech Vest Pouch', 'vehicle', 'Backpacks', '0', '6', '1', '0', '0', 'Backpacks', '0', '0');
+INSERT INTO `adm_objects` VALUES ('200', 'CZ_VestPouch_Sa58_EP1', 'Czech Vest Pouch', 'vehicle', 'Backpacks', '0', '6', '1', '0', '0', 'Backpacks', '0', '0');
+INSERT INTO `adm_objects` VALUES ('201', 'DE_Backpack_Specops_EP1', 'DE Backpack', 'vehicle', 'Backpacks', '1', '14', '1', '0', '0', 'Backpacks', '0', '0');
+INSERT INTO `adm_objects` VALUES ('202', 'ftmch_Backpack_Specops_AK', 'Backpack (coyote)', 'vehicle', 'Backpacks', '1', '12', '1', '0', '0', 'Backpacks', '0', '0');
+INSERT INTO `adm_objects` VALUES ('203', 'ftmch_Backpack_Specops_AK74', 'Backpack (coyote)', 'vehicle', 'Backpacks', '1', '12', '1', '0', '0', 'Backpacks', '0', '0');
+INSERT INTO `adm_objects` VALUES ('204', 'ftmch_Backpack_Specops_STANAG', 'Backpack (coyote)', 'vehicle', 'Backpacks', '1', '12', '1', '0', '0', 'Backpacks', '0', '0');
+INSERT INTO `adm_objects` VALUES ('205', 'TK_ALICE_Pack_AmmoMG_EP1', 'ALICE Pack', 'vehicle', 'Backpacks', '1', '12', '1', '0', '0', 'Backpacks', '0', '0');
+INSERT INTO `adm_objects` VALUES ('206', 'TK_ALICE_Pack_EP1', 'ALICE Pack', 'vehicle', 'Backpacks', '1', '12', '1', '0', '0', 'Backpacks', '0', '0');
+INSERT INTO `adm_objects` VALUES ('207', 'TK_ALICE_Pack_Explosives_EP1', 'ALICE Pack', 'vehicle', 'Backpacks', '1', '12', '1', '0', '0', 'Backpacks', '0', '0');
+INSERT INTO `adm_objects` VALUES ('208', 'TK_Assault_Pack_EP1', 'Assault Pack (khaki)', 'vehicle', 'Backpacks', '0', '8', '1', '0', '0', 'Backpacks', '0', '0');
+INSERT INTO `adm_objects` VALUES ('209', 'TK_Assault_Pack_RPK_EP1', 'Assault Pack (khaki)', 'vehicle', 'Backpacks', '0', '8', '1', '0', '0', 'Backpacks', '0', '0');
+INSERT INTO `adm_objects` VALUES ('210', 'TK_RPG_Backpack_EP1', 'RPG Pack', 'vehicle', 'Backpacks', '0', '8', '1', '0', '0', 'Backpacks', '0', '0');
+INSERT INTO `adm_objects` VALUES ('211', 'TKA_ALICE_Pack_Ammo_EP1', 'ALICE Pack', 'vehicle', 'Backpacks', '1', '12', '1', '0', '0', 'Backpacks', '0', '0');
+INSERT INTO `adm_objects` VALUES ('212', 'TKA_Assault_Pack_Ammo_EP1', 'Assault Pack (khaki)', 'vehicle', 'Backpacks', '0', '8', '1', '0', '0', 'Backpacks', '0', '0');
+INSERT INTO `adm_objects` VALUES ('213', 'TKG_ALICE_Pack_AmmoAK47_EP1', 'ALICE Pack', 'vehicle', 'Backpacks', '1', '12', '1', '0', '0', 'Backpacks', '0', '0');
+INSERT INTO `adm_objects` VALUES ('214', 'TKG_ALICE_Pack_AmmoAK74_EP1', 'ALICE Pack', 'vehicle', 'Backpacks', '1', '12', '1', '0', '0', 'Backpacks', '0', '0');
+INSERT INTO `adm_objects` VALUES ('215', 'US_Assault_Pack_Ammo_EP1', 'Assault Pack (ACU)', 'vehicle', 'Backpacks', '0', '8', '1', '0', '0', 'Backpacks', '0', '0');
+INSERT INTO `adm_objects` VALUES ('216', 'US_Assault_Pack_AmmoSAW_EP1', 'Assault Pack (ACU)', 'vehicle', 'Backpacks', '0', '8', '1', '0', '0', 'Backpacks', '0', '0');
+INSERT INTO `adm_objects` VALUES ('217', 'US_Assault_Pack_AT_EP1', 'Assault Pack (ACU)', 'vehicle', 'Backpacks', '0', '8', '1', '0', '0', 'Backpacks', '0', '0');
+INSERT INTO `adm_objects` VALUES ('218', 'US_Assault_Pack_EP1', 'Assault Pack (ACU)', 'vehicle', 'Backpacks', '0', '8', '1', '0', '0', 'Backpacks', '0', '0');
+INSERT INTO `adm_objects` VALUES ('219', 'US_Assault_Pack_Explosives_EP1', 'Assault Pack (ACU)', 'vehicle', 'Backpacks', '0', '8', '1', '0', '0', 'Backpacks', '0', '0');
+INSERT INTO `adm_objects` VALUES ('220', 'US_Backpack_AmmoMG_EP1', 'Backpack (coyote)', 'vehicle', 'Backpacks', '1', '12', '1', '0', '0', 'Backpacks', '0', '0');
+INSERT INTO `adm_objects` VALUES ('221', 'US_Backpack_AT_EP1', 'Backpack (coyote)', 'vehicle', 'Backpacks', '1', '12', '1', '0', '0', 'Backpacks', '0', '0');
+INSERT INTO `adm_objects` VALUES ('222', 'US_Backpack_EP1', 'Backpack (coyote)', 'vehicle', 'Backpacks', '1', '12', '1', '0', '0', 'Backpacks', '0', '0');
+INSERT INTO `adm_objects` VALUES ('223', 'US_Backpack_Specops_EP1', 'Backpack (coyote)', 'vehicle', 'Backpacks', '1', '12', '1', '0', '0', 'Backpacks', '0', '0');
+INSERT INTO `adm_objects` VALUES ('224', 'US_Patrol_Pack_Ammo_EP1', 'Patrol Pack (coyote)', 'vehicle', 'Backpacks', '0', '8', '1', '0', '0', 'Backpacks', '0', '0');
+INSERT INTO `adm_objects` VALUES ('225', 'US_Patrol_Pack_EP1', 'Patrol Pack (coyote)', 'vehicle', 'Backpacks', '0', '8', '1', '0', '0', 'Backpacks', '0', '0');
+INSERT INTO `adm_objects` VALUES ('226', 'US_Patrol_Pack_Specops_EP1', 'Patrol Pack (coyote)', 'vehicle', 'Backpacks', '0', '8', '1', '0', '0', 'Backpacks', '0', '0');
+INSERT INTO `adm_objects` VALUES ('227', 'hilux1_civil_3_open_EP1', 'Pickup', 'vehicle', 'Car', '10', '50', '2', '1', '0', 'pickup', '0', '0');
+INSERT INTO `adm_objects` VALUES ('228', 'Ikarus_TK_CIV_EP1', 'Bus', 'vehicle', 'Car', '10', '50', '2', '23', '0', 'bus', '0', '0');
+INSERT INTO `adm_objects` VALUES ('229', 'Lada1_TK_CIV_EP1', 'Lada', 'vehicle', 'Car', '10', '50', '2', '3', '0', 'Car', '1', '0');
+INSERT INTO `adm_objects` VALUES ('230', 'Lada2_TK_CIV_EP1', 'Lada (decorated)', 'vehicle', 'Car', '10', '50', '2', '3', '0', 'Car', '0', '0');
+INSERT INTO `adm_objects` VALUES ('231', 'LandRover_TK_CIV_EP1', 'Military Offroad', 'vehicle', 'Car', '10', '50', '2', '7', '0', 'jeep_closed', '1', '0');
+INSERT INTO `adm_objects` VALUES ('232', 'Old_moto_TK_Civ_EP1', 'Old moto', 'vehicle', 'Car', '0', '5', '0', '1', '0', 'motorbike', '0', '0');
+INSERT INTO `adm_objects` VALUES ('233', 'S1203_TK_CIV_EP1', 'S1203', 'vehicle', 'Car', '10', '50', '2', '5', '0', 'minivan', '0', '0');
+INSERT INTO `adm_objects` VALUES ('234', 'SUV_TK_CIV_EP1', 'SUV', 'vehicle', 'Car', '10', '50', '2', '5', '0', 'jeep_sport', '0', '0');
+INSERT INTO `adm_objects` VALUES ('235', 'TT650_TK_CIV_EP1', 'Motorcycle', 'vehicle', 'Car', '0', '5', '0', '1', '0', 'motorcycle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('236', 'UAZ_Unarmed_TK_CIV_EP1', 'UAZ', 'vehicle', 'Car', '10', '50', '7', '6', '0', 'jeep_closed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('237', 'Ural_TK_CIV_EP1', 'Ural', 'vehicle', 'Car', '50', '200', '8', '14', '0', 'truck_closed', '1', '0');
+INSERT INTO `adm_objects` VALUES ('238', 'V3S_Open_TK_CIV_EP1', 'V3S Open', 'vehicle', 'Car', '50', '200', '8', '13', '0', 'truck_open', '0', '0');
+INSERT INTO `adm_objects` VALUES ('239', 'Volha_1_TK_CIV_EP1', 'GAZ (blue)', 'vehicle', 'Car', '10', '50', '2', '3', '0', 'Car', '0', '0');
+INSERT INTO `adm_objects` VALUES ('240', 'Volha_2_TK_CIV_EP1', 'GAZ (grey)', 'vehicle', 'Car', '10', '50', '2', '3', '0', 'Car', '0', '0');
+INSERT INTO `adm_objects` VALUES ('241', 'VolhaLimo_TK_CIV_EP1', 'GAZ Limo', 'vehicle', 'Car', '10', '50', '2', '3', '0', 'Car', '0', '0');
+INSERT INTO `adm_objects` VALUES ('242', 'car_hatchback', 'Old hatchback', 'vehicle', 'Car', '10', '50', '2', '3', '0', 'Car', '0', '0');
+INSERT INTO `adm_objects` VALUES ('243', 'car_sedan', 'Sedan', 'vehicle', 'Car', '10', '50', '2', '3', '0', 'Car', '0', '0');
+INSERT INTO `adm_objects` VALUES ('244', 'datsun1_civil_1_open', 'Pick-Up', 'vehicle', 'Car', '10', '50', '2', '1', '0', 'pickup', '0', '0');
+INSERT INTO `adm_objects` VALUES ('245', 'datsun1_civil_2_covered', 'Pick-Up (Covered)', 'vehicle', 'Car', '10', '50', '2', '1', '0', 'pickup', '0', '0');
+INSERT INTO `adm_objects` VALUES ('246', 'datsun1_civil_3_open', 'Pick-Up (Tube frame)', 'vehicle', 'Car', '10', '50', '2', '1', '0', 'pickup', '0', '0');
+INSERT INTO `adm_objects` VALUES ('247', 'hilux1_civil_1_open', 'Offroad (tan)', 'vehicle', 'Car', '10', '50', '2', '1', '0', 'pickup', '0', '0');
+INSERT INTO `adm_objects` VALUES ('248', 'hilux1_civil_2_covered', 'Offroad (red)', 'vehicle', 'Car', '10', '50', '2', '1', '0', 'pickup', '0', '0');
+INSERT INTO `adm_objects` VALUES ('249', 'hilux1_civil_3_open', 'Offroad (white)', 'vehicle', 'Car', '10', '50', '2', '1', '0', 'pickup', '0', '0');
+INSERT INTO `adm_objects` VALUES ('250', 'Ikarus', 'Bus', 'vehicle', 'Car', '10', '50', '2', '23', '0', 'bus', '0', '0');
+INSERT INTO `adm_objects` VALUES ('251', 'Lada1', 'VAZ (White)', 'vehicle', 'Car', '10', '50', '2', '3', '0', 'Car', '0', '0');
+INSERT INTO `adm_objects` VALUES ('252', 'Lada2', 'VAZ (Red)', 'vehicle', 'Car', '10', '50', '2', '3', '0', 'Car', '0', '0');
+INSERT INTO `adm_objects` VALUES ('253', 'LadaLM', 'VAZ (Militia)', 'vehicle', 'Car', '10', '50', '2', '3', '0', 'Car', '1', '0');
+INSERT INTO `adm_objects` VALUES ('254', 'Skoda', 'Car (white)', 'vehicle', 'Car', '10', '50', '2', '3', '0', 'Car', '0', '0');
+INSERT INTO `adm_objects` VALUES ('255', 'SkodaBlue', 'Car (blue)', 'vehicle', 'Car', '10', '50', '2', '3', '0', 'Car', '0', '0');
+INSERT INTO `adm_objects` VALUES ('256', 'SkodaGreen', 'Car (green)', 'vehicle', 'Car', '10', '50', '2', '3', '0', 'Car', '0', '0');
+INSERT INTO `adm_objects` VALUES ('257', 'SkodaRed', 'Car (red)', 'vehicle', 'Car', '10', '50', '2', '3', '0', 'Car', '0', '0');
+INSERT INTO `adm_objects` VALUES ('258', 'tractorOld', 'Tractor', 'vehicle', 'Car', '10', '50', '2', '0', '0', 'tractor', '0', '0');
+INSERT INTO `adm_objects` VALUES ('259', 'TT650_Civ', 'Motorcycle', 'vehicle', 'Car', '0', '5', '0', '1', '0', 'motorcycle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('260', 'UralCivil', 'Ural (Civil)', 'vehicle', 'Car', '50', '200', '8', '14', '0', 'truck_closed', '1', '0');
+INSERT INTO `adm_objects` VALUES ('261', 'UralCivil2', 'Ural (Civil 2)', 'vehicle', 'Car', '50', '200', '8', '14', '0', 'truck_closed', '1', '0');
+INSERT INTO `adm_objects` VALUES ('262', 'V3S_Civ', 'V3S', 'vehicle', 'Car', '50', '200', '8', '13', '0', 'truck_open', '0', '0');
+INSERT INTO `adm_objects` VALUES ('263', 'VWGolf', 'Hatchback', 'vehicle', 'Car', '10', '50', '2', '4', '0', 'Car', '0', '0');
+INSERT INTO `adm_objects` VALUES ('264', 'FoldChair_with_Cargo', 'Folding Chair', 'vehicle', 'Car', '10', '50', '2', '1', '0', 'Car', '0', '0');
+INSERT INTO `adm_objects` VALUES ('265', 'GRAD_TK_EP1', 'BM-21 Grad', 'vehicle', 'Car', '50', '200', '8', '1', '0', 'wheeledarmed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('266', 'LandRover_MG_TK_EP1', 'Military Offroad (M2)', 'vehicle', 'Car', '10', '50', '2', '1', '0', 'jeep_open', '2', '0');
+INSERT INTO `adm_objects` VALUES ('267', 'LandRover_SPG9_TK_EP1', 'Military Offroad (SPG9)', 'vehicle', 'Car', '10', '50', '2', '1', '0', 'jeep_open', '2', '0');
+INSERT INTO `adm_objects` VALUES ('268', 'MAZ_543_SCUD_TK_EP1', '9P117 Scud-B', 'vehicle', 'Car', '50', '200', '8', '3', '0', 'Armored', '0', '0');
+INSERT INTO `adm_objects` VALUES ('269', 'SUV_TK_EP1', 'SUV', 'vehicle', 'Car', '10', '50', '2', '5', '0', 'jeep_sport', '0', '0');
+INSERT INTO `adm_objects` VALUES ('270', 'TT650_TK_EP1', 'Motorcycle', 'vehicle', 'Car', '0', '5', '0', '1', '0', 'motorcycle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('271', 'UAZ_AGS30_TK_EP1', 'UAZ (AGS-30)', 'vehicle', 'Car', '10', '50', '3', '1', '0', 'jeep_armed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('272', 'UAZ_MG_TK_EP1', 'UAZ (DShKM)', 'vehicle', 'Car', '10', '50', '3', '1', '0', 'jeep_armed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('273', 'UAZ_Unarmed_TK_EP1', 'UAZ', 'vehicle', 'Car', '10', '50', '7', '6', '0', 'jeep_open', '0', '0');
+INSERT INTO `adm_objects` VALUES ('274', 'Ural_ZU23_TK_EP1', 'Ural (ZU-23)', 'vehicle', 'Car', '50', '200', '8', '3', '0', 'truck_armed', '1', '0');
+INSERT INTO `adm_objects` VALUES ('275', 'V3S_Open_TK_EP1', 'V3S Open', 'vehicle', 'Car', '50', '200', '8', '13', '0', 'truck_open', '0', '0');
+INSERT INTO `adm_objects` VALUES ('276', 'V3S_TK_EP1', 'V3S', 'vehicle', 'Car', '50', '200', '8', '13', '0', 'truck_closed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('277', 'LandRover_MG_TK_INS_EP1', 'Military Offroad (M2)', 'vehicle', 'Car', '10', '50', '2', '1', '0', 'jeep_armed', '2', '0');
+INSERT INTO `adm_objects` VALUES ('278', 'LandRover_SPG9_TK_INS_EP1', 'Military Offroad (SPG9)', 'vehicle', 'Car', '10', '50', '2', '1', '0', 'jeep_armed', '2', '0');
+INSERT INTO `adm_objects` VALUES ('279', 'GRAD_INS', 'BM-21 Grad', 'vehicle', 'Car', '50', '200', '8', '1', '0', 'truck_armed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('280', 'Offroad_DSHKM_INS', 'Offroad (DShKM)', 'vehicle', 'Car', '10', '50', '2', '1', '0', 'jeep_armed', '2', '0');
+INSERT INTO `adm_objects` VALUES ('281', 'Pickup_PK_INS', 'Pickup (PK)', 'vehicle', 'Car', '10', '50', '2', '3', '0', 'jeep_armed', '2', '0');
+INSERT INTO `adm_objects` VALUES ('282', 'TT650_Ins', 'Motorcycle', 'vehicle', 'Car', '0', '5', '0', '1', '0', 'motorcycle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('283', 'UAZ_AGS30_INS', 'UAZ (AGS-30)', 'vehicle', 'Car', '10', '50', '3', '1', '0', 'jeep_armed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('284', 'UAZ_INS', 'UAZ', 'vehicle', 'Car', '10', '50', '7', '6', '0', 'jeep_closed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('285', 'UAZ_MG_INS', 'UAZ (DShKM)', 'vehicle', 'Car', '10', '50', '3', '1', '0', 'jeep_armed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('286', 'UAZ_SPG9_INS', 'UAZ (SPG-9)', 'vehicle', 'Car', '10', '50', '3', '1', '0', 'jeep_armed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('287', 'Ural_INS', 'Ural', 'vehicle', 'Car', '50', '200', '8', '14', '0', 'truck_closed', '1', '0');
+INSERT INTO `adm_objects` VALUES ('288', 'Ural_ZU23_INS', 'Ural (ZU-23)', 'vehicle', 'Car', '50', '200', '8', '3', '0', 'truck_armed', '1', '0');
+INSERT INTO `adm_objects` VALUES ('289', 'UralOpen_INS', 'Ural (Open)', 'vehicle', 'Car', '50', '200', '8', '14', '0', 'truck_open', '1', '0');
+INSERT INTO `adm_objects` VALUES ('290', 'GRAD_RU', 'BM-21 Grad', 'vehicle', 'Car', '50', '200', '8', '1', '0', 'truck_armed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('291', 'Kamaz', 'Utility Truck', 'vehicle', 'Car', '50', '200', '8', '12', '0', 'truck_closed', '1', '0');
+INSERT INTO `adm_objects` VALUES ('292', 'KamazOpen', 'Utility Truck (Open)', 'vehicle', 'Car', '50', '200', '8', '12', '0', 'truck_open', '1', '0');
+INSERT INTO `adm_objects` VALUES ('293', 'UAZ_AGS30_RU', 'UAZ (AGS-30)', 'vehicle', 'Car', '10', '50', '3', '1', '0', 'jeep_armed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('294', 'UAZ_RU', 'UAZ', 'vehicle', 'Car', '10', '50', '7', '6', '0', 'jeep_closed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('295', 'Offroad_DSHKM_TK_GUE_EP1', 'Offroad (DShKM)', 'vehicle', 'Car', '10', '50', '2', '1', '0', 'jeep_armed', '2', '0');
+INSERT INTO `adm_objects` VALUES ('296', 'Offroad_SPG9_TK_GUE_EP1', 'Offroad (SPG-9)', 'vehicle', 'Car', '10', '50', '2', '1', '0', 'jeep_armed', '2', '0');
+INSERT INTO `adm_objects` VALUES ('297', 'Pickup_PK_TK_GUE_EP1', 'Pickup (PK)', 'vehicle', 'Car', '10', '50', '2', '3', '0', 'jeep_armed', '2', '0');
+INSERT INTO `adm_objects` VALUES ('298', 'Ural_ZU23_TK_GUE_EP1', 'Ural (ZU-23)', 'vehicle', 'Car', '50', '200', '8', '3', '0', 'truck_armed', '1', '0');
+INSERT INTO `adm_objects` VALUES ('299', 'V3S_TK_GUE_EP1', 'V3S', 'vehicle', 'Car', '50', '200', '8', '13', '0', 'truck_closed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('300', 'SUV_UN_EP1', 'SUV', 'vehicle', 'Car', '10', '50', '2', '5', '0', 'jeep_sport', '0', '0');
+INSERT INTO `adm_objects` VALUES ('301', 'UAZ_Unarmed_UN_EP1', 'UAZ', 'vehicle', 'Car', '10', '50', '7', '6', '0', 'jeep_closed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('302', 'Ural_UN_EP1', 'Ural', 'vehicle', 'Car', '50', '200', '8', '14', '0', 'truck_closed', '1', '0');
+INSERT INTO `adm_objects` VALUES ('303', 'Offroad_DSHKM_Gue', 'Offroad (DShKM)', 'vehicle', 'Car', '10', '50', '2', '1', '0', 'jeep_armed', '2', '0');
+INSERT INTO `adm_objects` VALUES ('304', 'Offroad_SPG9_Gue', 'Offroad (SPG-9)', 'vehicle', 'Car', '10', '50', '2', '1', '0', 'jeep_armed', '2', '0');
+INSERT INTO `adm_objects` VALUES ('305', 'Pickup_PK_GUE', 'Pickup (PK)', 'vehicle', 'Car', '10', '50', '2', '3', '0', 'jeep_armed', '2', '0');
+INSERT INTO `adm_objects` VALUES ('306', 'TT650_Gue', 'Motorcycle', 'vehicle', 'Car', '0', '5', '0', '1', '0', 'motorcycle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('307', 'Ural_ZU23_Gue', 'Ural (ZU-23)', 'vehicle', 'Car', '50', '200', '8', '3', '0', 'truck_armed', '1', '0');
+INSERT INTO `adm_objects` VALUES ('308', 'V3S_Gue', 'V3S', 'vehicle', 'Car', '50', '200', '8', '13', '0', 'truck_open', '0', '0');
+INSERT INTO `adm_objects` VALUES ('309', 'SUV_PMC_BAF', 'PMC SUV', 'vehicle', 'Car', '10', '50', '2', '5', '0', 'jeep_sport', '0', '0');
+INSERT INTO `adm_objects` VALUES ('310', 'ATV_CZ_EP1', 'ATV', 'vehicle', 'Car', '10', '50', '2', '1', '0', 'atv', '0', '0');
+INSERT INTO `adm_objects` VALUES ('311', 'HMMWV_M1151_M2_CZ_DES_EP1', 'HMMWV GPK (M2)', 'vehicle', 'Car', '10', '50', '5', '3', '0', 'jeep_armored_armed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('312', 'LandRover_CZ_EP1', 'Military Offroad', 'vehicle', 'Car', '10', '50', '2', '7', '0', 'jeep_closed', '2', '0');
+INSERT INTO `adm_objects` VALUES ('313', 'LandRover_Special_CZ_EP1', 'Military Offroad Special', 'vehicle', 'Car', '10', '50', '2', '2', '0', 'jeep_armed', '2', '0');
+INSERT INTO `adm_objects` VALUES ('314', 'ATV_US_EP1', 'ATV', 'vehicle', 'Car', '10', '50', '2', '1', '0', 'atv', '0', '0');
+INSERT INTO `adm_objects` VALUES ('315', 'HMMWV_Avenger_DES_EP1', 'HMMWV Avenger', 'vehicle', 'Car', '10', '50', '3', '1', '0', 'jeep_armored_armed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('316', 'HMMWV_DES_EP1', 'HMMWV', 'vehicle', 'Car', '10', '50', '4', '3', '0', 'jeep_armored', '0', '0');
+INSERT INTO `adm_objects` VALUES ('317', 'HMMWV_M1035_DES_EP1', 'HMMWV Utility', 'vehicle', 'Car', '10', '50', '4', '3', '0', 'jeep_armored_', '0', '0');
+INSERT INTO `adm_objects` VALUES ('318', 'HMMWV_M1151_M2_DES_EP1', 'HMMWV GPK (M2)', 'vehicle', 'Car', '10', '50', '5', '3', '0', 'jeep_armored_armed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('319', 'HMMWV_M998_crows_M2_DES_EP1', 'HMMWV CROWS (M2)', 'vehicle', 'Car', '10', '50', '4', '2', '0', 'jeep_armored_armed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('320', 'HMMWV_M998_crows_MK19_DES_EP1', 'HMMWV CROWS (Mk19)', 'vehicle', 'Car', '10', '50', '4', '2', '0', 'jeep_armored_armed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('321', 'HMMWV_M998A2_SOV_DES_EP1', 'HMMWV SOV', 'vehicle', 'Car', '10', '50', '7', '4', '0', 'jeep_armored_armed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('322', 'HMMWV_MK19_DES_EP1', 'HMMWV (Mk19)', 'vehicle', 'Car', '10', '50', '5', '3', '0', 'jeep_armored_armed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('323', 'HMMWV_Terminal_EP1', 'HMMWV Terminal', 'vehicle', 'Car', '10', '50', '2', '1', '0', 'jeep_armored', '0', '0');
+INSERT INTO `adm_objects` VALUES ('324', 'HMMWV_TOW_DES_EP1', 'HMMWV (TOW)', 'vehicle', 'Car', '10', '50', '5', '3', '0', 'jeep_armored_armed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('325', 'M1030_US_DES_EP1', 'Motorcycle', 'vehicle', 'Car', '0', '5', '0', '1', '0', 'motorcycle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('326', 'MTVR_DES_EP1', 'MTVR', 'vehicle', 'Car', '50', '200', '8', '12', '0', 'truck_closed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('327', 'GRAD_CDF', 'BM-21 Grad', 'vehicle', 'Car', '50', '200', '8', '1', '0', 'truck_armed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('328', 'UAZ_AGS30_CDF', 'UAZ (AGS-30)', 'vehicle', 'Car', '10', '50', '3', '1', '0', 'jeep_armed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('329', 'UAZ_CDF', 'UAZ', 'vehicle', 'Car', '10', '50', '7', '6', '0', 'jeep_closed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('330', 'UAZ_MG_CDF', 'UAZ (DShKM)', 'vehicle', 'Car', '10', '50', '3', '1', '0', 'jeep_armed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('331', 'Ural_CDF', 'Ural', 'vehicle', 'Car', '50', '200', '8', '14', '0', 'truck_closed', '1', '0');
+INSERT INTO `adm_objects` VALUES ('332', 'Ural_ZU23_CDF', 'Ural (ZU-23)', 'vehicle', 'Car', '50', '200', '8', '3', '0', 'truck_armed', '1', '0');
+INSERT INTO `adm_objects` VALUES ('333', 'UralOpen_CDF', 'Ural (Open)', 'vehicle', 'Car', '50', '200', '8', '14', '0', 'truck_open', '1', '0');
+INSERT INTO `adm_objects` VALUES ('334', 'HMMWV', 'HMMWV', 'vehicle', 'Car', '10', '50', '4', '3', '0', 'jeep_armored', '1', '0');
+INSERT INTO `adm_objects` VALUES ('335', 'HMMWV_Armored', 'HMMWV (M240)', 'vehicle', 'Car', '10', '50', '5', '3', '0', 'jeep_armored_armed', '1', '0');
+INSERT INTO `adm_objects` VALUES ('336', 'HMMWV_Avenger', 'HMMWV Avenger', 'vehicle', 'Car', '10', '50', '3', '1', '0', 'jeep_armored_armed', '1', '0');
+INSERT INTO `adm_objects` VALUES ('337', 'HMMWV_M2', 'HMMWV (M2)', 'vehicle', 'Car', '10', '50', '5', '3', '0', 'jeep_armored_armed', '1', '0');
+INSERT INTO `adm_objects` VALUES ('338', 'HMMWV_MK19', 'HMMWV (Mk19)', 'vehicle', 'Car', '10', '50', '5', '3', '0', 'jeep_armored_armed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('339', 'HMMWV_TOW', 'HMMWV (TOW)', 'vehicle', 'Car', '10', '50', '5', '3', '0', 'jeep_armored_armed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('340', 'M1030', 'Motorcycle', 'vehicle', 'Car', '0', '5', '0', '1', '0', 'motorcycle', '1', '0');
+INSERT INTO `adm_objects` VALUES ('341', 'MTVR', 'MTVR', 'vehicle', 'Car', '50', '200', '8', '12', '0', 'truck_closed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('342', 'TowingTractor', 'Towing Tractor', 'vehicle', 'Car', '10', '50', '2', '0', '0', 'Car', '0', '0');
+INSERT INTO `adm_objects` VALUES ('343', 'BAF_ATV_D', 'ATV', 'vehicle', 'CarD', '10', '50', '2', '1', '0', 'atv', '0', '0');
+INSERT INTO `adm_objects` VALUES ('344', 'BAF_Jackal2_GMG_D', 'Jackal 2 MWMIK (GMG)', 'vehicle', 'CarD', '10', '90', '2', '2', '0', 'jeep_armed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('345', 'BAF_Jackal2_L2A1_D', 'Jackal 2 MWMIK (HMG)', 'vehicle', 'CarD', '10', '90', '2', '2', '0', 'jeep_armed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('346', 'BAF_Offroad_D', 'Offroad', 'vehicle', 'CarD', '10', '90', '2', '7', '0', 'jeep_closed', '1', '0');
+INSERT INTO `adm_objects` VALUES ('347', 'BAF_ATV_W', 'ATV', 'vehicle', 'CarW', '10', '50', '2', '1', '0', 'atv', '0', '0');
+INSERT INTO `adm_objects` VALUES ('348', 'BAF_Jackal2_GMG_W', 'Jackal 2 MWMIK (GMG)', 'vehicle', 'CarW', '10', '90', '2', '2', '0', 'jeep_armed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('349', 'BAF_Jackal2_L2A1_W', 'Jackal 2 MWMIK (HMG)', 'vehicle', 'CarW', '10', '90', '2', '2', '0', 'jeep_armed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('350', 'BAF_Offroad_W', 'Offroad', 'vehicle', 'CarW', '10', '90', '2', '7', '0', 'jeep_closed', '1', '0');
+INSERT INTO `adm_objects` VALUES ('351', 'S1203_ambulance_EP1', 'S1203 Ambulance', 'vehicle', 'Support', '10', '50', '2', '3', '0', 'minivan', '0', '0');
+INSERT INTO `adm_objects` VALUES ('352', 'UralReammo_TK_EP1', 'Ural (Ammunition)', 'vehicle', 'Support', '50', '200', '8', '2', '0', 'truck_closed', '1', '0');
+INSERT INTO `adm_objects` VALUES ('353', 'UralRefuel_TK_EP1', 'Ural (Fuel)', 'vehicle', 'Support', '50', '200', '8', '2', '0', 'truck_closed', '1', '0');
+INSERT INTO `adm_objects` VALUES ('354', 'UralRepair_TK_EP1', 'Ural (Repair)', 'vehicle', 'Support', '50', '200', '8', '2', '0', 'truck_closed', '1', '0');
+INSERT INTO `adm_objects` VALUES ('355', 'UralSalvage_TK_EP1', 'Supply Truck', 'vehicle', 'Support', '50', '200', '8', '1', '0', 'truck_closed', '1', '0');
+INSERT INTO `adm_objects` VALUES ('356', 'UralSupply_TK_EP1', 'Salvage Truck', 'vehicle', 'Support', '50', '200', '8', '1', '0', 'truck_closed', '1', '0');
+INSERT INTO `adm_objects` VALUES ('357', 'BMP2_Ambul_INS', 'BMP-2 Ambulance', 'vehicle', 'Support', '10', '100', '5', '3', '0', 'tracked', '0', '0');
+INSERT INTO `adm_objects` VALUES ('358', 'Mi17_medevac_Ins', 'Mi-8MT Medevac', 'vehicle', 'Support', '3', '20', '10', '16', '0', 'helicopter', '1', '0');
+INSERT INTO `adm_objects` VALUES ('359', 'UralReammo_INS', 'Ural (Ammunition)', 'vehicle', 'Support', '50', '200', '8', '2', '0', 'truck_closed', '1', '0');
+INSERT INTO `adm_objects` VALUES ('360', 'UralRefuel_INS', 'Ural (Fuel)', 'vehicle', 'Support', '50', '200', '8', '2', '0', 'truck_closed', '1', '0');
+INSERT INTO `adm_objects` VALUES ('361', 'UralRepair_INS', 'Ural (Repair)', 'vehicle', 'Support', '50', '200', '8', '2', '0', 'truck_closed', '1', '0');
+INSERT INTO `adm_objects` VALUES ('362', 'GAZ_Vodnik_MedEvac', 'Vodnik (Ambulance)', 'vehicle', 'Support', '10', '50', '5', '5', '0', 'jeep_armored', '1', '0');
+INSERT INTO `adm_objects` VALUES ('363', 'KamazReammo', 'Utility Truck (Ammunition)', 'vehicle', 'Support', '50', '200', '8', '2', '0', 'truck_closed', '1', '0');
+INSERT INTO `adm_objects` VALUES ('364', 'KamazRefuel', 'Utility Truck (Fuel)', 'vehicle', 'Support', '50', '200', '8', '2', '0', 'truck_closed', '1', '0');
+INSERT INTO `adm_objects` VALUES ('365', 'KamazRepair', 'Utility Truck (Repair)', 'vehicle', 'Support', '50', '200', '8', '2', '0', 'truck_closed', '1', '0');
+INSERT INTO `adm_objects` VALUES ('366', 'Mi17_medevac_RU', 'Mi-8MT Medevac', 'vehicle', 'air', '3', '20', '10', '16', '0', 'helicopter', '1', '0');
+INSERT INTO `adm_objects` VALUES ('367', 'V3S_Reammo_TK_GUE_EP1', 'V3S Reammo', 'vehicle', 'Support', '50', '200', '8', '2', '0', 'truck_closed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('368', 'V3S_Refuel_TK_GUE_EP1', 'V3S Refuel', 'vehicle', 'Support', '50', '200', '8', '1', '0', 'truck_closed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('369', 'V3S_Repair_TK_GUE_EP1', 'V3S Repair', 'vehicle', 'Support', '10', '50', '8', '1', '0', 'truck_closed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('370', 'V3S_Salvage_TK_GUE_EP1', 'Supply Truck', 'vehicle', 'Support', '10', '50', '8', '1', '0', 'truck_closed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('371', 'V3S_Supply_TK_GUE_EP1', 'Salvage Truck', 'vehicle', 'Support', '50', '200', '8', '1', '0', 'truck_closed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('372', 'HMMWV_Ambulance_CZ_DES_EP1', 'HMMWV (Ambulance)', 'vehicle', 'Support', '10', '50', '6', '5', '0', 'jeep_armored', '0', '0');
+INSERT INTO `adm_objects` VALUES ('373', 'HMMWV_Ambulance_DES_EP1', 'HMMWV (Ambulance)', 'vehicle', 'Support', '10', '50', '6', '5', '0', 'jeep_armored', '0', '0');
+INSERT INTO `adm_objects` VALUES ('374', 'M1133_MEV_EP1', 'Stryker MEV', 'vehicle', 'Support', '10', '50', '5', '0', '0', 'wheeled', '0', '0');
+INSERT INTO `adm_objects` VALUES ('375', 'MtvrReammo_DES_EP1', 'MTVR (Ammunition)', 'vehicle', 'Support', '50', '200', '8', '2', '0', 'truck_closed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('376', 'MtvrRefuel_DES_EP1', 'MTVR (Fuel)', 'vehicle', 'Support', '50', '200', '8', '2', '0', 'truck_closed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('377', 'MtvrRepair_DES_EP1', 'MTVR (Repair)', 'vehicle', 'Support', '10', '50', '8', '2', '0', 'truck_closed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('378', 'MtvrSalvage_DES_EP1', 'Supply Truck', 'vehicle', 'Support', '10', '50', '8', '1', '0', 'truck_closed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('379', 'MtvrSupply_DES_EP1', 'Salvage Truck', 'vehicle', 'Support', '50', '200', '8', '1', '0', 'truck_closed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('380', 'UH60M_MEV_EP1', 'UH-60M MEV', 'vehicle', 'Support', '3', '20', '10', '7', '0', 'helicopter', '0', '0');
+INSERT INTO `adm_objects` VALUES ('381', 'BMP2_Ambul_CDF', 'BMP-2 Ambulance', 'vehicle', 'Support', '10', '100', '5', '3', '0', 'tracked', '0', '0');
+INSERT INTO `adm_objects` VALUES ('382', 'Mi17_medevac_CDF', 'Mi-17-IVA Medevac', 'vehicle', 'Support', '3', '20', '10', '16', '0', 'helicopter', '2', '0');
+INSERT INTO `adm_objects` VALUES ('383', 'UralReammo_CDF', 'Ural (Ammunition)', 'vehicle', 'Support', '50', '200', '8', '2', '0', 'truck_closed', '1', '0');
+INSERT INTO `adm_objects` VALUES ('384', 'UralRefuel_CDF', 'Ural (Fuel)', 'vehicle', 'Support', '50', '200', '8', '2', '0', 'truck_closed', '1', '0');
+INSERT INTO `adm_objects` VALUES ('385', 'UralRepair_CDF', 'Ural (Repair)', 'vehicle', 'Support', '50', '200', '8', '2', '0', 'truck_closed', '1', '0');
+INSERT INTO `adm_objects` VALUES ('386', 'HMMWV_Ambulance', 'HMMWV (Ambulance)', 'vehicle', 'Support', '10', '50', '6', '5', '0', 'jeep_armored', '1', '0');
+INSERT INTO `adm_objects` VALUES ('387', 'MtvrReammo', 'MTVR (Ammunition)', 'vehicle', 'Support', '50', '200', '8', '2', '0', 'truck_closed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('388', 'MtvrRefuel', 'MTVR (Fuel)', 'vehicle', 'Support', '50', '200', '8', '2', '0', 'truck_closed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('389', 'MtvrRepair', 'MTVR (Repair)', 'vehicle', 'Support', '10', '50', '8', '2', '0', 'truck_closed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('390', 'Chukar_AllwaysEnemy_EP1', 'BQM-74', 'vehicle', 'Targets', '3', '20', '0', '0', '0', 'Targets', '0', '0');
+INSERT INTO `adm_objects` VALUES ('391', 'Chukar_EP1', 'BQM-74', 'vehicle', 'Targets', '3', '20', '0', '0', '0', 'Targets', '2', '0');
+INSERT INTO `adm_objects` VALUES ('392', 'Chukar', 'BQM-74', 'vehicle', 'Targets', '3', '20', '0', '0', '0', 'Targets', '0', '0');
+INSERT INTO `adm_objects` VALUES ('393', 'Chukar_AllwaysEnemy', 'BQM-74', 'vehicle', 'Targets', '3', '20', '0', '0', '0', 'Targets', '0', '0');
+INSERT INTO `adm_objects` VALUES ('394', 'WarfareReammoTruck_INS', 'Ural (Ammunition)', 'vehicle', 'WarfareClassName', '50', '200', '8', '2', '0', 'WarfareCla', '0', '0');
+INSERT INTO `adm_objects` VALUES ('395', 'WarfareSalvageTruck_INS', 'Salvage Truck', 'vehicle', 'WarfareClassName', '50', '200', '8', '1', '0', 'WarfareCla', '0', '0');
+INSERT INTO `adm_objects` VALUES ('396', 'WarfareSupplyTruck_INS', 'Supply Truck', 'vehicle', 'WarfareClassName', '50', '200', '8', '1', '0', 'WarfareCla', '0', '0');
+INSERT INTO `adm_objects` VALUES ('397', 'WarfareReammoTruck_RU', 'Utility Truck (Ammunition)', 'vehicle', 'WarfareClassName', '50', '200', '8', '2', '0', 'WarfareCla', '0', '0');
+INSERT INTO `adm_objects` VALUES ('398', 'WarfareSalvageTruck_RU', 'Salvage Truck', 'vehicle', 'WarfareClassName', '50', '200', '8', '1', '0', 'WarfareCla', '0', '0');
+INSERT INTO `adm_objects` VALUES ('399', 'WarfareSupplyTruck_RU', 'Supply Truck', 'vehicle', 'WarfareClassName', '50', '200', '8', '1', '0', 'WarfareCla', '0', '0');
+INSERT INTO `adm_objects` VALUES ('400', 'WarfareReammoTruck_Gue', 'Ural (Ammunition)', 'vehicle', 'WarfareClassName', '50', '200', '8', '2', '0', 'WarfareCla', '0', '0');
+INSERT INTO `adm_objects` VALUES ('401', 'WarfareRepairTruck_Gue', 'Repair Truck', 'vehicle', 'WarfareClassName', '50', '200', '8', '13', '0', 'WarfareCla', '0', '0');
+INSERT INTO `adm_objects` VALUES ('402', 'WarfareSalvageTruck_Gue', 'Salvage Truck', 'vehicle', 'WarfareClassName', '50', '200', '8', '1', '0', 'WarfareCla', '0', '0');
+INSERT INTO `adm_objects` VALUES ('403', 'WarfareSupplyTruck_Gue', 'Supply Truck', 'vehicle', 'WarfareClassName', '50', '200', '8', '1', '0', 'WarfareCla', '0', '0');
+INSERT INTO `adm_objects` VALUES ('404', 'WarfareReammoTruck_CDF', 'Ural (Ammunition)', 'vehicle', 'WarfareClassName', '50', '200', '8', '2', '0', 'WarfareCla', '0', '0');
+INSERT INTO `adm_objects` VALUES ('405', 'WarfareSalvageTruck_CDF', 'Salvage Truck', 'vehicle', 'WarfareClassName', '50', '200', '8', '1', '0', 'WarfareCla', '0', '0');
+INSERT INTO `adm_objects` VALUES ('406', 'WarfareSupplyTruck_CDF', 'Supply Truck', 'vehicle', 'WarfareClassName', '50', '200', '8', '1', '0', 'WarfareCla', '0', '0');
+INSERT INTO `adm_objects` VALUES ('407', 'WarfareReammoTruck_USMC', 'MTVR (Ammunition)', 'vehicle', 'WarfareClassName', '50', '200', '8', '2', '0', 'WarfareCla', '0', '0');
+INSERT INTO `adm_objects` VALUES ('408', 'WarfareSalvageTruck_USMC', 'Salvage Truck', 'vehicle', 'WarfareClassName', '50', '200', '8', '1', '0', 'WarfareCla', '0', '0');
+INSERT INTO `adm_objects` VALUES ('409', 'WarfareSupplyTruck_USMC', 'Supply Truck', 'vehicle', 'WarfareClassName', '50', '200', '8', '1', '0', 'WarfareCla', '0', '0');
+INSERT INTO `adm_objects` VALUES ('410', '100Rnd_762x51_M240', 's100Rnd_762x51_M240', 'item', 'heavyammo', '0', '0', '0', '0', '2', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('411', '10Rnd_127x99_m107', 's10Rnd_127x99_m107', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('412', '10Rnd_762x54_SVD', 's10Rnd_762x54_SVD', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('413', '10x_303', 's10x_303', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('414', '15Rnd_9x19_M9', 's15Rnd_9x19_M9', 'item', 'smallammo', '0', '0', '0', '0', '1', 'smallammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('415', '15Rnd_9x19_M9SD', 's15Rnd_9x19_M9SD', 'item', 'smallammo', '0', '0', '0', '0', '1', 'smallammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('416', '15Rnd_W1866_Pellet', 's15Rnd_W1866_Pellet', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('417', '15Rnd_W1866_Slug', 's15Rnd_W1866_Slug', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('418', '17Rnd_9x19_glock17', 's17Rnd_9x19_glock17', 'item', 'smallammo', '0', '0', '0', '0', '1', 'smallammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('419', '1Rnd_HE_M203', 's1Rnd_HE_M203', 'item', 'smallammo', '0', '0', '0', '0', '1', 'smallammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('420', '1Rnd_Smoke_M203', 's1Rnd_Smoke_M203', 'item', 'smallammo', '0', '0', '0', '0', '1', 'smallammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('421', '200Rnd_556x45_M249', 's200Rnd_556x45_M249', 'item', 'heavyammo', '0', '0', '0', '0', '2', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('422', '20Rnd_556x45_Stanag', 's20Rnd_556x45_Stanag', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('423', '20Rnd_762x51_DMR', 's20Rnd_762x51_DMR', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('424', '20Rnd_762x51_FNFAL', 's20Rnd_762x51_FNFAL', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('425', '2Rnd_shotgun_74Pellets', 's2Rnd_shotgun_74Pellets', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('426', '2Rnd_shotgun_74Slug', 's2Rnd_shotgun_74Slug', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('427', '30Rnd_545x39_AK', 's30Rnd_545x39_AK', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('428', '30Rnd_556x45_Stanag', 's30Rnd_556x45_Stanag', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('429', '30Rnd_556x45_StanagSD', 's30Rnd_556x45_StanagSD', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('430', '30Rnd_762x39_AK47', 's30Rnd_762x39_AK47', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('431', '30Rnd_9x19_MP5', 's30Rnd_9x19_MP5', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('432', '30Rnd_9x19_MP5SD', 's30Rnd_9x19_MP5SD', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('433', '30Rnd_9x19_UZI', 's30Rnd_9x19_UZI', 'item', 'smallammo', '0', '0', '0', '0', '1', 'smallammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('434', '5Rnd_762x51_M24', 's5Rnd_762x51_M24', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('435', '5x_22_LR_17_HMR', 's5x_22_LR_17_HMR', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('436', '64Rnd_9x19_SD_Bizon', 's64Rnd_9x19_SD_Bizon', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('437', '6Rnd_45ACP', 's6Rnd_45ACP', 'item', 'smallammo', '0', '0', '0', '0', '1', 'smallammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('438', '7Rnd_45ACP_1911', 's7Rnd_45ACP_1911', 'item', 'smallammo', '0', '0', '0', '0', '1', 'smallammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('439', '8Rnd_9x18_Makarov', 's8Rnd_9x18_Makarov', 'item', 'smallammo', '0', '0', '0', '0', '1', 'smallammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('440', '8Rnd_B_Beneli_74Slug', 's8Rnd_B_Beneli_74Slug', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('441', '8Rnd_B_Beneli_Pellets', 's8Rnd_B_Beneli_Pellets', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('442', 'AKS_74', 'sAKS_74', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('443', 'AKS_74_GOSHAWK', 'sAKS_74_GOSHAWK', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('444', 'AKS_74_NSPU', 'sAKS_74_NSPU', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('445', 'AKS_74_kobr', 'sAKS_74_kobr', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('446', 'AKS_74_kobra', 'sAKS_74_kobra', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('447', 'AKS_74_pso', 'sAKS_74_pso', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('448', 'AKS_GOLD', 'sAKS_GOLD', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('449', 'AKS_74_U', 'sAKS_74_U', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('450', 'AKS_74_UN_kobra', 'sAKS_74_UN_kobra', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('451', 'AK_107_GL_pso', 'sAK_107_GL_pso', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('452', 'AK_107_GL_kobra', 'sAK_107_GL_kobra', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('453', 'AK_107_kobra', 'sAK_107_kobra', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('454', 'AK_107_pso', 'sAK_107_pso', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('455', 'AK_47_M', 'sAK_47_M', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('456', 'AK_47_S', 'sAK_47_S', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('457', 'AK_74', 'sAK_74', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('458', 'AK_74_GL', 'sAK_74_GL', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('459', 'AK_74_GL_kobra', 'sAK_74_GL_kobra', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('460', 'BAF_AS50_scoped', 'sBAF_AS50_scoped', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('461', 'BAF_L85A2_RIS_CWS', 'sBAF_L85A2_RIS_CWS', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('462', 'BAF_L85A2_RIS_Holo', 'sBAF_L85A2_RIS_Holo', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('463', 'BAF_L85A2_UGL_Holo', 'sBAF_L85A2_UGL_Holo', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('464', 'Binocular', 'sBinocular', 'item', 'binocular', '0', '0', '0', '0', '1', 'binocular', '0', '1');
+INSERT INTO `adm_objects` VALUES ('465', 'Laserdesignator', 'sLaserdesignator', 'item', 'binocular', '0', '0', '0', '0', '1', 'binocular', '0', '0');
+INSERT INTO `adm_objects` VALUES ('466', 'Laserdesignator_mounted', 'sLaserdesignator_mounted', 'item', 'binocular', '0', '0', '0', '0', '1', 'binocular', '0', '0');
+INSERT INTO `adm_objects` VALUES ('467', 'Binocular_Vector', 'sBinocular_Vector', 'item', 'binocular', '0', '0', '0', '0', '1', 'binocular', '0', '1');
+INSERT INTO `adm_objects` VALUES ('468', 'bizon', 'sbizon', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('469', 'bizon_silenced', 'sbizon_silenced', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('470', 'BoltSteel', 'sBoltSteel', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('471', 'Colt1911', 'sColt1911', 'item', 'pistol', '0', '0', '0', '0', '5', 'pistol', '0', '1');
+INSERT INTO `adm_objects` VALUES ('472', 'Crossbow', 'sCrossbow', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('473', 'crowbar_swing', 'scrowbar_swing', 'item', 'none', '0', '0', '0', '0', '1', 'none', '0', '0');
+INSERT INTO `adm_objects` VALUES ('474', 'CZ_VestPouch_EP1', 'sCZ_VestPouch_EP1', 'item', 'backpack', '0', '0', '0', '0', '1', 'backpack', '0', '1');
+INSERT INTO `adm_objects` VALUES ('475', 'DMR', 'sDMR', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('476', 'DZ_ALICE_Pack_EP1', 'sDZ_ALICE_Pack_EP1', 'item', 'backpack', '4', '20', '0', '0', '1', 'backpack', '0', '1');
+INSERT INTO `adm_objects` VALUES ('477', 'DZ_Assault_Pack_EP1', 'sDZ_Assault_Pack_EP1', 'item', 'backpack', '2', '12', '0', '0', '1', 'backpack', '0', '1');
+INSERT INTO `adm_objects` VALUES ('478', 'DZ_Backpack_EP1', 'sDZ_Backpack_EP1', 'item', 'backpack', '6', '24', '0', '0', '1', 'backpack', '0', '1');
+INSERT INTO `adm_objects` VALUES ('479', 'DZ_CivilBackpack_EP1', 'sDZ_CivilBackpack_EP1', 'item', 'backpack', '3', '16', '0', '0', '1', 'backpack', '0', '1');
+INSERT INTO `adm_objects` VALUES ('480', 'DZ_Patrol_Pack_EP1', 'sDZ_Patrol_Pack_EP1', 'item', 'backpack', '1', '8', '0', '0', '1', 'backpack', '0', '1');
+INSERT INTO `adm_objects` VALUES ('481', 'Flare', 'sFlare', 'item', 'smallammo', '0', '0', '0', '0', '1', 'smallammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('482', 'FlareGreen_M203', 'sFlareGreen_M203', 'item', 'smallammo', '0', '0', '0', '0', '1', 'smallammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('483', 'FlareWhite_M203', 'sFlareWhite_M203', 'item', 'smallammo', '0', '0', '0', '0', '1', 'smallammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('484', 'FN_FAL', 'sFN_FAL', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('485', 'FN_FAL_ANPVS4', 'sFN_FAL_ANPVS4', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('486', 'G36A_camo', 'sG36A_camo', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('487', 'FoodCanBakedBeans', 'sFoodCanBakedBeans', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('488', 'FoodCanFrankBeans', 'sFoodCanFrankBeans', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('489', 'FoodCanPasta', 'sFoodCanPasta', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('490', 'FoodCanSardines', 'sFoodCanSardines', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('491', 'FoodSteakCooked', 'sFoodSteakCooked', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('492', 'FoodSteakRaw', 'sFoodSteakRaw', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('493', 'G36a', 'sG36a', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('494', 'G36C', 'sG36C', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('495', 'MG36', 'sMG36', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('496', 'G36C_camo', 'sG36C_camo', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('497', 'G36_C_SD_eotech', 'sG36_C_SD_eotech', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('498', 'G36K', 'sG36K', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('499', 'G36K_camo', 'sG36K_camo', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('500', 'G36_C_SD_camo', 'sG36_C_SD_camo', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('501', 'glock17_EP1', 'sglock17_EP1', 'item', 'pistol', '0', '0', '0', '0', '5', 'pistol', '0', '1');
+INSERT INTO `adm_objects` VALUES ('502', 'HandChemBlue', 'sHandChemBlue', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('503', 'HandChemGreen', 'sHandChemGreen', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('504', 'HandChemRed', 'sHandChemRed', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('505', 'HandGrenade_West', 'sHandGrenade_West', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('506', 'HandRoadFlare', 'sHandRoadFlare', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('507', 'Hatchet_Swing', 'sHatchet_Swing', 'item', 'none', '0', '0', '0', '0', '1', 'none', '0', '0');
+INSERT INTO `adm_objects` VALUES ('508', 'huntingrifle', 'shuntingrifle', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('509', 'KSVK', 'sKSVK', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('510', 'M107', 'sM107', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('511', 'MR43', 'sMR43', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('512', 'ItemAntibiotic', 'sItemAntibiotic', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('513', 'ItemBandage', 'sItemBandage', 'item', 'smallammo', '0', '0', '0', '0', '1', 'smallammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('514', 'ItemBloodbag', 'sItemBloodbag', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('515', 'ItemCompass', 'sItemCompass', 'item', 'item', '0', '0', '0', '0', '1', 'item', '0', '1');
+INSERT INTO `adm_objects` VALUES ('516', 'IR_Strobe_Marker', 'sIR_Strobe_Marker', 'item', 'item', '0', '0', '0', '0', '1', 'item', '0', '0');
+INSERT INTO `adm_objects` VALUES ('517', 'IR_Strobe_Target', 'sIR_Strobe_Target', 'item', 'item', '0', '0', '0', '0', '1', 'item', '0', '0');
+INSERT INTO `adm_objects` VALUES ('518', 'IRStrobe', 'sIRStrobe', 'item', 'item', '0', '0', '0', '0', '1', 'item', '0', '0');
+INSERT INTO `adm_objects` VALUES ('519', 'ItemEpinephrine', 'sItemEpinephrine', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('520', 'ItemEtool', 'sItemEtool', 'item', 'item', '0', '0', '0', '0', '1', 'item', '0', '1');
+INSERT INTO `adm_objects` VALUES ('521', 'ItemFlashlight', 'sItemFlashlight', 'item', 'item', '0', '0', '0', '0', '1', 'item', '0', '1');
+INSERT INTO `adm_objects` VALUES ('522', 'ItemFlashlightRed', 'sItemFlashlightRed', 'item', 'item', '0', '0', '0', '0', '1', 'item', '0', '1');
+INSERT INTO `adm_objects` VALUES ('523', 'ItemGenerator', 'sItemGenerator', 'item', 'item', '0', '0', '0', '0', '1', 'item', '0', '0');
+INSERT INTO `adm_objects` VALUES ('524', 'ItemGPS', 'sItemGPS', 'item', 'item', '0', '0', '0', '0', '1', 'item', '0', '1');
+INSERT INTO `adm_objects` VALUES ('525', 'ItemHatchet', 'sItemHatchet', 'item', 'item', '0', '0', '0', '0', '1', 'item', '0', '1');
+INSERT INTO `adm_objects` VALUES ('526', 'ItemHeatPack', 'sItemHeatPack', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('527', 'ItemJerrycan', 'sItemJerrycan', 'item', 'heavyammo', '0', '0', '0', '0', '3', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('528', 'ItemJerrycanEmpty', 'sItemJerrycanEmpty', 'item', 'heavyammo', '0', '0', '0', '0', '3', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('529', 'ItemKnife', 'sItemKnife', 'item', 'item', '0', '0', '0', '0', '1', 'item', '0', '1');
+INSERT INTO `adm_objects` VALUES ('530', 'ItemMap', 'sItemMap', 'item', 'item', '0', '0', '0', '0', '1', 'item', '0', '1');
+INSERT INTO `adm_objects` VALUES ('531', 'ItemMatchbox', 'sItemMatchbox', 'item', 'item', '0', '0', '0', '0', '1', 'item', '0', '1');
+INSERT INTO `adm_objects` VALUES ('532', 'ItemMorphine', 'sItemMorphine', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('533', 'ItemPainkiller', 'sItemPainkiller', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('534', 'ItemRadio', 'sItemRadio', 'item', 'item', '0', '0', '0', '0', '1', 'item', '0', '0');
+INSERT INTO `adm_objects` VALUES ('535', 'ItemSandbag', 'sItemSandbag', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('536', 'ItemSodaCoke', 'sItemSodaCoke', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('537', 'ItemSodaEmpty', 'sItemSodaEmpty', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('538', 'ItemSodaMdew', 'sItemSodaMdew', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('539', 'ItemSodaPepsi', 'sItemSodaPepsi', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('540', 'ItemTankTrap', 'sItemTankTrap', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('541', 'TrapBear', 'sTrapBear', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('542', 'ItemTent', 'sItemTent', 'item', 'heavyammo', '0', '0', '0', '0', '3', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('543', 'ItemToolbox', 'sItemToolbox', 'item', 'item', '0', '0', '0', '0', '1', 'item', '0', '1');
+INSERT INTO `adm_objects` VALUES ('544', 'ItemWatch', 'sItemWatch', 'item', 'item', '0', '0', '0', '0', '1', 'item', '0', '1');
+INSERT INTO `adm_objects` VALUES ('545', 'ItemWaterbottle', 'sItemWaterbottle', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('546', 'ItemWaterbottleUnfilled', 'sItemWaterbottleUnfilled', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('547', 'ItemWire', 'sItemWire', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('548', 'LeeEnfield', 'sLeeEnfield', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('549', 'M1014', 'sM1014', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('550', 'M107_DZ', 'sM107_DZ', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('551', 'm107_TWS_EP1_DZ', 'sm107_TWS_EP1_DZ', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('552', 'm107_TWS_EP1', 'sm107_TWS_EP1', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('553', 'M136', 'sM136', 'item', 'backpack', '0', '0', '0', '0', '10', 'backpack', '0', '0');
+INSERT INTO `adm_objects` VALUES ('554', 'M32_EP1', 'sM32_EP1', 'item', 'backpack', '0', '0', '0', '0', '10', 'backpack', '0', '0');
+INSERT INTO `adm_objects` VALUES ('555', 'M47Launcher_EP1', 'sM47Launcher_EP1', 'item', 'backpack', '0', '0', '0', '0', '10', 'backpack', '0', '0');
+INSERT INTO `adm_objects` VALUES ('556', 'M79_EP1', 'sM79_EP1', 'item', 'backpack', '0', '0', '0', '0', '10', 'backpack', '0', '0');
+INSERT INTO `adm_objects` VALUES ('557', 'MAAWS', 'sMAAWS', 'item', 'backpack', '0', '0', '0', '0', '10', 'backpack', '0', '0');
+INSERT INTO `adm_objects` VALUES ('558', 'Mk13_EP1', 'sMk13_EP1', 'item', 'backpack', '0', '0', '0', '0', '10', 'backpack', '0', '0');
+INSERT INTO `adm_objects` VALUES ('559', 'Javelin', 'sJavelin', 'item', 'backpack', '0', '0', '0', '0', '10', 'backpack', '0', '0');
+INSERT INTO `adm_objects` VALUES ('560', 'Stinger', 'sStinger', 'item', 'backpack', '0', '0', '0', '0', '10', 'backpack', '0', '0');
+INSERT INTO `adm_objects` VALUES ('561', 'RPG7V', 'sRPG7V', 'item', 'backpack', '0', '0', '0', '0', '10', 'backpack', '0', '0');
+INSERT INTO `adm_objects` VALUES ('562', 'SMAW', 'sSMAW', 'item', 'backpack', '0', '0', '0', '0', '10', 'backpack', '0', '0');
+INSERT INTO `adm_objects` VALUES ('563', 'Strela', 'sStrela', 'item', 'backpack', '0', '0', '0', '0', '10', 'backpack', '0', '0');
+INSERT INTO `adm_objects` VALUES ('564', 'Igla', 'sIgla', 'item', 'backpack', '0', '0', '0', '0', '10', 'backpack', '0', '0');
+INSERT INTO `adm_objects` VALUES ('565', 'MetisLauncher', 'sMetisLauncher', 'item', 'backpack', '0', '0', '0', '0', '10', 'backpack', '0', '0');
+INSERT INTO `adm_objects` VALUES ('566', 'RPG18', 'sRPG18', 'item', 'backpack', '0', '0', '0', '0', '10', 'backpack', '0', '0');
+INSERT INTO `adm_objects` VALUES ('567', 'M14_EP1', 'sM14_EP1', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('568', 'M16A2', 'sM16A2', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('569', 'M16A2GL', 'sM16A2GL', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('570', 'm16a4', 'sm16a4', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('571', 'M16A4_ACG', 'sM16A4_ACG', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('572', 'M16A4_GL', 'sM16A4_GL', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('573', 'M16A4_ACG_GL', 'sM16A4_ACG_GL', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('574', 'M24', 'sM24', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('575', 'M40A3', 'sM40A3', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('576', 'M240', 'sM240', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('577', 'M240_DZ', 'sM240_DZ', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('578', 'M249', 'sM249', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('579', 'M8_SAW', 'sM8_SAW', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('580', 'M249_DZ', 'sM249_DZ', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('581', 'M4SPR', 'sM4SPR', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('582', 'M8_sharpshooter', 'sM8_sharpshooter', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('583', 'M4A1', 'sM4A1', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('584', 'M4A1_Aim', 'sM4A1_Aim', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('585', 'M4A1_Aim_camo', 'sM4A1_Aim_camo', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('586', 'M4A1_AIM_SD_camo', 'sM4A1_AIM_SD_camo', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('587', 'M4A1_HWS_GL', 'sM4A1_HWS_GL', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('588', 'M4A1_HWS_GL_camo', 'sM4A1_HWS_GL_camo', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('589', 'M4A1_HWS_GL_SD_Camo', 'sM4A1_HWS_GL_SD_Camo', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('590', 'M4A1_RCO_GL', 'sM4A1_RCO_GL', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('591', 'M4A3_CCO_EP1', 'sM4A3_CCO_EP1', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('592', 'M4A3_RCO_GL_EP1', 'sM4A3_RCO_GL_EP1', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('593', 'SCAR_H_CQC_CCO', 'sSCAR_H_CQC_CCO', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('594', 'SCAR_H_CQC_CCO_SD', 'sSCAR_H_CQC_CCO_SD', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('595', 'SCAR_H_STD_EGLM_Spect', 'sSCAR_H_STD_EGLM_Spect', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('596', 'm8_carbine_pmc', 'sm8_carbine_pmc', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('597', 'M9', 'sM9', 'item', 'pistol', '0', '0', '0', '0', '5', 'pistol', '0', '1');
+INSERT INTO `adm_objects` VALUES ('598', 'M9SD', 'sM9SD', 'item', 'pistol', '0', '0', '0', '0', '5', 'pistol', '0', '1');
+INSERT INTO `adm_objects` VALUES ('599', 'Makarov', 'sMakarov', 'item', 'pistol', '0', '0', '0', '0', '5', 'pistol', '0', '1');
+INSERT INTO `adm_objects` VALUES ('600', 'MakarovSD', 'sMakarovSD', 'item', 'pistol', '0', '0', '0', '0', '5', 'pistol', '0', '0');
+INSERT INTO `adm_objects` VALUES ('601', 'MeleeCrowbar', 'sMeleeCrowbar', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('602', 'MeleeFlashlight', 'sMeleeFlashlight', 'item', 'pistol', '0', '0', '0', '0', '1', 'pistol', '0', '1');
+INSERT INTO `adm_objects` VALUES ('603', 'MeleeFlashlightRed', 'sMeleeFlashlightRed', 'item', 'pistol', '0', '0', '0', '0', '1', 'pistol', '0', '1');
+INSERT INTO `adm_objects` VALUES ('604', 'MeleeHatchet', 'sMeleeHatchet', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('605', 'Mk_48_DZ', 'sMk_48_DZ', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('606', 'MP5A5', 'sMP5A5', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('607', 'MP5SD', 'sMP5SD', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('608', 'NVGoggles', 'sNVGoggles', 'item', 'binocular', '0', '0', '0', '0', '1', 'binocular', '0', '1');
+INSERT INTO `adm_objects` VALUES ('609', 'PartEngine', 'sPartEngine', 'item', 'heavyammo', '0', '0', '0', '0', '6', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('610', 'PartFueltank', 'sPartFueltank', 'item', 'heavyammo', '0', '0', '0', '0', '4', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('611', 'PartGeneric', 'sPartGeneric', 'item', 'heavyammo', '0', '0', '0', '0', '3', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('612', 'PartGlass', 'sPartGlass', 'item', 'heavyammo', '0', '0', '0', '0', '2', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('613', 'PartVRotor', 'sPartVRotor', 'item', 'heavyammo', '0', '0', '0', '0', '6', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('614', 'PartWheel', 'sPartWheel', 'item', 'heavyammo', '0', '0', '0', '0', '6', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('615', 'PartWoodPile', 'sPartWoodPile', 'item', 'heavyammo', '0', '0', '0', '0', '2', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('616', 'PipeBomb', 'sPipeBomb', 'item', 'heavyammo', '0', '0', '0', '0', '2', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('617', 'TimeBomb', 'sTimeBomb', 'item', 'heavyammo', '0', '0', '0', '0', '2', 'heavyammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('618', 'Mine', 'sMine', 'item', 'heavyammo', '0', '0', '0', '0', '2', 'heavyammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('619', 'MineE', 'sMineE', 'item', 'heavyammo', '0', '0', '0', '0', '2', 'heavyammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('620', 'M134', 'sM134', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('621', 'M134_2', 'sM134_2', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('622', 'TwinM134', 'sTwinM134', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('623', 'M240_veh', 'sM240_veh', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('624', 'M240_veh_2', 'sM240_veh_2', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('625', 'M240_veh_MG_Nest', 'sM240_veh_MG_Nest', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('626', 'Pecheneg', 'sPecheneg', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('627', 'RPK_74', 'sRPK_74', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('628', 'PK', 'sPK', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('629', 'PKT', 'sPKT', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('630', 'PKT_MG_Nest', 'sPKT_MG_Nest', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('631', 'PKT_veh', 'sPKT_veh', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('632', 'DT_veh', 'sDT_veh', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('633', 'TwinVickers', 'sTwinVickers', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('634', 'M2', 'sM2', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('635', 'M3P', 'sM3P', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('636', 'DSHKM', 'sDSHKM', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('637', 'KORD', 'sKORD', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('638', 'KPVT', 'sKPVT', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('639', 'M249_EP1', 'sM249_EP1', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('640', 'M249_TWS_EP1', 'sM249_TWS_EP1', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('641', 'M249_m145_EP1', 'sM249_m145_EP1', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('642', 'M60A4_EP1', 'sM60A4_EP1', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('643', 'MG36_camo', 'sMG36_camo', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('644', 'Mk_48_DES_EP1', 'sMk_48_DES_EP1', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('645', 'Mk_48', 'sMk_48', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('646', 'm240_scoped_EP1', 'sm240_scoped_EP1', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('647', 'Remington870', 'sRemington870', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('648', 'Remington870_lamp', 'sRemington870_lamp', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('649', 'revolver_EP1', 'srevolver_EP1', 'item', 'pistol', '0', '0', '0', '0', '5', 'pistol', '0', '1');
+INSERT INTO `adm_objects` VALUES ('650', 'revolver_gold_EP1', 'srevolver_gold_EP1', 'item', 'pistol', '0', '0', '0', '0', '5', 'pistol', '0', '0');
+INSERT INTO `adm_objects` VALUES ('651', 'Sa61_EP1', 'sSa61_EP1', 'item', 'pistol', '0', '0', '0', '0', '5', 'pistol', '0', '0');
+INSERT INTO `adm_objects` VALUES ('652', 'Sa58P_EP1', 'sSa58P_EP1', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('653', 'Sa58V_CCO_EP1', 'sSa58V_CCO_EP1', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('654', 'Sa58V_EP1', 'sSa58V_EP1', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('655', 'Sa58V_RCO_EP1', 'sSa58V_RCO_EP1', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('656', 'Saiga12K', 'sSaiga12K', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('657', 'SCAR_L_CQC', 'sSCAR_L_CQC', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('658', 'SCAR_L_CQC_CCO_SD', 'sSCAR_L_CQC_CCO_SD', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('659', 'SCAR_L_CQC_EGLM_Holo', 'sSCAR_L_CQC_EGLM_Holo', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('660', 'SCAR_L_CQC_Holo', 'sSCAR_L_CQC_Holo', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('661', 'SCAR_L_STD_EGLM_RCO', 'sSCAR_L_STD_EGLM_RCO', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('662', 'SCAR_L_STD_EGLM_TWS', 'sSCAR_L_STD_EGLM_TWS', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('663', 'SCAR_L_STD_HOLO', 'sSCAR_L_STD_HOLO', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('664', 'SCAR_L_STD_Mk4CQT', 'sSCAR_L_STD_Mk4CQT', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('665', 'Skin_Camo1_DZ', 'sSkin_Camo1_DZ', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('666', 'Skin_Sniper1_DZ', 'sSkin_Sniper1_DZ', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('667', 'Skin_Soldier1_DZ', 'sSkin_Soldier1_DZ', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('668', 'Skin_Survivor2_DZ', 'sSkin_Survivor2_DZ', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('669', 'SmokeShell', 'sSmokeShell', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('670', 'SmokeShellGreen', 'sSmokeShellGreen', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('671', 'SmokeShellRed', 'sSmokeShellRed', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('672', 'SVD', 'sSVD', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('673', 'SVD_des_EP1', 'sSVD_des_EP1', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('674', 'SVD_NSPU_EP1', 'sSVD_NSPU_EP1', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('675', 'SCAR_H_STD_TWS_SD', 'sSCAR_H_STD_TWS_SD', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('676', 'SCAR_H_LNG_Sniper_SD', 'sSCAR_H_LNG_Sniper_SD', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('677', 'SCAR_H_LNG_Sniper', 'sSCAR_H_LNG_Sniper', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('678', 'M24_des_EP1', 'sM24_des_EP1', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('679', 'M110_TWS_EP1', 'sM110_TWS_EP1', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('680', 'M110_NVG_EP1', 'sM110_NVG_EP1', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('681', 'SVD_CAMO', 'sSVD_CAMO', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('682', 'VSS_Vintorez', 'sVSS_Vintorez', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('683', 'TrashJackDaniels', 'sTrashJackDaniels', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('684', 'TrashTinCan', 'sTrashTinCan', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('685', 'UZI_EP1', 'sUZI_EP1', 'item', 'pistol', '0', '0', '0', '0', '5', 'pistol', '0', '1');
+INSERT INTO `adm_objects` VALUES ('686', 'UZI_SD_EP1', 'sUZI_SD_EP1', 'item', 'pistol', '0', '0', '0', '0', '5', 'pistol', '0', '0');
+INSERT INTO `adm_objects` VALUES ('687', 'Winchester1866', 'sWinchester1866', 'item', 'rifle', '0', '0', '0', '0', '1', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('688', 'Old_bike_TK_CIV_EP1', 'old_bike', 'vehicle', 'bike', '0', '0', '0', '1', '0', 'bike', '0', '0');
+INSERT INTO `adm_objects` VALUES ('689', 'Old_bike_TK_INS_EP1', 'old_bike', 'vehicle', 'bike', '0', '0', '0', '1', '0', 'bike', '0', '0');
+INSERT INTO `adm_objects` VALUES ('692', 'Hedgehog_DZ', 'Hedgehog', 'vehicle', 'deployable', '0', '0', '0', '0', '0', 'Hedgehog_DZ', '1', '1');
+INSERT INTO `adm_objects` VALUES ('693', 'Wire_cat1', 'Wire cat', 'vehicle', 'deployable', '0', '0', '0', '0', '0', 'Wire_cat1', '0', '0');
+INSERT INTO `adm_objects` VALUES ('694', 'Smallboat_1', 'Small boat', 'vehicle', 'boat', '3', '24', '0', '4', '0', 'smallboat', '0', '0');
+INSERT INTO `adm_objects` VALUES ('696', 'Fishing_Boat', 'Fishing Boat', 'vehicle', 'boat', '3', '24', '0', '0', '0', 'boat', '0', '0');
+INSERT INTO `adm_objects` VALUES ('697', 'PBX', 'PBX', 'vehicle', 'boat', '3', '24', '0', '0', '0', 'smallboat', '0', '0');
+INSERT INTO `adm_objects` VALUES ('698', 'Tractor', 'Tractor', 'vehicle', 'car', '24', '3', '0', '0', '0', 'tractor', '0', '0');
+INSERT INTO `adm_objects` VALUES ('699', 'UH1H_DZ', 'UH1H', 'vehicle', 'Air', '24', '3', '0', '4', '0', 'helicopter', '1', '0');
+INSERT INTO `adm_objects` VALUES ('700', 'Mi17_DZ', 'Mi17', 'vehicle', 'Air', '3', '20', '10', '16', '0', 'helicopter', '1', '0');
+INSERT INTO `adm_objects` VALUES ('701', 'AH6X_DZ', 'AH-6X', 'vehicle', 'Air', '3', '20', '5', '1', '0', 'helicopter', '1', '0');
+INSERT INTO `adm_objects` VALUES ('702', 'AN2_DZ', 'An-2', 'vehicle', 'Air', '3', '20', '0', '15', '0', 'aircraftsmall', '1', '0');
+INSERT INTO `adm_objects` VALUES ('703', 'AH-64D', 'AH-64D', 'vehicle', 'Air', '3', '20', '1', '0', '0', 'helicopter', '1', '1');
+INSERT INTO `adm_objects` VALUES ('704', 'MMT_Civ', 'old_bike', 'vehicle', 'bike', '0', '0', '0', '1', '0', 'bike', '2', '0');
+INSERT INTO `adm_objects` VALUES ('705', 'MMT_USMC', 'bike', 'vehicle', 'bike', '0', '0', '0', '1', '0', 'bike', '2', '0');
+INSERT INTO `adm_objects` VALUES ('706', 'HandGrenade_East', 'HandGrenade_East', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('707', '5Rnd_127x99_as50', '5Rnd_127x99_as50', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('708', '1Rnd_HE_GP25', '1Rnd_HE_GP25', 'item', 'smallammo', '0', '0', '0', '0', '1', 'smallammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('709', 'Sandbag1_DZ', 'Sandbag1_DZ', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'Sandbag1_DZ', '1', '1');
+INSERT INTO `adm_objects` VALUES ('710', 'DZ_British_ACU', 'British ACU', 'vehicle', 'Backpacks', '3', '18', '1', '0', '0', 'Backpacks', '0', '1');
+INSERT INTO `adm_objects` VALUES ('711', 'ItemMachete', 'Machete', 'Item', 'Item', '0', '0', '0', '0', '1', 'Item', '0', '1');
+INSERT INTO `adm_objects` VALUES ('712', 'MeleeMachete', 'sMeleeMachete', 'Item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('713', 'FoodMRE', 'sFoodMRE', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('714', 'FoodPistachio', 'sFoodPistachio', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('715', 'FoodbeefCooked', 'sFoodbeefCooked', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('716', 'DZ_TK_Assault_Pack_EP1', 'Assault_Pack', 'vehicle', 'Backpacks', '1', '12', '0', '0', '0', 'Backpacks', '0', '1');
+INSERT INTO `adm_objects` VALUES ('717', 'FoodCanUnlabeled', 'sFoodCanUnlabeled', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('718', 'ItemTrashRazor', 'sItemTrashRazor', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('719', 'ItemTrashToiletpaper', 'sItemTrashToiletpaper', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('720', 'WoodenArrow', 'sWoodenArrow', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('721', 'Quiver', 'sQuiver', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('722', 'Crossbow_DZ', 'sCrossbow_DZ', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('723', 'FoodNutmix', 'sFoodNutmix', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('724', 'DZ_Czech_Vest_Puch', 'DZ_Czech_Vest_Puch', 'vehicle', 'Backpacks', '0', '12', '0', '0', '0', 'Backpacks', '0', '1');
+INSERT INTO `adm_objects` VALUES ('725', 'ItemCrowbar', 'sItemCrowbar', 'item', 'item', '0', '0', '0', '0', '1', 'item', '0', '1');
+INSERT INTO `adm_objects` VALUES ('726', '30Rnd_556x45_G36', 's30Rnd_556x45_G36', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('727', 'MH6J_DZ', 'MH6J', 'vehicle', 'air', '3', '20', '0', '20', '0', 'helicopter', '1', '0');
+INSERT INTO `adm_objects` VALUES ('728', 'HMMWV_DZ', 'HMMWV_DZ', 'vehicle', 'car', '10', '50', '7', '6', '0', 'jeep_closed', '0', '0');
+INSERT INTO `adm_objects` VALUES ('729', 'FoodrabbitRaw', 'sFoodrabbitRaw', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('730', 'FoodmuttonRaw', 'sFoodmuttonRaw', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('731', '30Rnd_762x39_SA58', 's30Rnd_762x39_SA58', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('732', 'FoodbaconRaw', 'sFoodbaconRaw', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('733', 'FoodchickenRaw', 'sFoodchickenRaw', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('734', 'FoodmuttonCooked', 'sFoodmuttonCooked', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('735', 'FoodchickenCooked', 'sFoodchickenCooked', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('736', 'FoodbaconCooked', 'sFoodbaconCooked', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('737', 'FoodRabbitCooked', 'sFoodRabbitCooked', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('738', 'ItemSodaPepsiEmpty', 'sItemSodaPepsiEmpty', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('739', 'FoodCanUnlabeledEmpty', 'sFoodCanUnlabeledEmpty', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('740', 'BAF_AS50_TWS', 'sBAF_AS50_TWS', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('741', 'BAF_L85A2_RIS_SUSAT', 'sBAF_L85A2_RIS_SUSAT', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '1');
+INSERT INTO `adm_objects` VALUES ('742', 'BAF_L110A1_Aim', 'sBAF_L110A1_Aim', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('743', '30Rnd_545x39_AKSD', 's30Rnd_545x39_AKSD', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('744', '100Rnd_556x45_BetaCMag', 's100Rnd_556x45_BetaCMag', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('745', '30Rnd_556x45_G36SD', 's30Rnd_556x45_G36SD', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('746', '100Rnd_556x45_M249', 's100Rnd_556x45_M249', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('747', '5Rnd_127x108_KSVK', 's5Rnd_127x108_KSVK', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('748', '1Rnd_SmokeRed_M203', 's1Rnd_SmokeRed_M203', 'item', 'smallammo', '0', '0', '0', '0', '1', 'smallammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('749', '1Rnd_SMOKE_GP25', 's1Rnd_SMOKE_GP25', 'item', 'smallammo', '0', '0', '0', '0', '1', 'smallammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('750', 'FlareRed_GP25', 'sFlareRed_GP25', 'item', 'smallammo', '0', '0', '0', '0', '1', 'smallammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('751', 'SmokeShellYellow', 'sSmokeShellYellow', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('752', 'SmokeShellOrange', 'sSmokeShellOrange', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('753', '20Rnd_B_765x17_Ball', 's20Rnd_B_765x17_Ball', 'item', 'smallammo', '0', '0', '0', '0', '1', 'smallammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('754', '10Rnd_9x39_SP5_VSS', 's10Rnd_9x39_SP5_VSS', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('755', '20Rnd_762x51_SB_SCAR', 's20Rnd_762x51_SB_SCAR', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('756', '1Rnd_SmokeYellow_M203', 's1Rnd_SmokeYellow_M203', 'item', 'smallammo', '0', '0', '0', '0', '1', 'smallammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('757', '100Rnd_762x54_PK', 's100Rnd_762x54_PK', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('758', 'SmokeShellBlue', 'sSmokeShellBlue', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('759', 'SmokeShellPurple', 'sSmokeShellPurple', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('760', '20Rnd_B_AA12_Pellets', 's20Rnd_B_AA12_Pellets', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('761', 'AA12_PMC', 'sAA12_PMC', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('762', 'HandGrenade_Stone', 'sHandGrenade_Stone', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('763', 'm8_carbine', 'sm8_carbine', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('764', 'm8_carbineGL', 'sm8_carbineGL', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('765', 'm8_compact', 'sm8_compact', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('766', 'm8_compact_pmc', 'sm8_compact_pmc', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('767', 'm8_holo_sd', 'sm8_holo_sd', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('768', 'm8_tws', 'sm8_tws', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('769', 'm8_tws_sd', 'sm8_tws_sd', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('770', '20Rnd_762x51_B_SCAR', 's20Rnd_762x51_B_SCAR', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('771', '64Rnd_9x19_Bizon', 's64Rnd_9x19_Bizon', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('772', '6Rnd_SmokeRed_M203', 's6Rnd_SmokeRed_M203', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('773', '6Rnd_FlareWhite_M203', 's6Rnd_FlareWhite_M203', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('774', '6Rnd_HE_M203', 's6Rnd_HE_M203', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('775', '6Rnd_FlareGreen_M203', 's6Rnd_FlareGreen_M203', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('776', '6Rnd_FlareRed_M203', 's6Rnd_FlareRed_M203', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('777', '6Rnd_FlareYellow_M203', 's6Rnd_FlareYellow_M203', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('778', '6Rnd_Smoke_M203', 's6Rnd_Smoke_M203', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('779', '6Rnd_SmokeGreen_M203', 's6Rnd_SmokeGreen_M203', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('780', '6Rnd_SmokeYellow_M203', 's6Rnd_SmokeYellow_M203', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('781', 'BAF_LRR_scoped_W', 'sBAF_LRR_scoped_W', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('782', '75Rnd_545x39_RPK', 's75Rnd_545x39_RPK', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('783', '8Rnd_B_Saiga12_Pellets', 's8Rnd_B_Saiga12_Pellets', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('784', '8Rnd_B_Saiga12_74Slug', 's8Rnd_B_Saiga12_74Slug', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('785', '30Rnd_9x19_UZI_SD', 's30Rnd_9x19_UZI_SD', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('786', '20Rnd_9x39_SP5_VSS', 's20Rnd_9x39_SP5_VSS', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('788', '5Rnd_86x70_L115A1', 's5Rnd_86x70_L115A1', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('789', 'BAF_LRR_scoped', 'sBAF_LRR_scoped', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('790', 'BAF_L86A2_ACOG', 'sBAF_L86A2_ACOG', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('791', 'BAF_L17_40mm', 'sBAF_L17_40mm', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('792', 'BAF_L85A2_UGL_ACOG', 'sBAF_L85A2_UGL_ACOG', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('793', 'BAF_L85A2_UGL_SUSAT', 'sBAF_L85A2_UGL_SUSAT', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('794', 'BAF_L85A2_RIS_ACOG', 'sBAF_L85A2_RIS_ACOG', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('795', 'BAF_L7A2_GPMG', 'sBAF_L7A2_GPMG', 'item', 'backpack', '0', '0', '0', '0', '1', 'backpack', '0', '0');
+INSERT INTO `adm_objects` VALUES ('796', '200Rnd_556x45_L110A1', 's200Rnd_556x45_L110A1', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('797', 'FlareWhite_GP25', 'sFlareWhite_GP25', 'item', 'smallammo', '0', '0', '0', '0', '1', 'smallammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('798', 'FlareGreen_GP25', 'sFlareGreen_GP25', 'item', 'smallammo', '0', '0', '0', '0', '1', 'smallammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('799', 'FlareYellow_GP25', 'sFlareYellow_GP25', 'item', 'smallammo', '0', '0', '0', '0', '1', 'smallammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('800', '1Rnd_SmokeRed_GP25', 's1Rnd_SmokeRed_GP25', 'item', 'smallammo', '0', '0', '0', '0', '1', 'smallammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('801', '1Rnd_SmokeGreen_GP25', 's1Rnd_SmokeGreen_GP25', 'item', 'smallammo', '0', '0', '0', '0', '1', 'smallammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('802', '1Rnd_SmokeYellow_GP25', 's1Rnd_SmokeYellow_GP25', 'item', 'smallammo', '0', '0', '0', '0', '1', 'smallammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('803', '8Rnd_9x18_MakarovSD', 's8Rnd_9x18_MakarovSD', 'item', 'smallammo', '0', '0', '0', '0', '1', 'smallammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('807', 'FoodbeefRaw', 'sFoodbeefRaw', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '1');
+INSERT INTO `adm_objects` VALUES ('806', 'BAF_L109A1_HE', 'sBAF_L109A1_HE', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('808', '20Rnd_B_AA12_HE', 's20Rnd_B_AA12_HE', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('809', '20Rnd_B_AA12_74Slug', 's20Rnd_B_AA12_74Slug', 'item', 'heavyammo', '0', '0', '0', '0', '1', 'heavyammo', '0', '0');
+INSERT INTO `adm_objects` VALUES ('810', 'Ka60_GL_NAC', 'Ka60_GL_NAC', 'vehicle', 'air', '3', '10', '0', '20', '0', 'helicopter', '1', '0');
+INSERT INTO `adm_objects` VALUES ('811', 'VSS_vintorez_DZN', 'VSS_vintorez_DZN', 'item', 'rifle', '0', '0', '0', '0', '10', 'rifle', '0', '0');
+INSERT INTO `adm_objects` VALUES ('812', 'RPK_74_DZN', 'RPK_74_DZN', 'item', 'rifle', '0', '0', '0', '0', '30', 'rifle', '0', '0');
 
 -- ----------------------------
 -- Table structure for `character_data`
@@ -44,10 +875,45 @@ CREATE TABLE `character_data` (
   `Model` varchar(50) NOT NULL DEFAULT '"Survivor1_DZ"',
   `Datetime` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`CharacterID`,`PlayerUID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=1874 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of character_data
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `character_data_dead`
+-- ----------------------------
+DROP TABLE IF EXISTS `character_data_dead`;
+CREATE TABLE `character_data_dead` (
+  `CharacterID` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `PlayerUID` varchar(20) NOT NULL DEFAULT '',
+  `Alive` tinyint(1) NOT NULL DEFAULT '1',
+  `InstanceID` tinyint(2) NOT NULL,
+  `Worldspace` varchar(128) NOT NULL DEFAULT '[]',
+  `Inventory` longtext NOT NULL,
+  `Backpack` longtext NOT NULL,
+  `Medical` varchar(300) NOT NULL DEFAULT '[]',
+  `Generation` smallint(4) unsigned NOT NULL DEFAULT '0',
+  `Datestamp` timestamp NULL DEFAULT NULL,
+  `LastLogin` timestamp NULL DEFAULT NULL,
+  `LastAte` timestamp NULL DEFAULT NULL,
+  `LastDrank` timestamp NULL DEFAULT NULL,
+  `Humanity` int(10) DEFAULT NULL,
+  `KillsZ` mediumint(5) unsigned NOT NULL DEFAULT '0',
+  `HeadshotsZ` mediumint(5) unsigned NOT NULL DEFAULT '0',
+  `distanceFoot` bigint(15) unsigned NOT NULL DEFAULT '0',
+  `duration` int(10) NOT NULL DEFAULT '0',
+  `currentState` varchar(128) NOT NULL DEFAULT '[]',
+  `KillsH` mediumint(5) unsigned NOT NULL DEFAULT '0',
+  `KillsB` mediumint(5) unsigned NOT NULL DEFAULT '0',
+  `Model` varchar(50) NOT NULL DEFAULT '"Survivor1_DZ"',
+  `Datetime` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`CharacterID`,`PlayerUID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of character_data_dead
 -- ----------------------------
 
 -- ----------------------------
@@ -149,7 +1015,7 @@ INSERT INTO `object_classes` VALUES ('VolhaLimo_TK_CIV_EP1', '0.5', '6', '0.0500
 INSERT INTO `object_classes` VALUES ('UralCivil', '0.7', '2', '0.05000', '[[\"motor\",0.8],[\"karoserie\",1],[\"palivo\",0.8],[\"wheel_1_1_steering\",1],[\"wheel_2_1_steering\",1],[\"wheel_1_2_steering\",1],[\"wheel_2_2_steering\",1],[\"sklo predni P\",1],[\"sklo predni L\",1],[\"glass1\",1],[\"glass2\",1],[\"glass3\",1]]');
 INSERT INTO `object_classes` VALUES ('Mi17_DZ', '0.7', '5', '0.05', '[[\"motor\",0.8],[\"karoserie\",1],[\"palivo\",0.8],[\"elektronika\",0.8],[\"mala vrtule\",0.8],[\"velka vrtule\",0.8],[\"sklo predni P\",1],[\"sklo predni L\",1],[\"glass1\",1],[\"glass3\",1]]');
 INSERT INTO `object_classes` VALUES ('AH6X_DZ', '0.7', '5', '0.05', '[[\"motor\",0.8],[\"karoserie\",1],[\"palivo\",0.8],[\"elektronika\",0.8],[\"mala vrtule\",0.8],[\"velka vrtule\",0.8],[\"sklo predni P\",1],[\"sklo predni L\",1],[\"glass1\",1],[\"glass3\",1]]');
-INSERT INTO `object_classes` VALUES ('Pickup_PK_DZ', '0.7', '5', '0.05', '[[\"motor\",0.8],[\"karoserie\",1],[\"palivo\",0.8],[\"wheel_1_1_steering\",1],[\"wheel_2_1_steering\",1],[\"wheel_1_2_steering\",1],[\"wheel_2_2_steering\",1],[\"sklo predni P\",1],[\"sklo predni L\",1],[\"glass1\",1],[\"glass2\",1],[\"glass3\",1]]');
+INSERT INTO `object_classes` VALUES ('Pickup_PK_DZ', '0.7', '3', '0.05', '[[\"motor\",0.8],[\"karoserie\",1],[\"palivo\",0.8],[\"wheel_1_1_steering\",1],[\"wheel_2_1_steering\",1],[\"wheel_1_2_steering\",1],[\"wheel_2_2_steering\",1],[\"sklo predni P\",1],[\"sklo predni L\",1],[\"glass1\",1],[\"glass2\",1],[\"glass3\",1]]');
 INSERT INTO `object_classes` VALUES ('UAZ_MG_DZ', '0.7', '7', '0.05', '[[\"motor\",0.8],[\"karoserie\",1],[\"palivo\",0.8],[\"wheel_1_1_steering\",1],[\"wheel_2_1_steering\",1],[\"wheel_1_2_steering\",1],[\"wheel_2_2_steering\",1],[\"sklo predni P\",1],[\"sklo predni L\",1],[\"glass1\",1],[\"glass2\",1],[\"glass3\",1]]');
 INSERT INTO `object_classes` VALUES ('Zodiac_DZ', '0.5', '2', '0.05', '[[\"motor\",0.8]]');
 INSERT INTO `object_classes` VALUES ('TT650_Civ', '0.7', '3', '0.05', '[[\"motor\",0.8],[\"karoserie\",1],[\"palivo\",0.8],[\"wheel_1_1_steering\",1],[\"wheel_2_1_steering\",1],[\"wheel_1_2_steering\",1],[\"wheel_2_2_steering\",1],[\"sklo predni P\",1],[\"sklo predni L\",1],[\"glass1\",1],[\"glass2\",1],[\"glass3\",1]]');
@@ -171,8 +1037,7 @@ INSERT INTO `object_classes` VALUES ('ori_vil_truck_civ1', '0.7', '4', '0', '[[\
 INSERT INTO `object_classes` VALUES ('ori_vil_truck_civ', '0.7', '4', '0', '[[\"sklo_p\",1],[\"sklo_p1\",1],[\"sklo_l1\",1],[\"levy predni tlumic\",1],[\"levy zadni tlumic\",1],[\"pravy zadni tlumic\",1],[\"karoserie\",0.9],[\"palivo\",0.6],[\"motor\",0.2],[\"front_plow\",1],[\"wheel_guards\",1],[\"window_guards\",1],[\"windshield_guard\",1]]');
 INSERT INTO `object_classes` VALUES ('ori_vil_lublin_truck', '0.7', '4', '0', '[[\"sklo_p\",1],[\"sklo_p1\",1],[\"sklo_l1\",1],[\"levy predni tlumic\",1],[\"levy zadni tlumic\",0.2],[\"pravy predni tlumic\",1],[\"pravy zadni tlumic\",1],[\"karoserie\",0.7],[\"palivo\",0.2],[\"sklo predni P\",1],[\"motor\",0.7],[\"front_plow\",1],[\"wheel_guards\",1],[\"window_guards\",1],[\"windshield_guard\",1]]');
 INSERT INTO `object_classes` VALUES ('rth_amphicar', '0.7', '15', '0.05', '[[\"LF_hit\",1],[\"LM_hit\",1],[\"LB_hit\",0.4],[\"RF_hit\",1],[\"RM_hit\",1],[\"RB_hit\",1],[\"motor\",0.8]]');
-INSERT INTO `object_classes` VALUES ('origins_bathmobile', '0.7', '15', '0.05', '[[\"motor\",0.8],[\"karoserie\",1],[\"palivo\",0.8],[\"wheel_1_1_steering\",1],[\"wheel_2_1_steering\",1],[\"wheel_1_2_steering\",1],[\"wheel_2_2_steering\",1],[\"sklo predni P\",1],[\"sklo predni L\",1],[\"front_plow\",1],[\"wheel_guards\",1],[\"windshield_guard\",1]]');
-
+INSERT INTO `object_classes` VALUES ('origins_bathmobile', '0.7', '2', '0.05', '[[\"motor\",0.8],[\"karoserie\",1],[\"palivo\",0.8],[\"wheel_1_1_steering\",1],[\"wheel_2_1_steering\",1],[\"wheel_1_2_steering\",1],[\"wheel_2_2_steering\",1],[\"sklo predni P\",1],[\"sklo predni L\",1],[\"front_plow\",1],[\"wheel_guards\",1],[\"windshield_guard\",1]]');
 
 -- ----------------------------
 -- Table structure for `object_data`
@@ -191,7 +1056,7 @@ CREATE TABLE `object_data` (
   `Fuel` double(13,5) DEFAULT NULL,
   `Datestamp` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`ObjectID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=MyISAM AUTO_INCREMENT=1753 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of object_data
@@ -683,42 +1548,11 @@ CREATE TABLE `player_login` (
   `Action` tinyint(3) NOT NULL DEFAULT '0',
   `Datestamp` datetime DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=5910 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of player_login
 -- ----------------------------
-
--- ----------------------------
--- Table structure for `character_data_dead`
--- ----------------------------
-DROP TABLE IF EXISTS `character_data_dead`;
-CREATE TABLE `character_data_dead` (
-  `CharacterID` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `PlayerUID` varchar(20) NOT NULL DEFAULT '',
-  `Alive` tinyint(1) NOT NULL DEFAULT '1',
-  `InstanceID` tinyint(2) NOT NULL,
-  `Worldspace` varchar(128) NOT NULL DEFAULT '[]',
-  `Inventory` longtext NOT NULL,
-  `Backpack` longtext NOT NULL,
-  `Medical` varchar(300) NOT NULL DEFAULT '[]',
-  `Generation` smallint(4) unsigned NOT NULL DEFAULT '0',
-  `Datestamp` timestamp NULL DEFAULT NULL,
-  `LastLogin` timestamp NULL DEFAULT NULL,
-  `LastAte` timestamp NULL DEFAULT NULL,
-  `LastDrank` timestamp NULL DEFAULT NULL,
-  `Humanity` int(10) DEFAULT NULL,
-  `KillsZ` mediumint(5) unsigned NOT NULL DEFAULT '0',
-  `HeadshotsZ` mediumint(5) unsigned NOT NULL DEFAULT '0',
-  `distanceFoot` bigint(15) unsigned NOT NULL DEFAULT '0',
-  `duration` int(10) NOT NULL DEFAULT '0',
-  `currentState` varchar(128) NOT NULL DEFAULT '[]',
-  `KillsH` mediumint(5) unsigned NOT NULL DEFAULT '0',
-  `KillsB` mediumint(5) unsigned NOT NULL DEFAULT '0',
-  `Model` varchar(50) NOT NULL DEFAULT '"Survivor1_DZ"',
-  `Datetime` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`CharacterID`,`PlayerUID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Procedure structure for `BugFix`
@@ -739,6 +1573,56 @@ BEGIN
  
 
 END
+;;
+DELIMITER ;
+
+-- ----------------------------
+-- Procedure structure for `Delete all in character_data (character vipe)`
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `Delete all in character_data (character vipe)`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Delete all in character_data (character vipe)`()
+DELETE FROM character_data
+;;
+DELIMITER ;
+
+-- ----------------------------
+-- Procedure structure for `Delete all in object data (object vipe)`
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `Delete all in object data (object vipe)`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Delete all in object data (object vipe)`()
+DELETE FROM object_data
+;;
+DELIMITER ;
+
+-- ----------------------------
+-- Procedure structure for `Delete all in player_data (player_data vipe)`
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `Delete all in player_data (player_data vipe)`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Delete all in player_data (player_data vipe)`()
+delete from player_data
+;;
+DELIMITER ;
+
+-- ----------------------------
+-- Procedure structure for `Delete all in player_login (player_login vipe)`
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `Delete all in player_login (player_login vipe)`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Delete all in player_login (player_login vipe)`()
+delete from player_login
+;;
+DELIMITER ;
+
+-- ----------------------------
+-- Procedure structure for `Delete dead players`
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `Delete dead players`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Delete dead players`()
+DELETE FROM character_data where Alive='0'
 ;;
 DELIMITER ;
 
@@ -899,7 +1783,7 @@ DELIMITER ;
 -- ----------------------------
 DROP PROCEDURE IF EXISTS `pCleanupOOB`;
 DELIMITER ;;
-CREATE DEFINER=`root`@`` PROCEDURE `pCleanupOOB`()
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pCleanupOOB`()
 BEGIN
 
 
@@ -1022,7 +1906,7 @@ BEGIN
 
 DECLARE sInstance VARCHAR(8) DEFAULT '1';
 
-DECLARE iVehSpawnMax INT DEFAULT 387;
+DECLARE iVehSpawnMax INT DEFAULT 150;
 
 DECLARE iTimeoutMax INT DEFAULT 450; 
 DECLARE iTimeout INT DEFAULT 0; 
