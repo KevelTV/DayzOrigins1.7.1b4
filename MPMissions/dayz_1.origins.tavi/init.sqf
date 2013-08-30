@@ -83,7 +83,6 @@ if (!isDedicated) then {
 };
 
 [12,false,true] execFSM "Scripts\core_time.fsm";
-[] execVM "Scripts\DynamicWeatherEffects.sqf";
 [] execVM "Scripts\esc.sqf";
 [] execVM "logintimer.sqf";
 [] execVM "Scripts\seat_action.sqf";

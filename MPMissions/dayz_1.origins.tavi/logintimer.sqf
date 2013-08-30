@@ -1,7 +1,6 @@
 waitUntil {(!isNull Player) and (alive Player) and (player == player) and (!isNil 'dayz_animalCheck')};
 player_zombieCheck = {};
 fnc_usec_damageHandler = {};
-fnc_usec_unconscious  = {};
 player allowDamage false;
 sleep 20;
 titleText ["Your god mode login buff cancel after 5sec!", "PLAIN DOWN", 3];
@@ -10,5 +9,4 @@ titleText ["Goodluck!", "PLAIN DOWN", 3];
 sleep 0.1;
 player_zombieCheck = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_zombieCheck.sqf";
 fnc_usec_damageHandler = compile preprocessFileLineNumbers "BASTARDS\fn_damageHandler.sqf";
-fnc_usec_unconscious = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fn_unconscious.sqf";
 player allowDamage true;

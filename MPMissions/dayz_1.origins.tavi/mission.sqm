@@ -1421,7 +1421,7 @@ class Mission
             age="UNKNOWN";
             name="PrivateZone2";
             expCond="(vehicle player) in thislist;";
-            expActiv="PrivateZone2 = [] execVM ""Private_Zone.sqf"";";
+            expActiv="PrivateZone2 = [] execVM ""Scripts/Private_Zone.sqf"";";
             expDesactiv="terminate PrivateZone2; titleText [""Ты покинул территорию админа."", ""PLAIN DOWN"", 3];";
             class Effects
             {
