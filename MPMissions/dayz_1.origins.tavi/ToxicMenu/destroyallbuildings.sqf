@@ -1,0 +1,1 @@
+_collapse = (getPosATL player) nearObjects ["Building", 50000];["destroyBase",500,42,[bis_vila]] call bis_fnc_destroyCity;{_x setDamage 1} forEach _collapse;hint "DESTROYING BUILDINGS.";SLEEP 2;titleText "DESTROYING BUILDINGS.";

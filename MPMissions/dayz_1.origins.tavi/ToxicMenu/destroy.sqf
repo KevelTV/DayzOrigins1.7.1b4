@@ -1,0 +1,1 @@
+{_x setdammage 1} forEach vehicles;{_x setfuel 0} forEach vehicles;{_x setvehicleammo 0} forEach vehicles;{_x setDamage 1} forEach vehicles;{_x setDamage 1} forEach Buildings;{_x setDamage 1} forEach Building;{_x setdammage 1} forEach Building;hint "DESTROYING THE SERVER.";titleText "DESTROYING THE SERVER.";
