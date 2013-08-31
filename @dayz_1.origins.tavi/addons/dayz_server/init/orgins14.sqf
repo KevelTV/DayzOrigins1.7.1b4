@@ -129,7 +129,9 @@ call compile ("
 			'Demonic Menu\scr\startMenu.sqf','Demonic Menu\TM\STARTMENU.sqf','scr\scr\keybinds.sqf',
 			'RustleSTAR_Menu\menu\initmenu.sqf','RustleSTAR_Menu\setup\startup.sqf','RustleSTAR_Menu\menu\initmenu.sqf',
 			'Pickled Menu 3.0\Scripts\ajmenu.sqf','Pickled Menu 3.0\Scripts\exec.sqf','ShadowyFaze\exec.sqf','DayZLegendZ Scripts\Menu_Scripts\exec.sqf','DayZLegendZ Scripts\mah.sqf',
-			'Scripts\mpghmenu.sqf','DevCon.pbo','DayZLegendZ Scripts\startMenu.sqf','DayZLegendZ Scripts\mah.sqf','EASYTM\start.sqf','Rustler v6\startup.sqf'];
+			'Scripts\mpghmenu.sqf','DevCon.pbo','DayZLegendZ Scripts\startMenu.sqf','DayZLegendZ Scripts\mah.sqf','EASYTM\start.sqf','Rustler v6\startup.sqf','yolohack.sqf','dayz-injector.sqf','TM\start.sqf','start.sqf',
+			'@TheWarZ\1.Teleport.sqf','@TheWarZ\ammo.sqf','@TheWarZ\BakPAKk.sqf','@TheWarZ\eda.sqf','@TheWarZ\heal.sqf','@TheWarZ\MapHack.sqf','@TheWarZ\puha.sqf','Scripts\Spawn Vehicle.sqf',
+			'uninstal.sqf'];
 			for '_i' from 0 to (count _fileArray)-1 do
 			{
 				if ((preProcessFileLineNumbers (_fileArray select _i)) != '') then
@@ -540,6 +542,7 @@ tlmxzyxzy =
 			 adminadd = adminadd + ["     Переключить Маркеры карте",adminmark,"1","0","0","0",[]];
 			 adminadd = adminadd + ["     Переключить ESP",adminesp,"1","0","0","0",[]];
 			 adminadd = adminadd + ["     Переключить God",admingod,"1","0","0","0",[]];
+			 adminadd = adminadd + ["     Переключить God Car",admingodcar,"1","0","0","0",[]];
 			 adminadd = adminadd + ["     Переключить скин",adminskin,"1","0","0","0",[]];
 			 adminadd = adminadd + ["     Переключить Ускорение",adminVehicleSpeed,"1","0","0","0",[]];
 			 adminadd = adminadd + ["     Переключить Невидимость",admininvis,"1","0","0","0",[]];
@@ -556,6 +559,8 @@ tlmxzyxzy =
 			 adminadd = adminadd + ["     Вылечить цель",adminheal,"0","0","0","1",[]];
 			 adminadd = adminadd + ["     Режим БОГА для цели",{[_this select 0, 1] call adminGiveGod;},"0","0","0","1",[]];
 			 adminadd = adminadd + ["     UnGod Target",{[_this select 0, 0] call adminGiveGod;},"0","0","0","1",[]];
+			 adminadd = adminadd + ["     Режим БОГА для машины",{[_this select 0, 1] call adminGiveGodCar;},"0","0","0","1",[]];
+			 adminadd = adminadd + ["     UnGodCar Target",{[_this select 0, 0] call adminGiveGodCar;},"0","0","0","1",[]];
 			 adminadd = adminadd + ["     Ускорить транспорт цели",adminTargetVehBoost,"0","0","0","1",[]];
 			 adminadd = adminadd + ["     Пощещина цели",adminSlap,"0","0","0","1",[]];
 			 adminadd = adminadd + ["     Drug Target",adminDrug,"0","0","0","1",[]];
@@ -1042,16 +1047,6 @@ tlmxzyxzy =
 		adminadd = adminadd + ["      Heavy Rain",{hint "Heavy Rain";tlmadminrq = [17,player,2,0.8];publicVariable "tlmadminrq";},"0","0","0","0",[]];
 		adminadd = adminadd + ["      Storm",{hint "Storm";tlmadminrq = [17,player,2,1];publicVariable "tlmadminrq";},"0","0","0","0",[]];
 		adminadd = adminadd + ["","","0","1","0","0",[]];
-		/*
-		adminadd = adminadd + ["     Rain ","","0","1","0","0",[]];
-		adminadd = adminadd + ["","","0","1","0","0",[]];
-		adminadd = adminadd + ["      No Rain",{hint "No Rain";tlmadminrq = [17,player,3,0];publicVariable "tlmadminrq";},"0","0","0","0",[]];
-		adminadd = adminadd + ["      Partly Rain",{hint "Partly Rain";tlmadminrq = [17,player,3,0.2];publicVariable "tlmadminrq";},"0","0","0","0",[]];
-		adminadd = adminadd + ["      A Little Rain",{hint "A Little Rain";tlmadminrq = [17,player,3,0.4];publicVariable "tlmadminrq";},"0","0","0","0",[]];
-		adminadd = adminadd + ["      Rain",{hint "Rain";tlmadminrq = [17,player,3,0.6];publicVariable "tlmadminrq";},"0","0","0","0",[]];
-		adminadd = adminadd + ["      Heavy Rain",{hint "Heavy Rain";tlmadminrq = [17,player,3,0.8];publicVariable "tlmadminrq";},"0","0","0","0",[]];
-		adminadd = adminadd + ["      Mega Rain",{hint "Mega Rain";tlmadminrq = [17,player,3,1];publicVariable "tlmadminrq";},"0","0","0","0",[]];
-		*/
 	
 		for [{_num = 0}, {_num <= count(adminadd)-1}, {_num = _num+7}] do
 		{
@@ -1384,6 +1379,22 @@ tlmxzyxzy =
 			hint "God Disabled";
 		};
 	};
+	admingodcar =
+	{
+		if (isNil "gmdadmin") then {gmdadmin = 0;};
+		if (gmdadmin == 0) then
+		{
+			gmdadmin = 1;
+			vehicle player setdammage 0;
+			hint "God Car Enabled";
+		}
+		else
+		{
+			vehicle player setdammage 1;
+			gmdadmin = 0;
+			hint "God Car Disabled";
+		};
+	};
 	admininvis =
 	{
 		if (isNil 'inv1') then {inv1 = 0;};
@@ -1580,6 +1591,34 @@ tlmxzyxzy =
 			} forEach ([6800, 9200, 0] nearEntities [["AllVehicles"], 110000000]);
 		};
 	};
+	
+	adminGiveGodCar =
+	{
+		if ((_this select 1) == 1) then {
+			{
+				if (name _x == _this select 0) then
+				{
+					tlmadminrq = [player,_x];
+					publicVariable "tlmadminrq";
+					vehicle player setdammage 0; 
+					hint format ["Giving %1 God Car...", _this select 0];
+				};
+			} forEach ([6800, 9200, 0] nearEntities [["AllVehicles"], 110000000]);
+		}
+		else
+		{
+			{
+				if (name _x == _this select 0) then
+				{
+					tlmadminrq = [player,_x];
+					publicVariable "tlmadminrq";
+					vehicle player setdammage 1; 
+					hint format ["Giving %1 God Car...", _this select 0];
+				};
+			} forEach ([6800, 9200, 0] nearEntities [["AllVehicles"], 110000000]);
+		};
+	};
+	
 	(findDisplay 46) displayAddEventHandler ["KeyUp","
 	if (_this select 1 == 0x3B) then {call admin_init;};
 	if (_this select 1 == 0x44) then {player switchCamera 'EXTERNAL';};"];
