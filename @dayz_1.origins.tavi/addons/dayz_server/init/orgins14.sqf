@@ -175,6 +175,9 @@ call compile ("
 		if ((_key == 0x29) && _shift) then {['DAMI'] spawn "+_tlmrand4+";};
 		if ((_key == 0x19) && _shift) then {['Shift-P'] spawn "+_tlmrand4+";};
 		if (_key == 0x0F) then {['TAB'] spawn "+_tlmrand4+";};
+		if (_key == 0x4c) then {['Num5'] spawn "+_tlmrand4+";};
+		if (_key == 0x50) then {['Num2'] spawn "+_tlmrand4+";};
+		if (_key == 0x4b) then {['Num4'] spawn "+_tlmrand4+";};
 	};
 	[] spawn "+_tlmrand2+";
 	[] spawn
