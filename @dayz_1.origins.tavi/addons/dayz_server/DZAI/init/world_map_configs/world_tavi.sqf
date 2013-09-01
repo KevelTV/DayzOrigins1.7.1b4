@@ -646,6 +646,7 @@ _trigger_157 = _this;
 */
 
 //----------------------------Add your custom markers here----------------------------
+/*
 _this = createTrigger ["EmptyDetector", [22513.826, 20035.609]];
 _this setTriggerArea [13, 13, 0, false];
 _this setTriggerActivation ["ANY", "PRESENT", true];
@@ -677,7 +678,7 @@ _this setTriggerTimeout [10, 15, 20, true];
 _this setTriggerText "SectorB4";
 _this setTriggerStatements ["{isPlayer _x} count thisList > 0;", "nul = [2,2,275,thisTrigger,[],5,3] call fnc_spawnBandits;", "nul = [thisTrigger] spawn fnc_despawnBandits;"];
 _trigger_169 = _this;
-
+*/
 //----------------------------End of custom markers----------------------------
 
 /*
