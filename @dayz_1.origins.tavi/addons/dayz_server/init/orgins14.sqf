@@ -8,7 +8,7 @@ _agent disableAI "ANIM";
 loadFile = "STRING";
 markerText = "STRING";
 
-_list = ["9428873","3121033","155780"];
+_list = ["9428873","3121033","155780","31431558"];
 noob_list = ["0"];
 publicVariable "noob_list";
 
