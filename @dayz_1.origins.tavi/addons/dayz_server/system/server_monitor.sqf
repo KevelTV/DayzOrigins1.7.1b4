@@ -1,4 +1,4 @@
-[] execVM "\z\addons\dayz_server\system\s_fps.sqf"; 
+//[] execVM "\z\addons\dayz_server\system\s_fps.sqf"; 
 
 dayz_versionNo = 		getText(configFile >> "CfgMods" >> "DayZ" >> "version");
 dayz_hiveVersionNo = 	getNumber(configFile >> "CfgMods" >> "DayZ" >> "hiveVersion");
@@ -556,10 +556,6 @@ private["_spawnTaviGroupLeaderg01g","_AISgroupg01g","_x10","_rndCountg01g","_rnd
 east setFriend [west,0];
 east setFriend [sideLogic,1];
 
-_object5AI5 = createVehicle ["UAZ_MG_DZ", [22884.246, 19841.74, 10.601068], [], 0, "CAN_COLLIDE"];
-_object5AI5 setvelocity [0,0,1];
-_object5AI5 setFuel 1;
-
 _AISgroupg01g = createGroup east;   
 _modelarrayg01g = ["SectorB_def","SectorB_def","SectorB_def"];
 
@@ -736,9 +732,7 @@ _spawnAISg01g selectWeapon "Sa58V_EP1";
 _spawnAISg01g addWeapon "NVGoggles";
 };
 
-if(_x == 42) then {
-_spawnAISg01g createunit [[23031.76, 19346.992, 9.9921618],_AISgroupg01g, "_spawnAISg01g = this;"];
-_spawnAISg01g setPosASL [23031.76, 19346.992, 9.9921618];
+if(_x >= 42) then {
 _spawnAISg01g addweapon "RPK_74";
 _spawnAISg01g addMagazine "75Rnd_545x39_RPK";
 _spawnAISg01g addMagazine "75Rnd_545x39_RPK";
@@ -747,46 +741,6 @@ _spawnAISg01g addMagazine "75Rnd_545x39_RPK";
 _spawnAISg01g addMagazine "75Rnd_545x39_RPK";
 _spawnAISg01g selectWeapon "RPK_74";
 _spawnAISg01g addWeapon "NVGoggles";
-};
-
-if(_x == 43) then {
-_spawnAISg01g createunit [[23032.328, 19372.33, 9.9963274],_AISgroupg01g, "_spawnAISg01g = this;"];
-_spawnAISg01g setPosASL [23032.328, 19372.33, 9.9963274];
-_spawnAISg01g addweapon "RPK_74";
-_spawnAISg01g addMagazine "75Rnd_545x39_RPK";
-_spawnAISg01g addMagazine "75Rnd_545x39_RPK";
-_spawnAISg01g addMagazine "75Rnd_545x39_RPK";
-_spawnAISg01g addMagazine "75Rnd_545x39_RPK";
-_spawnAISg01g addMagazine "75Rnd_545x39_RPK";
-_spawnAISg01g selectWeapon "RPK_74";
-_spawnAISg01g addWeapon "NVGoggles";
-};
-
-if(_x == 44) then {
-_spawnAISg01g createunit [[23032.229, 19397.83, 9.9918137],_AISgroupg01g, "_spawnAISg01g = this;"];
-_spawnAISg01g setPosASL [23032.229, 19397.83, 9.9918137];
-_spawnAISg01g addweapon "RPK_74";
-_spawnAISg01g addMagazine "75Rnd_545x39_RPK";
-_spawnAISg01g addMagazine "75Rnd_545x39_RPK";
-_spawnAISg01g addMagazine "75Rnd_545x39_RPK";
-_spawnAISg01g addMagazine "75Rnd_545x39_RPK";
-_spawnAISg01g addMagazine "75Rnd_545x39_RPK";
-_spawnAISg01g selectWeapon "RPK_74";
-_spawnAISg01g addWeapon "NVGoggles";
-};
-
-if(_x == 45) then {
-_spawnAISg01g createunit [[22884.246, 19841.74, 10.601068],_AISgroupg01g, "_spawnAISg01g = this;"];
-_spawnAISg01g setPosASL [22884.246, 19841.74, 10.601068];
-_spawnAISg01g addweapon "RPK_74";
-_spawnAISg01g addMagazine "75Rnd_545x39_RPK";
-_spawnAISg01g addMagazine "75Rnd_545x39_RPK";
-_spawnAISg01g addMagazine "75Rnd_545x39_RPK";
-_spawnAISg01g addMagazine "75Rnd_545x39_RPK";
-_spawnAISg01g addMagazine "75Rnd_545x39_RPK";
-_spawnAISg01g selectWeapon "RPK_74";
-_spawnAISg01g addWeapon "NVGoggles";
-_spawnAISg01g moveInTurret [_object5AI5, [0]];
 };
 
 _spawnAISg01g setVariable ["bodyname",_bodynameig01g,false];		
@@ -1575,7 +1529,1953 @@ diag_log("DEBUG: Spawning " + str(_rndCountg14g) + " Taviana Guards from Group g
 diag_log("Taviana Guards spawn Group g14g end");
 };
 
+start_guardsg15g = {
+private["_spawnTaviGroupLeaderg15g","_AISgroupg15g","_x10","_rndCountg15g","_rnd10","_positiong15g","_modelarrayg15g","_startposg15g","_unit10","_units10","_id101","_object5AI5","_object6AI6","_object7AI7","_object8AI8","_object9AI9","_object10AI10","_object11AI11"];
 
+
+east setFriend [west,0];
+east setFriend [sideLogic,1];
+
+_object5AI5 = createVehicle ["UAZ_MG_DZ", [22884.246, 19841.74, 10.601068], [], 0, "CAN_COLLIDE"];
+_object5AI5 setVelocity [0,0,1];
+_object5AI5 setFuel 1;
+
+_object6AI6 = createVehicle ["UAZ_MG_DZ", [22222.275, 19783.648, 12.757758], [], 0, "CAN_COLLIDE"];
+_object6AI6 setVelocity [0,0,1];
+_object6AI6 setFuel 1;
+
+_object7AI7 = createVehicle ["UAZ_MG_DZ", [22195.08, 19785.719, 12.741321], [], 0, "CAN_COLLIDE"];
+_object7AI7 setVelocity [0,0,1];
+_object7AI7 setFuel 1;
+
+_object8AI8 = createVehicle ["UAZ_MG_DZ", [22338.053, 19738.48, 23.59236], [], 0, "CAN_COLLIDE"];
+_object8AI8 setVelocity [0,0,1];
+_object8AI8 setFuel 1;
+
+_object9AI9 = createVehicle ["UAZ_MG_DZ", [22338.945, 19668.734, 23.724304], [], 0, "CAN_COLLIDE"];
+_object9AI9 setVelocity [0,0,1];
+_object9AI9 setFuel 1;
+
+_object10AI10 = createVehicle ["UAZ_MG_DZ", [22884.709, 19872.719, 10.899268], [], 0, "CAN_COLLIDE"];
+_object10AI10 setVelocity [0,0,1];
+_object10AI10 setFuel 1;
+
+_object11AI11 = createVehicle ["UAZ_MG_DZ", [22133.213, 19851.682, 13.693636], [], 0, "CAN_COLLIDE"];
+_object11AI11 setVelocity [0,0,1];
+_object11AI11 setFuel 1;
+
+_AISgroupg15g = createGroup east;   
+_modelarrayg15g = ["SectorB_def","SectorB_def","SectorB_def"];
+
+_startposg15g = [23031.76, 19346.992, 9.9921618];
+
+_positiong15g = [23031.76, 19346.992, 9.9921618];
+_rndCountg15g = 40; 
+_rnd = random 1; 
+for "_x" from 1 to _rndCountg15g do {
+private["_spawnAISg15g","_bodynameig15g","_soldermodelg15g","_spawnTaviGroupLeaderg15g"];
+_bodynameig01g = format ["TavianaGuardg15g%1",_x];
+
+if(_x == 1) then {
+_soldermodelg15g = _modelarrayg15g select (round(random ((count _modelarrayg15g) - 1)));
+_soldermodelg15g createUnit [[23031.76, 19346.992, 9.9921618], _AISgroupg15g, "_spawnTaviGroupLeaderg15g = this; TavianaSquadg15g = group this;"];
+_spawnTaviGroupLeaderg15g enableAI "TARGET";
+_spawnTaviGroupLeaderg15g enableAI "AUTOTARGET";
+_spawnTaviGroupLeaderg15g enableAI "MOVE";
+_spawnTaviGroupLeaderg15g enableAI "ANIM";
+_spawnTaviGroupLeaderg15g enableAI "FSM";
+_spawnTaviGroupLeaderg15g allowDammage true;
+_spawnTaviGroupLeaderg15g setCombatMode "YELLOW";
+_spawnTaviGroupLeaderg15g setBehaviour "STEALTH";
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingShake",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["commanding",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["endurance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotDistance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotTime",1];
+_spawnTaviGroupLeaderg15g setSkill ["courage",1];
+_spawnTaviGroupLeaderg15g setSkill ["reloadSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["general",1];
+
+_spawnTaviGroupLeaderg15g addweapon "glock17_EP1";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";           
+_spawnTaviGroupLeaderg15g addweapon "ItemMap";
+_spawnTaviGroupLeaderg15g addweapon "ItemHatchet";
+_spawnTaviGroupLeaderg15g addweapon "ItemKnife";
+_spawnTaviGroupLeaderg15g addWeapon "NVGoggles";
+
+_spawnTaviGroupLeaderg15g addWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g selectWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g setVariable ["bodyname",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g setVariable ["delmeplease",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g disableConversation true;
+_spawnTaviGroupLeaderg15g setDir (random(360));
+}; 
+
+if(_x == 2) then {
+_soldermodelg15g = _modelarrayg15g select (round(random ((count _modelarrayg15g) - 1)));
+_soldermodelg15g createUnit [[23032.328, 19372.33, 9.9963274], _AISgroupg15g, "_spawnTaviGroupLeaderg15g = this; TavianaSquadg15g = group this;"];
+_spawnTaviGroupLeaderg15g enableAI "TARGET";
+_spawnTaviGroupLeaderg15g enableAI "AUTOTARGET";
+_spawnTaviGroupLeaderg15g enableAI "MOVE";
+_spawnTaviGroupLeaderg15g enableAI "ANIM";
+_spawnTaviGroupLeaderg15g enableAI "FSM";
+_spawnTaviGroupLeaderg15g allowDammage true;
+_spawnTaviGroupLeaderg15g setCombatMode "YELLOW";
+_spawnTaviGroupLeaderg15g setBehaviour "STEALTH";
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingShake",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["commanding",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["endurance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotDistance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotTime",1];
+_spawnTaviGroupLeaderg15g setSkill ["courage",1];
+_spawnTaviGroupLeaderg15g setSkill ["reloadSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["general",1];
+
+_spawnTaviGroupLeaderg15g addweapon "glock17_EP1";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";           
+_spawnTaviGroupLeaderg15g addweapon "ItemMap";
+_spawnTaviGroupLeaderg15g addweapon "ItemHatchet";
+_spawnTaviGroupLeaderg15g addweapon "ItemKnife";
+_spawnTaviGroupLeaderg15g addWeapon "NVGoggles";
+
+_spawnTaviGroupLeaderg15g addWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g selectWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g setVariable ["bodyname",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g setVariable ["delmeplease",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g disableConversation true;
+_spawnTaviGroupLeaderg15g setDir (random(360));
+}; 
+
+if(_x == 3) then {
+_soldermodelg15g = _modelarrayg15g select (round(random ((count _modelarrayg15g) - 1)));
+_soldermodelg15g createUnit [[23032.229, 19397.83, 9.9918137], _AISgroupg15g, "_spawnTaviGroupLeaderg15g = this; TavianaSquadg15g = group this;"];
+_spawnTaviGroupLeaderg15g enableAI "TARGET";
+_spawnTaviGroupLeaderg15g enableAI "AUTOTARGET";
+_spawnTaviGroupLeaderg15g enableAI "MOVE";
+_spawnTaviGroupLeaderg15g enableAI "ANIM";
+_spawnTaviGroupLeaderg15g enableAI "FSM";
+_spawnTaviGroupLeaderg15g allowDammage true;
+_spawnTaviGroupLeaderg15g setCombatMode "YELLOW";
+_spawnTaviGroupLeaderg15g setBehaviour "STEALTH";
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingShake",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["commanding",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["endurance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotDistance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotTime",1];
+_spawnTaviGroupLeaderg15g setSkill ["courage",1];
+_spawnTaviGroupLeaderg15g setSkill ["reloadSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["general",1];
+
+_spawnTaviGroupLeaderg15g addweapon "glock17_EP1";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";           
+_spawnTaviGroupLeaderg15g addweapon "ItemMap";
+_spawnTaviGroupLeaderg15g addweapon "ItemHatchet";
+_spawnTaviGroupLeaderg15g addweapon "ItemKnife";
+_spawnTaviGroupLeaderg15g addWeapon "NVGoggles";
+
+_spawnTaviGroupLeaderg15g addWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g selectWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g setVariable ["bodyname",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g setVariable ["delmeplease",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g disableConversation true;
+_spawnTaviGroupLeaderg15g setDir (random(360));
+}; 
+
+if(_x == 4) then {
+_soldermodelg15g = _modelarrayg15g select (round(random ((count _modelarrayg15g) - 1)));
+_soldermodelg15g createUnit [[22884.246, 19841.74, 10.601068], _AISgroupg15g, "_spawnTaviGroupLeaderg15g = this; TavianaSquadg15g = group this;"];
+_spawnTaviGroupLeaderg15g enableAI "TARGET";
+_spawnTaviGroupLeaderg15g enableAI "AUTOTARGET";
+_spawnTaviGroupLeaderg15g enableAI "MOVE";
+_spawnTaviGroupLeaderg15g enableAI "ANIM";
+_spawnTaviGroupLeaderg15g enableAI "FSM";
+_spawnTaviGroupLeaderg15g allowDammage true;
+_spawnTaviGroupLeaderg15g setCombatMode "YELLOW";
+_spawnTaviGroupLeaderg15g setBehaviour "STEALTH";
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingShake",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["commanding",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["endurance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotDistance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotTime",1];
+_spawnTaviGroupLeaderg15g setSkill ["courage",1];
+_spawnTaviGroupLeaderg15g setSkill ["reloadSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["general",1];
+
+_spawnTaviGroupLeaderg15g addweapon "glock17_EP1";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";           
+_spawnTaviGroupLeaderg15g addweapon "ItemMap";
+_spawnTaviGroupLeaderg15g addweapon "ItemHatchet";
+_spawnTaviGroupLeaderg15g addweapon "ItemKnife";
+_spawnTaviGroupLeaderg15g addWeapon "NVGoggles";
+
+_spawnTaviGroupLeaderg15g addWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g selectWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g setVariable ["bodyname",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g setVariable ["delmeplease",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g disableConversation true;
+_spawnTaviGroupLeaderg15g setDir (random(360));
+_spawnTaviGroupLeaderg15g setdamage 0.01;
+
+_spawnTaviGroupLeaderg15g moveInTurret [_object5AI5, [0]];
+}; 
+
+if(_x == 5) then {
+_soldermodelg15g = _modelarrayg15g select (round(random ((count _modelarrayg15g) - 1)));
+_soldermodelg15g createUnit [[22773.736, 19929.049, 5.2713795], _AISgroupg15g, "_spawnTaviGroupLeaderg15g = this; TavianaSquadg15g = group this;"];
+_spawnTaviGroupLeaderg15g enableAI "TARGET";
+_spawnTaviGroupLeaderg15g enableAI "AUTOTARGET";
+_spawnTaviGroupLeaderg15g enableAI "MOVE";
+_spawnTaviGroupLeaderg15g enableAI "ANIM";
+_spawnTaviGroupLeaderg15g enableAI "FSM";
+_spawnTaviGroupLeaderg15g allowDammage true;
+_spawnTaviGroupLeaderg15g setCombatMode "YELLOW";
+_spawnTaviGroupLeaderg15g setBehaviour "STEALTH";
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingShake",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["commanding",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["endurance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotDistance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotTime",1];
+_spawnTaviGroupLeaderg15g setSkill ["courage",1];
+_spawnTaviGroupLeaderg15g setSkill ["reloadSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["general",1];
+
+_spawnTaviGroupLeaderg15g addweapon "glock17_EP1";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";           
+_spawnTaviGroupLeaderg15g addweapon "ItemMap";
+_spawnTaviGroupLeaderg15g addweapon "ItemHatchet";
+_spawnTaviGroupLeaderg15g addweapon "ItemKnife";
+_spawnTaviGroupLeaderg15g addWeapon "NVGoggles";
+
+_spawnTaviGroupLeaderg15g addWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g selectWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g setVariable ["bodyname",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g setVariable ["delmeplease",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g disableConversation true;
+_spawnTaviGroupLeaderg15g setDir (random(360));
+};
+
+if(_x == 6) then {
+_soldermodelg15g = _modelarrayg15g select (round(random ((count _modelarrayg15g) - 1)));
+_soldermodelg15g createUnit [[22766.133, 19928.805, 8.936842], _AISgroupg15g, "_spawnTaviGroupLeaderg15g = this; TavianaSquadg15g = group this;"];
+_spawnTaviGroupLeaderg15g enableAI "TARGET";
+_spawnTaviGroupLeaderg15g enableAI "AUTOTARGET";
+_spawnTaviGroupLeaderg15g enableAI "MOVE";
+_spawnTaviGroupLeaderg15g enableAI "ANIM";
+_spawnTaviGroupLeaderg15g enableAI "FSM";
+_spawnTaviGroupLeaderg15g allowDammage true;
+_spawnTaviGroupLeaderg15g setCombatMode "YELLOW";
+_spawnTaviGroupLeaderg15g setBehaviour "STEALTH";
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingShake",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["commanding",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["endurance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotDistance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotTime",1];
+_spawnTaviGroupLeaderg15g setSkill ["courage",1];
+_spawnTaviGroupLeaderg15g setSkill ["reloadSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["general",1];
+
+_spawnTaviGroupLeaderg15g addweapon "glock17_EP1";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";           
+_spawnTaviGroupLeaderg15g addweapon "ItemMap";
+_spawnTaviGroupLeaderg15g addweapon "ItemHatchet";
+_spawnTaviGroupLeaderg15g addweapon "ItemKnife";
+_spawnTaviGroupLeaderg15g addWeapon "NVGoggles";
+
+_spawnTaviGroupLeaderg15g addWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g selectWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g setVariable ["bodyname",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g setVariable ["delmeplease",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g disableConversation true;
+_spawnTaviGroupLeaderg15g setDir (random(360));
+};
+
+
+if(_x == 7) then {
+_soldermodelg15g = _modelarrayg15g select (round(random ((count _modelarrayg15g) - 1)));
+_soldermodelg15g createUnit [[22759.182, 19936.205, 8.869379], _AISgroupg15g, "_spawnTaviGroupLeaderg15g = this; TavianaSquadg15g = group this;"];
+_spawnTaviGroupLeaderg15g enableAI "TARGET";
+_spawnTaviGroupLeaderg15g enableAI "AUTOTARGET";
+_spawnTaviGroupLeaderg15g enableAI "MOVE";
+_spawnTaviGroupLeaderg15g enableAI "ANIM";
+_spawnTaviGroupLeaderg15g enableAI "FSM";
+_spawnTaviGroupLeaderg15g allowDammage true;
+_spawnTaviGroupLeaderg15g setCombatMode "YELLOW";
+_spawnTaviGroupLeaderg15g setBehaviour "STEALTH";
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingShake",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["commanding",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["endurance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotDistance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotTime",1];
+_spawnTaviGroupLeaderg15g setSkill ["courage",1];
+_spawnTaviGroupLeaderg15g setSkill ["reloadSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["general",1];
+
+_spawnTaviGroupLeaderg15g addweapon "glock17_EP1";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";           
+_spawnTaviGroupLeaderg15g addweapon "ItemMap";
+_spawnTaviGroupLeaderg15g addweapon "ItemHatchet";
+_spawnTaviGroupLeaderg15g addweapon "ItemKnife";
+_spawnTaviGroupLeaderg15g addWeapon "NVGoggles";
+
+_spawnTaviGroupLeaderg15g addWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g selectWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g setVariable ["bodyname",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g setVariable ["delmeplease",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g disableConversation true;
+_spawnTaviGroupLeaderg15g setDir (random(360));
+};
+
+if(_x == 8) then {
+_soldermodelg15g = _modelarrayg15g select (round(random ((count _modelarrayg15g) - 1)));
+_soldermodelg15g createUnit [[22803.953, 19930.744, 4.6507277], _AISgroupg15g, "_spawnTaviGroupLeaderg15g = this; TavianaSquadg15g = group this;"];
+_spawnTaviGroupLeaderg15g enableAI "TARGET";
+_spawnTaviGroupLeaderg15g enableAI "AUTOTARGET";
+_spawnTaviGroupLeaderg15g enableAI "MOVE";
+_spawnTaviGroupLeaderg15g enableAI "ANIM";
+_spawnTaviGroupLeaderg15g enableAI "FSM";
+_spawnTaviGroupLeaderg15g allowDammage true;
+_spawnTaviGroupLeaderg15g setCombatMode "YELLOW";
+_spawnTaviGroupLeaderg15g setBehaviour "STEALTH";
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingShake",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["commanding",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["endurance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotDistance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotTime",1];
+_spawnTaviGroupLeaderg15g setSkill ["courage",1];
+_spawnTaviGroupLeaderg15g setSkill ["reloadSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["general",1];
+
+_spawnTaviGroupLeaderg15g addweapon "glock17_EP1";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";           
+_spawnTaviGroupLeaderg15g addweapon "ItemMap";
+_spawnTaviGroupLeaderg15g addweapon "ItemHatchet";
+_spawnTaviGroupLeaderg15g addweapon "ItemKnife";
+_spawnTaviGroupLeaderg15g addWeapon "NVGoggles";
+
+_spawnTaviGroupLeaderg15g addWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g selectWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g setVariable ["bodyname",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g setVariable ["delmeplease",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g disableConversation true;
+_spawnTaviGroupLeaderg15g setDir (random(360));
+};
+
+if(_x == 9) then {
+_soldermodelg15g = _modelarrayg15g select (round(random ((count _modelarrayg15g) - 1)));
+_soldermodelg15g createUnit [[22746.053, 19439.41, 1.1444092e-005], _AISgroupg15g, "_spawnTaviGroupLeaderg15g = this; TavianaSquadg15g = group this;"];
+_spawnTaviGroupLeaderg15g enableAI "TARGET";
+_spawnTaviGroupLeaderg15g enableAI "AUTOTARGET";
+_spawnTaviGroupLeaderg15g enableAI "MOVE";
+_spawnTaviGroupLeaderg15g enableAI "ANIM";
+_spawnTaviGroupLeaderg15g enableAI "FSM";
+_spawnTaviGroupLeaderg15g allowDammage true;
+_spawnTaviGroupLeaderg15g setCombatMode "YELLOW";
+_spawnTaviGroupLeaderg15g setBehaviour "STEALTH";
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingShake",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["commanding",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["endurance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotDistance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotTime",1];
+_spawnTaviGroupLeaderg15g setSkill ["courage",1];
+_spawnTaviGroupLeaderg15g setSkill ["reloadSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["general",1];
+
+_spawnTaviGroupLeaderg15g addweapon "glock17_EP1";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";           
+_spawnTaviGroupLeaderg15g addweapon "ItemMap";
+_spawnTaviGroupLeaderg15g addweapon "ItemHatchet";
+_spawnTaviGroupLeaderg15g addweapon "ItemKnife";
+_spawnTaviGroupLeaderg15g addWeapon "NVGoggles";
+
+_spawnTaviGroupLeaderg15g addWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g selectWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g setVariable ["bodyname",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g setVariable ["delmeplease",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g disableConversation true;
+_spawnTaviGroupLeaderg15g setDir (random(360));
+};
+
+if(_x == 10) then {
+_soldermodelg15g = _modelarrayg15g select (round(random ((count _modelarrayg15g) - 1)));
+_soldermodelg15g createUnit [[22222.275, 19783.648, 12.757758], _AISgroupg15g, "_spawnTaviGroupLeaderg15g = this; TavianaSquadg15g = group this;"];
+_spawnTaviGroupLeaderg15g enableAI "TARGET";
+_spawnTaviGroupLeaderg15g enableAI "AUTOTARGET";
+_spawnTaviGroupLeaderg15g enableAI "MOVE";
+_spawnTaviGroupLeaderg15g enableAI "ANIM";
+_spawnTaviGroupLeaderg15g enableAI "FSM";
+_spawnTaviGroupLeaderg15g allowDammage true;
+_spawnTaviGroupLeaderg15g setCombatMode "YELLOW";
+_spawnTaviGroupLeaderg15g setBehaviour "STEALTH";
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingShake",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["commanding",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["endurance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotDistance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotTime",1];
+_spawnTaviGroupLeaderg15g setSkill ["courage",1];
+_spawnTaviGroupLeaderg15g setSkill ["reloadSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["general",1];
+
+_spawnTaviGroupLeaderg15g addweapon "glock17_EP1";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";           
+_spawnTaviGroupLeaderg15g addweapon "ItemMap";
+_spawnTaviGroupLeaderg15g addweapon "ItemHatchet";
+_spawnTaviGroupLeaderg15g addweapon "ItemKnife";
+_spawnTaviGroupLeaderg15g addWeapon "NVGoggles";
+
+_spawnTaviGroupLeaderg15g addWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g selectWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g setVariable ["bodyname",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g setVariable ["delmeplease",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g disableConversation true;
+_spawnTaviGroupLeaderg15g setDir (random(360));
+_spawnTaviGroupLeaderg15g setdamage 0.01;
+
+_spawnTaviGroupLeaderg15g moveInTurret [_object6AI6, [0]];
+};
+
+if(_x == 11) then {
+_soldermodelg15g = _modelarrayg15g select (round(random ((count _modelarrayg15g) - 1)));
+_soldermodelg15g createUnit [[22889.344, 19850.887, 10.493472], _AISgroupg15g, "_spawnTaviGroupLeaderg15g = this; TavianaSquadg15g = group this;"];
+_spawnTaviGroupLeaderg15g enableAI "TARGET";
+_spawnTaviGroupLeaderg15g enableAI "AUTOTARGET";
+_spawnTaviGroupLeaderg15g enableAI "MOVE";
+_spawnTaviGroupLeaderg15g enableAI "ANIM";
+_spawnTaviGroupLeaderg15g enableAI "FSM";
+_spawnTaviGroupLeaderg15g allowDammage true;
+_spawnTaviGroupLeaderg15g setCombatMode "YELLOW";
+_spawnTaviGroupLeaderg15g setBehaviour "STEALTH";
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingShake",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["commanding",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["endurance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotDistance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotTime",1];
+_spawnTaviGroupLeaderg15g setSkill ["courage",1];
+_spawnTaviGroupLeaderg15g setSkill ["reloadSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["general",1];
+
+_spawnTaviGroupLeaderg15g addweapon "glock17_EP1";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";           
+_spawnTaviGroupLeaderg15g addweapon "ItemMap";
+_spawnTaviGroupLeaderg15g addweapon "ItemHatchet";
+_spawnTaviGroupLeaderg15g addweapon "ItemKnife";
+_spawnTaviGroupLeaderg15g addWeapon "NVGoggles";
+
+_spawnTaviGroupLeaderg15g addWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g selectWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g setVariable ["bodyname",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g setVariable ["delmeplease",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g disableConversation true;
+_spawnTaviGroupLeaderg15g setDir (random(360));
+};
+
+if(_x == 12) then {
+_soldermodelg15g = _modelarrayg15g select (round(random ((count _modelarrayg15g) - 1)));
+_soldermodelg15g createUnit [[22506.861, 20093.568, 6.7456131], _AISgroupg15g, "_spawnTaviGroupLeaderg15g = this; TavianaSquadg15g = group this;"];
+_spawnTaviGroupLeaderg15g enableAI "TARGET";
+_spawnTaviGroupLeaderg15g enableAI "AUTOTARGET";
+_spawnTaviGroupLeaderg15g enableAI "MOVE";
+_spawnTaviGroupLeaderg15g enableAI "ANIM";
+_spawnTaviGroupLeaderg15g enableAI "FSM";
+_spawnTaviGroupLeaderg15g allowDammage true;
+_spawnTaviGroupLeaderg15g setCombatMode "YELLOW";
+_spawnTaviGroupLeaderg15g setBehaviour "STEALTH";
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingShake",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["commanding",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["endurance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotDistance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotTime",1];
+_spawnTaviGroupLeaderg15g setSkill ["courage",1];
+_spawnTaviGroupLeaderg15g setSkill ["reloadSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["general",1];
+
+_spawnTaviGroupLeaderg15g addweapon "glock17_EP1";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";           
+_spawnTaviGroupLeaderg15g addweapon "ItemMap";
+_spawnTaviGroupLeaderg15g addweapon "ItemHatchet";
+_spawnTaviGroupLeaderg15g addweapon "ItemKnife";
+_spawnTaviGroupLeaderg15g addWeapon "NVGoggles";
+
+_spawnTaviGroupLeaderg15g addWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g selectWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g setVariable ["bodyname",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g setVariable ["delmeplease",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g disableConversation true;
+_spawnTaviGroupLeaderg15g setDir (random(360));
+};
+
+if(_x == 13) then {
+_soldermodelg15g = _modelarrayg15g select (round(random ((count _modelarrayg15g) - 1)));
+_soldermodelg15g createUnit [[22195.08, 19785.719, 12.741321], _AISgroupg15g, "_spawnTaviGroupLeaderg15g = this; TavianaSquadg15g = group this;"];
+_spawnTaviGroupLeaderg15g enableAI "TARGET";
+_spawnTaviGroupLeaderg15g enableAI "AUTOTARGET";
+_spawnTaviGroupLeaderg15g enableAI "MOVE";
+_spawnTaviGroupLeaderg15g enableAI "ANIM";
+_spawnTaviGroupLeaderg15g enableAI "FSM";
+_spawnTaviGroupLeaderg15g allowDammage true;
+_spawnTaviGroupLeaderg15g setCombatMode "YELLOW";
+_spawnTaviGroupLeaderg15g setBehaviour "STEALTH";
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingShake",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["commanding",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["endurance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotDistance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotTime",1];
+_spawnTaviGroupLeaderg15g setSkill ["courage",1];
+_spawnTaviGroupLeaderg15g setSkill ["reloadSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["general",1];
+
+_spawnTaviGroupLeaderg15g addweapon "glock17_EP1";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";           
+_spawnTaviGroupLeaderg15g addweapon "ItemMap";
+_spawnTaviGroupLeaderg15g addweapon "ItemHatchet";
+_spawnTaviGroupLeaderg15g addweapon "ItemKnife";
+_spawnTaviGroupLeaderg15g addWeapon "NVGoggles";
+
+_spawnTaviGroupLeaderg15g addWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g selectWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g setVariable ["bodyname",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g setVariable ["delmeplease",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g disableConversation true;
+_spawnTaviGroupLeaderg15g setDir (random(360));
+_spawnTaviGroupLeaderg15g setdamage 0.01;
+
+_spawnTaviGroupLeaderg15g moveInTurret [_object7AI7, [0]];
+};
+
+if(_x == 14) then {
+_soldermodelg15g = _modelarrayg15g select (round(random ((count _modelarrayg15g) - 1)));
+_soldermodelg15g createUnit [[22506.861, 20093.568, 6.7456131], _AISgroupg15g, "_spawnTaviGroupLeaderg15g = this; TavianaSquadg15g = group this;"];
+_spawnTaviGroupLeaderg15g enableAI "TARGET";
+_spawnTaviGroupLeaderg15g enableAI "AUTOTARGET";
+_spawnTaviGroupLeaderg15g enableAI "MOVE";
+_spawnTaviGroupLeaderg15g enableAI "ANIM";
+_spawnTaviGroupLeaderg15g enableAI "FSM";
+_spawnTaviGroupLeaderg15g allowDammage true;
+_spawnTaviGroupLeaderg15g setCombatMode "YELLOW";
+_spawnTaviGroupLeaderg15g setBehaviour "STEALTH";
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingShake",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["commanding",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["endurance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotDistance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotTime",1];
+_spawnTaviGroupLeaderg15g setSkill ["courage",1];
+_spawnTaviGroupLeaderg15g setSkill ["reloadSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["general",1];
+
+_spawnTaviGroupLeaderg15g addweapon "glock17_EP1";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";           
+_spawnTaviGroupLeaderg15g addweapon "ItemMap";
+_spawnTaviGroupLeaderg15g addweapon "ItemHatchet";
+_spawnTaviGroupLeaderg15g addweapon "ItemKnife";
+_spawnTaviGroupLeaderg15g addWeapon "NVGoggles";
+
+_spawnTaviGroupLeaderg15g addWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g selectWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g setVariable ["bodyname",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g setVariable ["delmeplease",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g disableConversation true;
+_spawnTaviGroupLeaderg15g setDir (random(360));
+};
+
+if(_x == 15) then {
+_soldermodelg15g = _modelarrayg15g select (round(random ((count _modelarrayg15g) - 1)));
+_soldermodelg15g createUnit [[22341.91, 19812.959, 18.196922], _AISgroupg15g, "_spawnTaviGroupLeaderg15g = this; TavianaSquadg15g = group this;"];
+_spawnTaviGroupLeaderg15g enableAI "TARGET";
+_spawnTaviGroupLeaderg15g enableAI "AUTOTARGET";
+_spawnTaviGroupLeaderg15g enableAI "MOVE";
+_spawnTaviGroupLeaderg15g enableAI "ANIM";
+_spawnTaviGroupLeaderg15g enableAI "FSM";
+_spawnTaviGroupLeaderg15g allowDammage true;
+_spawnTaviGroupLeaderg15g setCombatMode "YELLOW";
+_spawnTaviGroupLeaderg15g setBehaviour "STEALTH";
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingShake",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["commanding",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["endurance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotDistance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotTime",1];
+_spawnTaviGroupLeaderg15g setSkill ["courage",1];
+_spawnTaviGroupLeaderg15g setSkill ["reloadSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["general",1];
+
+_spawnTaviGroupLeaderg15g addweapon "glock17_EP1";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";           
+_spawnTaviGroupLeaderg15g addweapon "ItemMap";
+_spawnTaviGroupLeaderg15g addweapon "ItemHatchet";
+_spawnTaviGroupLeaderg15g addweapon "ItemKnife";
+_spawnTaviGroupLeaderg15g addWeapon "NVGoggles";
+
+_spawnTaviGroupLeaderg15g addWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g selectWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g setVariable ["bodyname",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g setVariable ["delmeplease",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g disableConversation true;
+_spawnTaviGroupLeaderg15g setDir (random(360));
+};
+
+if(_x == 15) then {
+_soldermodelg15g = _modelarrayg15g select (round(random ((count _modelarrayg15g) - 1)));
+_soldermodelg15g createUnit [[22338.053, 19738.48, 23.59236], _AISgroupg15g, "_spawnTaviGroupLeaderg15g = this; TavianaSquadg15g = group this;"];
+_spawnTaviGroupLeaderg15g enableAI "TARGET";
+_spawnTaviGroupLeaderg15g enableAI "AUTOTARGET";
+_spawnTaviGroupLeaderg15g enableAI "MOVE";
+_spawnTaviGroupLeaderg15g enableAI "ANIM";
+_spawnTaviGroupLeaderg15g enableAI "FSM";
+_spawnTaviGroupLeaderg15g allowDammage true;
+_spawnTaviGroupLeaderg15g setCombatMode "YELLOW";
+_spawnTaviGroupLeaderg15g setBehaviour "STEALTH";
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingShake",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["commanding",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["endurance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotDistance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotTime",1];
+_spawnTaviGroupLeaderg15g setSkill ["courage",1];
+_spawnTaviGroupLeaderg15g setSkill ["reloadSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["general",1];
+
+_spawnTaviGroupLeaderg15g addweapon "glock17_EP1";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";           
+_spawnTaviGroupLeaderg15g addweapon "ItemMap";
+_spawnTaviGroupLeaderg15g addweapon "ItemHatchet";
+_spawnTaviGroupLeaderg15g addweapon "ItemKnife";
+_spawnTaviGroupLeaderg15g addWeapon "NVGoggles";
+
+_spawnTaviGroupLeaderg15g addWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g selectWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g setVariable ["bodyname",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g setVariable ["delmeplease",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g disableConversation true;
+_spawnTaviGroupLeaderg15g setDir (random(360));
+_spawnTaviGroupLeaderg15g setdamage 0.01;
+
+_spawnTaviGroupLeaderg15g moveInTurret [_object8AI8, [0]];
+};
+
+if(_x == 16) then {
+_soldermodelg15g = _modelarrayg15g select (round(random ((count _modelarrayg15g) - 1)));
+_soldermodelg15g createUnit [[22338.945, 19668.734, 23.724304], _AISgroupg15g, "_spawnTaviGroupLeaderg15g = this; TavianaSquadg15g = group this;"];
+_spawnTaviGroupLeaderg15g enableAI "TARGET";
+_spawnTaviGroupLeaderg15g enableAI "AUTOTARGET";
+_spawnTaviGroupLeaderg15g enableAI "MOVE";
+_spawnTaviGroupLeaderg15g enableAI "ANIM";
+_spawnTaviGroupLeaderg15g enableAI "FSM";
+_spawnTaviGroupLeaderg15g allowDammage true;
+_spawnTaviGroupLeaderg15g setCombatMode "YELLOW";
+_spawnTaviGroupLeaderg15g setBehaviour "STEALTH";
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingShake",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["commanding",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["endurance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotDistance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotTime",1];
+_spawnTaviGroupLeaderg15g setSkill ["courage",1];
+_spawnTaviGroupLeaderg15g setSkill ["reloadSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["general",1];
+
+_spawnTaviGroupLeaderg15g addweapon "glock17_EP1";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";           
+_spawnTaviGroupLeaderg15g addweapon "ItemMap";
+_spawnTaviGroupLeaderg15g addweapon "ItemHatchet";
+_spawnTaviGroupLeaderg15g addweapon "ItemKnife";
+_spawnTaviGroupLeaderg15g addWeapon "NVGoggles";
+
+_spawnTaviGroupLeaderg15g addWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g selectWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g setVariable ["bodyname",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g setVariable ["delmeplease",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g disableConversation true;
+_spawnTaviGroupLeaderg15g setDir (random(360));
+_spawnTaviGroupLeaderg15g setdamage 0.01;
+
+_spawnTaviGroupLeaderg15g moveInTurret [_object9AI9, [0]];
+};
+
+if(_x == 17) then {
+_soldermodelg15g = _modelarrayg15g select (round(random ((count _modelarrayg15g) - 1)));
+_soldermodelg15g createUnit [[22489.881, 20006.861, 6.6935573], _AISgroupg15g, "_spawnTaviGroupLeaderg15g = this; TavianaSquadg15g = group this;"];
+_spawnTaviGroupLeaderg15g enableAI "TARGET";
+_spawnTaviGroupLeaderg15g enableAI "AUTOTARGET";
+_spawnTaviGroupLeaderg15g enableAI "MOVE";
+_spawnTaviGroupLeaderg15g enableAI "ANIM";
+_spawnTaviGroupLeaderg15g enableAI "FSM";
+_spawnTaviGroupLeaderg15g allowDammage true;
+_spawnTaviGroupLeaderg15g setCombatMode "YELLOW";
+_spawnTaviGroupLeaderg15g setBehaviour "STEALTH";
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingShake",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["commanding",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["endurance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotDistance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotTime",1];
+_spawnTaviGroupLeaderg15g setSkill ["courage",1];
+_spawnTaviGroupLeaderg15g setSkill ["reloadSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["general",1];
+
+_spawnTaviGroupLeaderg15g addweapon "glock17_EP1";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";           
+_spawnTaviGroupLeaderg15g addweapon "ItemMap";
+_spawnTaviGroupLeaderg15g addweapon "ItemHatchet";
+_spawnTaviGroupLeaderg15g addweapon "ItemKnife";
+_spawnTaviGroupLeaderg15g addWeapon "NVGoggles";
+
+_spawnTaviGroupLeaderg15g addWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g selectWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g setVariable ["bodyname",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g setVariable ["delmeplease",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g disableConversation true;
+_spawnTaviGroupLeaderg15g setDir (random(360));
+};
+
+if(_x == 18) then {
+_soldermodelg15g = _modelarrayg15g select (round(random ((count _modelarrayg15g) - 1)));
+_soldermodelg15g createUnit [[22603.518, 20014.844, 6.9618225e-005], _AISgroupg15g, "_spawnTaviGroupLeaderg15g = this; TavianaSquadg15g = group this;"];
+_spawnTaviGroupLeaderg15g enableAI "TARGET";
+_spawnTaviGroupLeaderg15g enableAI "AUTOTARGET";
+_spawnTaviGroupLeaderg15g enableAI "MOVE";
+_spawnTaviGroupLeaderg15g enableAI "ANIM";
+_spawnTaviGroupLeaderg15g enableAI "FSM";
+_spawnTaviGroupLeaderg15g allowDammage true;
+_spawnTaviGroupLeaderg15g setCombatMode "YELLOW";
+_spawnTaviGroupLeaderg15g setBehaviour "STEALTH";
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingShake",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["commanding",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["endurance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotDistance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotTime",1];
+_spawnTaviGroupLeaderg15g setSkill ["courage",1];
+_spawnTaviGroupLeaderg15g setSkill ["reloadSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["general",1];
+
+_spawnTaviGroupLeaderg15g addweapon "glock17_EP1";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";           
+_spawnTaviGroupLeaderg15g addweapon "ItemMap";
+_spawnTaviGroupLeaderg15g addweapon "ItemHatchet";
+_spawnTaviGroupLeaderg15g addweapon "ItemKnife";
+_spawnTaviGroupLeaderg15g addWeapon "NVGoggles";
+
+_spawnTaviGroupLeaderg15g addWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g selectWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g setVariable ["bodyname",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g setVariable ["delmeplease",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g disableConversation true;
+_spawnTaviGroupLeaderg15g setDir (random(360));
+};
+
+if(_x == 19) then {
+_soldermodelg15g = _modelarrayg15g select (round(random ((count _modelarrayg15g) - 1)));
+_soldermodelg15g createUnit [[22605.471, 19958.34, 9.9182129e-005], _AISgroupg15g, "_spawnTaviGroupLeaderg15g = this; TavianaSquadg15g = group this;"];
+_spawnTaviGroupLeaderg15g enableAI "TARGET";
+_spawnTaviGroupLeaderg15g enableAI "AUTOTARGET";
+_spawnTaviGroupLeaderg15g enableAI "MOVE";
+_spawnTaviGroupLeaderg15g enableAI "ANIM";
+_spawnTaviGroupLeaderg15g enableAI "FSM";
+_spawnTaviGroupLeaderg15g allowDammage true;
+_spawnTaviGroupLeaderg15g setCombatMode "YELLOW";
+_spawnTaviGroupLeaderg15g setBehaviour "STEALTH";
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingShake",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["commanding",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["endurance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotDistance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotTime",1];
+_spawnTaviGroupLeaderg15g setSkill ["courage",1];
+_spawnTaviGroupLeaderg15g setSkill ["reloadSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["general",1];
+
+_spawnTaviGroupLeaderg15g addweapon "glock17_EP1";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";           
+_spawnTaviGroupLeaderg15g addweapon "ItemMap";
+_spawnTaviGroupLeaderg15g addweapon "ItemHatchet";
+_spawnTaviGroupLeaderg15g addweapon "ItemKnife";
+_spawnTaviGroupLeaderg15g addWeapon "NVGoggles";
+
+_spawnTaviGroupLeaderg15g addWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g selectWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g setVariable ["bodyname",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g setVariable ["delmeplease",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g disableConversation true;
+_spawnTaviGroupLeaderg15g setDir (random(360));
+};
+
+if(_x == 20) then {
+_soldermodelg15g = _modelarrayg15g select (round(random ((count _modelarrayg15g) - 1)));
+_soldermodelg15g createUnit [[22580.814, 19945.51, 8.7738037e-005], _AISgroupg15g, "_spawnTaviGroupLeaderg15g = this; TavianaSquadg15g = group this;"];
+_spawnTaviGroupLeaderg15g enableAI "TARGET";
+_spawnTaviGroupLeaderg15g enableAI "AUTOTARGET";
+_spawnTaviGroupLeaderg15g enableAI "MOVE";
+_spawnTaviGroupLeaderg15g enableAI "ANIM";
+_spawnTaviGroupLeaderg15g enableAI "FSM";
+_spawnTaviGroupLeaderg15g allowDammage true;
+_spawnTaviGroupLeaderg15g setCombatMode "YELLOW";
+_spawnTaviGroupLeaderg15g setBehaviour "STEALTH";
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingShake",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["commanding",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["endurance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotDistance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotTime",1];
+_spawnTaviGroupLeaderg15g setSkill ["courage",1];
+_spawnTaviGroupLeaderg15g setSkill ["reloadSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["general",1];
+
+_spawnTaviGroupLeaderg15g addweapon "glock17_EP1";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";           
+_spawnTaviGroupLeaderg15g addweapon "ItemMap";
+_spawnTaviGroupLeaderg15g addweapon "ItemHatchet";
+_spawnTaviGroupLeaderg15g addweapon "ItemKnife";
+_spawnTaviGroupLeaderg15g addWeapon "NVGoggles";
+
+_spawnTaviGroupLeaderg15g addWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g selectWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g setVariable ["bodyname",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g setVariable ["delmeplease",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g disableConversation true;
+_spawnTaviGroupLeaderg15g setDir (random(360));
+};
+
+if(_x == 21) then {
+_soldermodelg15g = _modelarrayg15g select (round(random ((count _modelarrayg15g) - 1)));
+_soldermodelg15g createUnit [[22619.695, 19980.225, 0.00022983551], _AISgroupg15g, "_spawnTaviGroupLeaderg15g = this; TavianaSquadg15g = group this;"];
+_spawnTaviGroupLeaderg15g enableAI "TARGET";
+_spawnTaviGroupLeaderg15g enableAI "AUTOTARGET";
+_spawnTaviGroupLeaderg15g enableAI "MOVE";
+_spawnTaviGroupLeaderg15g enableAI "ANIM";
+_spawnTaviGroupLeaderg15g enableAI "FSM";
+_spawnTaviGroupLeaderg15g allowDammage true;
+_spawnTaviGroupLeaderg15g setCombatMode "YELLOW";
+_spawnTaviGroupLeaderg15g setBehaviour "STEALTH";
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingShake",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["commanding",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["endurance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotDistance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotTime",1];
+_spawnTaviGroupLeaderg15g setSkill ["courage",1];
+_spawnTaviGroupLeaderg15g setSkill ["reloadSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["general",1];
+
+_spawnTaviGroupLeaderg15g addweapon "glock17_EP1";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";           
+_spawnTaviGroupLeaderg15g addweapon "ItemMap";
+_spawnTaviGroupLeaderg15g addweapon "ItemHatchet";
+_spawnTaviGroupLeaderg15g addweapon "ItemKnife";
+_spawnTaviGroupLeaderg15g addWeapon "NVGoggles";
+
+_spawnTaviGroupLeaderg15g addWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g selectWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g setVariable ["bodyname",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g setVariable ["delmeplease",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g disableConversation true;
+_spawnTaviGroupLeaderg15g setDir (random(360));
+};
+
+if(_x == 22) then {
+_soldermodelg15g = _modelarrayg15g select (round(random ((count _modelarrayg15g) - 1)));
+_soldermodelg15g createUnit [[22619.695, 19980.225, 0.00022983551], _AISgroupg15g, "_spawnTaviGroupLeaderg15g = this; TavianaSquadg15g = group this;"];
+_spawnTaviGroupLeaderg15g enableAI "TARGET";
+_spawnTaviGroupLeaderg15g enableAI "AUTOTARGET";
+_spawnTaviGroupLeaderg15g enableAI "MOVE";
+_spawnTaviGroupLeaderg15g enableAI "ANIM";
+_spawnTaviGroupLeaderg15g enableAI "FSM";
+_spawnTaviGroupLeaderg15g allowDammage true;
+_spawnTaviGroupLeaderg15g setCombatMode "YELLOW";
+_spawnTaviGroupLeaderg15g setBehaviour "STEALTH";
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingShake",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["commanding",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["endurance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotDistance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotTime",1];
+_spawnTaviGroupLeaderg15g setSkill ["courage",1];
+_spawnTaviGroupLeaderg15g setSkill ["reloadSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["general",1];
+
+_spawnTaviGroupLeaderg15g addweapon "glock17_EP1";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";           
+_spawnTaviGroupLeaderg15g addweapon "ItemMap";
+_spawnTaviGroupLeaderg15g addweapon "ItemHatchet";
+_spawnTaviGroupLeaderg15g addweapon "ItemKnife";
+_spawnTaviGroupLeaderg15g addWeapon "NVGoggles";
+
+_spawnTaviGroupLeaderg15g addWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g selectWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g setVariable ["bodyname",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g setVariable ["delmeplease",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g disableConversation true;
+_spawnTaviGroupLeaderg15g setDir (random(360));
+};
+
+if(_x == 23) then {
+_soldermodelg15g = _modelarrayg15g select (round(random ((count _modelarrayg15g) - 1)));
+_soldermodelg15g createUnit [[22547.92, 19867.924, -5.2452087e-005], _AISgroupg15g, "_spawnTaviGroupLeaderg15g = this; TavianaSquadg15g = group this;"];
+_spawnTaviGroupLeaderg15g enableAI "TARGET";
+_spawnTaviGroupLeaderg15g enableAI "AUTOTARGET";
+_spawnTaviGroupLeaderg15g enableAI "MOVE";
+_spawnTaviGroupLeaderg15g enableAI "ANIM";
+_spawnTaviGroupLeaderg15g enableAI "FSM";
+_spawnTaviGroupLeaderg15g allowDammage true;
+_spawnTaviGroupLeaderg15g setCombatMode "YELLOW";
+_spawnTaviGroupLeaderg15g setBehaviour "STEALTH";
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingShake",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["commanding",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["endurance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotDistance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotTime",1];
+_spawnTaviGroupLeaderg15g setSkill ["courage",1];
+_spawnTaviGroupLeaderg15g setSkill ["reloadSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["general",1];
+
+_spawnTaviGroupLeaderg15g addweapon "glock17_EP1";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";           
+_spawnTaviGroupLeaderg15g addweapon "ItemMap";
+_spawnTaviGroupLeaderg15g addweapon "ItemHatchet";
+_spawnTaviGroupLeaderg15g addweapon "ItemKnife";
+_spawnTaviGroupLeaderg15g addWeapon "NVGoggles";
+
+_spawnTaviGroupLeaderg15g addWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g selectWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g setVariable ["bodyname",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g setVariable ["delmeplease",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g disableConversation true;
+_spawnTaviGroupLeaderg15g setDir (random(360));
+};
+
+if(_x == 24) then {
+_soldermodelg15g = _modelarrayg15g select (round(random ((count _modelarrayg15g) - 1)));
+_soldermodelg15g createUnit [[22426.881, 19976.629, -6.9618225e-005], _AISgroupg15g, "_spawnTaviGroupLeaderg15g = this; TavianaSquadg15g = group this;"];
+_spawnTaviGroupLeaderg15g enableAI "TARGET";
+_spawnTaviGroupLeaderg15g enableAI "AUTOTARGET";
+_spawnTaviGroupLeaderg15g enableAI "MOVE";
+_spawnTaviGroupLeaderg15g enableAI "ANIM";
+_spawnTaviGroupLeaderg15g enableAI "FSM";
+_spawnTaviGroupLeaderg15g allowDammage true;
+_spawnTaviGroupLeaderg15g setCombatMode "YELLOW";
+_spawnTaviGroupLeaderg15g setBehaviour "STEALTH";
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingShake",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["commanding",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["endurance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotDistance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotTime",1];
+_spawnTaviGroupLeaderg15g setSkill ["courage",1];
+_spawnTaviGroupLeaderg15g setSkill ["reloadSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["general",1];
+
+_spawnTaviGroupLeaderg15g addweapon "glock17_EP1";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";           
+_spawnTaviGroupLeaderg15g addweapon "ItemMap";
+_spawnTaviGroupLeaderg15g addweapon "ItemHatchet";
+_spawnTaviGroupLeaderg15g addweapon "ItemKnife";
+_spawnTaviGroupLeaderg15g addWeapon "NVGoggles";
+
+_spawnTaviGroupLeaderg15g addWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g selectWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g setVariable ["bodyname",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g setVariable ["delmeplease",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g disableConversation true;
+_spawnTaviGroupLeaderg15g setDir (random(360));
+};
+
+if(_x == 25) then {
+_soldermodelg15g = _modelarrayg15g select (round(random ((count _modelarrayg15g) - 1)));
+_soldermodelg15g createUnit [[22446.881, 19976.332, -2.8610229e-005], _AISgroupg15g, "_spawnTaviGroupLeaderg15g = this; TavianaSquadg15g = group this;"];
+_spawnTaviGroupLeaderg15g enableAI "TARGET";
+_spawnTaviGroupLeaderg15g enableAI "AUTOTARGET";
+_spawnTaviGroupLeaderg15g enableAI "MOVE";
+_spawnTaviGroupLeaderg15g enableAI "ANIM";
+_spawnTaviGroupLeaderg15g enableAI "FSM";
+_spawnTaviGroupLeaderg15g allowDammage true;
+_spawnTaviGroupLeaderg15g setCombatMode "YELLOW";
+_spawnTaviGroupLeaderg15g setBehaviour "STEALTH";
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingShake",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["commanding",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["endurance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotDistance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotTime",1];
+_spawnTaviGroupLeaderg15g setSkill ["courage",1];
+_spawnTaviGroupLeaderg15g setSkill ["reloadSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["general",1];
+
+_spawnTaviGroupLeaderg15g addweapon "glock17_EP1";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";           
+_spawnTaviGroupLeaderg15g addweapon "ItemMap";
+_spawnTaviGroupLeaderg15g addweapon "ItemHatchet";
+_spawnTaviGroupLeaderg15g addweapon "ItemKnife";
+_spawnTaviGroupLeaderg15g addWeapon "NVGoggles";
+
+_spawnTaviGroupLeaderg15g addWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g selectWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g setVariable ["bodyname",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g setVariable ["delmeplease",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g disableConversation true;
+_spawnTaviGroupLeaderg15g setDir (random(360));
+};
+
+if(_x == 26) then {
+_soldermodelg15g = _modelarrayg15g select (round(random ((count _modelarrayg15g) - 1)));
+_soldermodelg15g createUnit [[22461.607, 19973.951, 5.8174133e-005], _AISgroupg15g, "_spawnTaviGroupLeaderg15g = this; TavianaSquadg15g = group this;"];
+_spawnTaviGroupLeaderg15g enableAI "TARGET";
+_spawnTaviGroupLeaderg15g enableAI "AUTOTARGET";
+_spawnTaviGroupLeaderg15g enableAI "MOVE";
+_spawnTaviGroupLeaderg15g enableAI "ANIM";
+_spawnTaviGroupLeaderg15g enableAI "FSM";
+_spawnTaviGroupLeaderg15g allowDammage true;
+_spawnTaviGroupLeaderg15g setCombatMode "YELLOW";
+_spawnTaviGroupLeaderg15g setBehaviour "STEALTH";
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingShake",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["commanding",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["endurance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotDistance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotTime",1];
+_spawnTaviGroupLeaderg15g setSkill ["courage",1];
+_spawnTaviGroupLeaderg15g setSkill ["reloadSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["general",1];
+
+_spawnTaviGroupLeaderg15g addweapon "glock17_EP1";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";           
+_spawnTaviGroupLeaderg15g addweapon "ItemMap";
+_spawnTaviGroupLeaderg15g addweapon "ItemHatchet";
+_spawnTaviGroupLeaderg15g addweapon "ItemKnife";
+_spawnTaviGroupLeaderg15g addWeapon "NVGoggles";
+
+_spawnTaviGroupLeaderg15g addWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g selectWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g setVariable ["bodyname",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g setVariable ["delmeplease",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g disableConversation true;
+_spawnTaviGroupLeaderg15g setDir (random(360));
+};
+
+if(_x == 27) then {
+_soldermodelg15g = _modelarrayg15g select (round(random ((count _modelarrayg15g) - 1)));
+_soldermodelg15g createUnit [[22451.443, 19919.066, 8.8691711e-005], _AISgroupg15g, "_spawnTaviGroupLeaderg15g = this; TavianaSquadg15g = group this;"];
+_spawnTaviGroupLeaderg15g enableAI "TARGET";
+_spawnTaviGroupLeaderg15g enableAI "AUTOTARGET";
+_spawnTaviGroupLeaderg15g enableAI "MOVE";
+_spawnTaviGroupLeaderg15g enableAI "ANIM";
+_spawnTaviGroupLeaderg15g enableAI "FSM";
+_spawnTaviGroupLeaderg15g allowDammage true;
+_spawnTaviGroupLeaderg15g setCombatMode "YELLOW";
+_spawnTaviGroupLeaderg15g setBehaviour "STEALTH";
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingShake",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["commanding",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["endurance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotDistance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotTime",1];
+_spawnTaviGroupLeaderg15g setSkill ["courage",1];
+_spawnTaviGroupLeaderg15g setSkill ["reloadSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["general",1];
+
+_spawnTaviGroupLeaderg15g addweapon "glock17_EP1";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";           
+_spawnTaviGroupLeaderg15g addweapon "ItemMap";
+_spawnTaviGroupLeaderg15g addweapon "ItemHatchet";
+_spawnTaviGroupLeaderg15g addweapon "ItemKnife";
+_spawnTaviGroupLeaderg15g addWeapon "NVGoggles";
+
+_spawnTaviGroupLeaderg15g addWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g selectWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g setVariable ["bodyname",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g setVariable ["delmeplease",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g disableConversation true;
+_spawnTaviGroupLeaderg15g setDir (random(360));
+};
+
+if(_x == 28) then {
+_soldermodelg15g = _modelarrayg15g select (round(random ((count _modelarrayg15g) - 1)));
+_soldermodelg15g createUnit [[22485.123, 19914.164, 5.1021576e-005], _AISgroupg15g, "_spawnTaviGroupLeaderg15g = this; TavianaSquadg15g = group this;"];
+_spawnTaviGroupLeaderg15g enableAI "TARGET";
+_spawnTaviGroupLeaderg15g enableAI "AUTOTARGET";
+_spawnTaviGroupLeaderg15g enableAI "MOVE";
+_spawnTaviGroupLeaderg15g enableAI "ANIM";
+_spawnTaviGroupLeaderg15g enableAI "FSM";
+_spawnTaviGroupLeaderg15g allowDammage true;
+_spawnTaviGroupLeaderg15g setCombatMode "YELLOW";
+_spawnTaviGroupLeaderg15g setBehaviour "STEALTH";
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingShake",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["commanding",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["endurance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotDistance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotTime",1];
+_spawnTaviGroupLeaderg15g setSkill ["courage",1];
+_spawnTaviGroupLeaderg15g setSkill ["reloadSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["general",1];
+
+_spawnTaviGroupLeaderg15g addweapon "glock17_EP1";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";           
+_spawnTaviGroupLeaderg15g addweapon "ItemMap";
+_spawnTaviGroupLeaderg15g addweapon "ItemHatchet";
+_spawnTaviGroupLeaderg15g addweapon "ItemKnife";
+_spawnTaviGroupLeaderg15g addWeapon "NVGoggles";
+
+_spawnTaviGroupLeaderg15g addWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g selectWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g setVariable ["bodyname",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g setVariable ["delmeplease",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g disableConversation true;
+_spawnTaviGroupLeaderg15g setDir (random(360));
+};
+
+if(_x == 29) then {
+_soldermodelg15g = _modelarrayg15g select (round(random ((count _modelarrayg15g) - 1)));
+_soldermodelg15g createUnit [[22392.418, 20016.414, -0.0001616478], _AISgroupg15g, "_spawnTaviGroupLeaderg15g = this; TavianaSquadg15g = group this;"];
+_spawnTaviGroupLeaderg15g enableAI "TARGET";
+_spawnTaviGroupLeaderg15g enableAI "AUTOTARGET";
+_spawnTaviGroupLeaderg15g enableAI "MOVE";
+_spawnTaviGroupLeaderg15g enableAI "ANIM";
+_spawnTaviGroupLeaderg15g enableAI "FSM";
+_spawnTaviGroupLeaderg15g allowDammage true;
+_spawnTaviGroupLeaderg15g setCombatMode "YELLOW";
+_spawnTaviGroupLeaderg15g setBehaviour "STEALTH";
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingShake",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["commanding",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["endurance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotDistance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotTime",1];
+_spawnTaviGroupLeaderg15g setSkill ["courage",1];
+_spawnTaviGroupLeaderg15g setSkill ["reloadSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["general",1];
+
+_spawnTaviGroupLeaderg15g addweapon "glock17_EP1";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";           
+_spawnTaviGroupLeaderg15g addweapon "ItemMap";
+_spawnTaviGroupLeaderg15g addweapon "ItemHatchet";
+_spawnTaviGroupLeaderg15g addweapon "ItemKnife";
+_spawnTaviGroupLeaderg15g addWeapon "NVGoggles";
+
+_spawnTaviGroupLeaderg15g addWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g selectWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g setVariable ["bodyname",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g setVariable ["delmeplease",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g disableConversation true;
+_spawnTaviGroupLeaderg15g setDir (random(360));
+};
+
+if(_x == 30) then {
+_soldermodelg15g = _modelarrayg15g select (round(random ((count _modelarrayg15g) - 1)));
+_soldermodelg15g createUnit [[22396.578, 20038.521, -1.5258789e-005], _AISgroupg15g, "_spawnTaviGroupLeaderg15g = this; TavianaSquadg15g = group this;"];
+_spawnTaviGroupLeaderg15g enableAI "TARGET";
+_spawnTaviGroupLeaderg15g enableAI "AUTOTARGET";
+_spawnTaviGroupLeaderg15g enableAI "MOVE";
+_spawnTaviGroupLeaderg15g enableAI "ANIM";
+_spawnTaviGroupLeaderg15g enableAI "FSM";
+_spawnTaviGroupLeaderg15g allowDammage true;
+_spawnTaviGroupLeaderg15g setCombatMode "YELLOW";
+_spawnTaviGroupLeaderg15g setBehaviour "STEALTH";
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingShake",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["commanding",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["endurance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotDistance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotTime",1];
+_spawnTaviGroupLeaderg15g setSkill ["courage",1];
+_spawnTaviGroupLeaderg15g setSkill ["reloadSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["general",1];
+
+_spawnTaviGroupLeaderg15g addweapon "glock17_EP1";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";           
+_spawnTaviGroupLeaderg15g addweapon "ItemMap";
+_spawnTaviGroupLeaderg15g addweapon "ItemHatchet";
+_spawnTaviGroupLeaderg15g addweapon "ItemKnife";
+_spawnTaviGroupLeaderg15g addWeapon "NVGoggles";
+
+_spawnTaviGroupLeaderg15g addWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g selectWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g setVariable ["bodyname",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g setVariable ["delmeplease",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g disableConversation true;
+_spawnTaviGroupLeaderg15g setDir (random(360));
+};
+
+if(_x == 31) then {
+_soldermodelg15g = _modelarrayg15g select (round(random ((count _modelarrayg15g) - 1)));
+_soldermodelg15g createUnit [[22392.375, 20007.441, 1.8596649e-005], _AISgroupg15g, "_spawnTaviGroupLeaderg15g = this; TavianaSquadg15g = group this;"];
+_spawnTaviGroupLeaderg15g enableAI "TARGET";
+_spawnTaviGroupLeaderg15g enableAI "AUTOTARGET";
+_spawnTaviGroupLeaderg15g enableAI "MOVE";
+_spawnTaviGroupLeaderg15g enableAI "ANIM";
+_spawnTaviGroupLeaderg15g enableAI "FSM";
+_spawnTaviGroupLeaderg15g allowDammage true;
+_spawnTaviGroupLeaderg15g setCombatMode "YELLOW";
+_spawnTaviGroupLeaderg15g setBehaviour "STEALTH";
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingShake",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["commanding",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["endurance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotDistance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotTime",1];
+_spawnTaviGroupLeaderg15g setSkill ["courage",1];
+_spawnTaviGroupLeaderg15g setSkill ["reloadSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["general",1];
+
+_spawnTaviGroupLeaderg15g addweapon "glock17_EP1";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";           
+_spawnTaviGroupLeaderg15g addweapon "ItemMap";
+_spawnTaviGroupLeaderg15g addweapon "ItemHatchet";
+_spawnTaviGroupLeaderg15g addweapon "ItemKnife";
+_spawnTaviGroupLeaderg15g addWeapon "NVGoggles";
+
+_spawnTaviGroupLeaderg15g addWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g selectWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g setVariable ["bodyname",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g setVariable ["delmeplease",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g disableConversation true;
+_spawnTaviGroupLeaderg15g setDir (random(360));
+};
+
+if(_x == 32) then {
+_soldermodelg15g = _modelarrayg15g select (round(random ((count _modelarrayg15g) - 1)));
+_soldermodelg15g createUnit [[22579.611, 19945.566, -1.001358e-005], _AISgroupg15g, "_spawnTaviGroupLeaderg15g = this; TavianaSquadg15g = group this;"];
+_spawnTaviGroupLeaderg15g enableAI "TARGET";
+_spawnTaviGroupLeaderg15g enableAI "AUTOTARGET";
+_spawnTaviGroupLeaderg15g enableAI "MOVE";
+_spawnTaviGroupLeaderg15g enableAI "ANIM";
+_spawnTaviGroupLeaderg15g enableAI "FSM";
+_spawnTaviGroupLeaderg15g allowDammage true;
+_spawnTaviGroupLeaderg15g setCombatMode "YELLOW";
+_spawnTaviGroupLeaderg15g setBehaviour "STEALTH";
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingShake",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["commanding",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["endurance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotDistance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotTime",1];
+_spawnTaviGroupLeaderg15g setSkill ["courage",1];
+_spawnTaviGroupLeaderg15g setSkill ["reloadSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["general",1];
+
+_spawnTaviGroupLeaderg15g addweapon "glock17_EP1";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";           
+_spawnTaviGroupLeaderg15g addweapon "ItemMap";
+_spawnTaviGroupLeaderg15g addweapon "ItemHatchet";
+_spawnTaviGroupLeaderg15g addweapon "ItemKnife";
+_spawnTaviGroupLeaderg15g addWeapon "NVGoggles";
+
+_spawnTaviGroupLeaderg15g addWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g selectWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g setVariable ["bodyname",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g setVariable ["delmeplease",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g disableConversation true;
+_spawnTaviGroupLeaderg15g setDir (random(360));
+};
+
+if(_x == 33) then {
+_soldermodelg15g = _modelarrayg15g select (round(random ((count _modelarrayg15g) - 1)));
+_soldermodelg15g createUnit [[22647.006, 19948.678, 0.00010681152], _AISgroupg15g, "_spawnTaviGroupLeaderg15g = this; TavianaSquadg15g = group this;"];
+_spawnTaviGroupLeaderg15g enableAI "TARGET";
+_spawnTaviGroupLeaderg15g enableAI "AUTOTARGET";
+_spawnTaviGroupLeaderg15g enableAI "MOVE";
+_spawnTaviGroupLeaderg15g enableAI "ANIM";
+_spawnTaviGroupLeaderg15g enableAI "FSM";
+_spawnTaviGroupLeaderg15g allowDammage true;
+_spawnTaviGroupLeaderg15g setCombatMode "YELLOW";
+_spawnTaviGroupLeaderg15g setBehaviour "STEALTH";
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingShake",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["commanding",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["endurance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotDistance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotTime",1];
+_spawnTaviGroupLeaderg15g setSkill ["courage",1];
+_spawnTaviGroupLeaderg15g setSkill ["reloadSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["general",1];
+
+_spawnTaviGroupLeaderg15g addweapon "glock17_EP1";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";           
+_spawnTaviGroupLeaderg15g addweapon "ItemMap";
+_spawnTaviGroupLeaderg15g addweapon "ItemHatchet";
+_spawnTaviGroupLeaderg15g addweapon "ItemKnife";
+_spawnTaviGroupLeaderg15g addWeapon "NVGoggles";
+
+_spawnTaviGroupLeaderg15g addWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g selectWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g setVariable ["bodyname",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g setVariable ["delmeplease",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g disableConversation true;
+_spawnTaviGroupLeaderg15g setDir (random(360));
+};
+
+if(_x == 34) then {
+_soldermodelg15g = _modelarrayg15g select (round(random ((count _modelarrayg15g) - 1)));
+_soldermodelg15g createUnit [[22580.254, 20123.639, -4.0531158e-005], _AISgroupg15g, "_spawnTaviGroupLeaderg15g = this; TavianaSquadg15g = group this;"];
+_spawnTaviGroupLeaderg15g enableAI "TARGET";
+_spawnTaviGroupLeaderg15g enableAI "AUTOTARGET";
+_spawnTaviGroupLeaderg15g enableAI "MOVE";
+_spawnTaviGroupLeaderg15g enableAI "ANIM";
+_spawnTaviGroupLeaderg15g enableAI "FSM";
+_spawnTaviGroupLeaderg15g allowDammage true;
+_spawnTaviGroupLeaderg15g setCombatMode "YELLOW";
+_spawnTaviGroupLeaderg15g setBehaviour "STEALTH";
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingShake",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["commanding",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["endurance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotDistance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotTime",1];
+_spawnTaviGroupLeaderg15g setSkill ["courage",1];
+_spawnTaviGroupLeaderg15g setSkill ["reloadSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["general",1];
+
+_spawnTaviGroupLeaderg15g addweapon "glock17_EP1";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";           
+_spawnTaviGroupLeaderg15g addweapon "ItemMap";
+_spawnTaviGroupLeaderg15g addweapon "ItemHatchet";
+_spawnTaviGroupLeaderg15g addweapon "ItemKnife";
+_spawnTaviGroupLeaderg15g addWeapon "NVGoggles";
+
+_spawnTaviGroupLeaderg15g addWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g selectWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g setVariable ["bodyname",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g setVariable ["delmeplease",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g disableConversation true;
+_spawnTaviGroupLeaderg15g setDir (random(360));
+};
+
+if(_x == 35) then {
+_soldermodelg15g = _modelarrayg15g select (round(random ((count _modelarrayg15g) - 1)));
+_soldermodelg15g createUnit [[22903.729, 19853.461, 5.6459026], _AISgroupg15g, "_spawnTaviGroupLeaderg15g = this; TavianaSquadg15g = group this;"];
+_spawnTaviGroupLeaderg15g enableAI "TARGET";
+_spawnTaviGroupLeaderg15g enableAI "AUTOTARGET";
+_spawnTaviGroupLeaderg15g enableAI "MOVE";
+_spawnTaviGroupLeaderg15g enableAI "ANIM";
+_spawnTaviGroupLeaderg15g enableAI "FSM";
+_spawnTaviGroupLeaderg15g allowDammage true;
+_spawnTaviGroupLeaderg15g setCombatMode "YELLOW";
+_spawnTaviGroupLeaderg15g setBehaviour "STEALTH";
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingShake",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["commanding",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["endurance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotDistance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotTime",1];
+_spawnTaviGroupLeaderg15g setSkill ["courage",1];
+_spawnTaviGroupLeaderg15g setSkill ["reloadSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["general",1];
+
+_spawnTaviGroupLeaderg15g addweapon "glock17_EP1";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";           
+_spawnTaviGroupLeaderg15g addweapon "ItemMap";
+_spawnTaviGroupLeaderg15g addweapon "ItemHatchet";
+_spawnTaviGroupLeaderg15g addweapon "ItemKnife";
+_spawnTaviGroupLeaderg15g addWeapon "NVGoggles";
+
+_spawnTaviGroupLeaderg15g addWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g selectWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g setVariable ["bodyname",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g setVariable ["delmeplease",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g disableConversation true;
+_spawnTaviGroupLeaderg15g setDir (random(360));
+};
+
+if(_x == 36) then {
+_soldermodelg15g = _modelarrayg15g select (round(random ((count _modelarrayg15g) - 1)));
+_soldermodelg15g createUnit [[22898.303, 19857.375, 7.0013499], _AISgroupg15g, "_spawnTaviGroupLeaderg15g = this; TavianaSquadg15g = group this;"];
+_spawnTaviGroupLeaderg15g enableAI "TARGET";
+_spawnTaviGroupLeaderg15g enableAI "AUTOTARGET";
+_spawnTaviGroupLeaderg15g enableAI "MOVE";
+_spawnTaviGroupLeaderg15g enableAI "ANIM";
+_spawnTaviGroupLeaderg15g enableAI "FSM";
+_spawnTaviGroupLeaderg15g allowDammage true;
+_spawnTaviGroupLeaderg15g setCombatMode "YELLOW";
+_spawnTaviGroupLeaderg15g setBehaviour "STEALTH";
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingShake",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["commanding",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["endurance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotDistance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotTime",1];
+_spawnTaviGroupLeaderg15g setSkill ["courage",1];
+_spawnTaviGroupLeaderg15g setSkill ["reloadSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["general",1];
+
+_spawnTaviGroupLeaderg15g addweapon "glock17_EP1";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";           
+_spawnTaviGroupLeaderg15g addweapon "ItemMap";
+_spawnTaviGroupLeaderg15g addweapon "ItemHatchet";
+_spawnTaviGroupLeaderg15g addweapon "ItemKnife";
+_spawnTaviGroupLeaderg15g addWeapon "NVGoggles";
+
+_spawnTaviGroupLeaderg15g addWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g selectWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g setVariable ["bodyname",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g setVariable ["delmeplease",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g disableConversation true;
+_spawnTaviGroupLeaderg15g setDir (random(360));
+};
+
+if(_x == 37) then {
+_soldermodelg15g = _modelarrayg15g select (round(random ((count _modelarrayg15g) - 1)));
+_soldermodelg15g createUnit [[22884.709, 19872.719, 10.899268], _AISgroupg15g, "_spawnTaviGroupLeaderg15g = this; TavianaSquadg15g = group this;"];
+_spawnTaviGroupLeaderg15g enableAI "TARGET";
+_spawnTaviGroupLeaderg15g enableAI "AUTOTARGET";
+_spawnTaviGroupLeaderg15g enableAI "MOVE";
+_spawnTaviGroupLeaderg15g enableAI "ANIM";
+_spawnTaviGroupLeaderg15g enableAI "FSM";
+_spawnTaviGroupLeaderg15g allowDammage true;
+_spawnTaviGroupLeaderg15g setCombatMode "YELLOW";
+_spawnTaviGroupLeaderg15g setBehaviour "STEALTH";
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingShake",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["commanding",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["endurance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotDistance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotTime",1];
+_spawnTaviGroupLeaderg15g setSkill ["courage",1];
+_spawnTaviGroupLeaderg15g setSkill ["reloadSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["general",1];
+
+_spawnTaviGroupLeaderg15g addweapon "glock17_EP1";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";           
+_spawnTaviGroupLeaderg15g addweapon "ItemMap";
+_spawnTaviGroupLeaderg15g addweapon "ItemHatchet";
+_spawnTaviGroupLeaderg15g addweapon "ItemKnife";
+_spawnTaviGroupLeaderg15g addWeapon "NVGoggles";
+
+_spawnTaviGroupLeaderg15g addWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g selectWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g setVariable ["bodyname",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g setVariable ["delmeplease",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g disableConversation true;
+_spawnTaviGroupLeaderg15g setDir (random(360));
+
+_spawnTaviGroupLeaderg15g setdamage 0.01;
+
+_spawnTaviGroupLeaderg15g moveInTurret [_object10AI10, [0]];
+};
+
+if(_x == 38) then {
+_soldermodelg15g = _modelarrayg15g select (round(random ((count _modelarrayg15g) - 1)));
+_soldermodelg15g createUnit [[22133.213, 19851.682, 13.693636], _AISgroupg15g, "_spawnTaviGroupLeaderg15g = this; TavianaSquadg15g = group this;"];
+_spawnTaviGroupLeaderg15g enableAI "TARGET";
+_spawnTaviGroupLeaderg15g enableAI "AUTOTARGET";
+_spawnTaviGroupLeaderg15g enableAI "MOVE";
+_spawnTaviGroupLeaderg15g enableAI "ANIM";
+_spawnTaviGroupLeaderg15g enableAI "FSM";
+_spawnTaviGroupLeaderg15g allowDammage true;
+_spawnTaviGroupLeaderg15g setCombatMode "YELLOW";
+_spawnTaviGroupLeaderg15g setBehaviour "STEALTH";
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingShake",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["commanding",1];
+_spawnTaviGroupLeaderg15g setSkill ["aimingAccuracy",1];
+_spawnTaviGroupLeaderg15g setSkill ["endurance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotDistance",1];
+_spawnTaviGroupLeaderg15g setSkill ["spotTime",1];
+_spawnTaviGroupLeaderg15g setSkill ["courage",1];
+_spawnTaviGroupLeaderg15g setSkill ["reloadSpeed",1];
+_spawnTaviGroupLeaderg15g setSkill ["general",1];
+
+_spawnTaviGroupLeaderg15g addweapon "glock17_EP1";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "17Rnd_9x19_glock17";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";
+_spawnTaviGroupLeaderg15g addMagazine "ItemBandage";           
+_spawnTaviGroupLeaderg15g addweapon "ItemMap";
+_spawnTaviGroupLeaderg15g addweapon "ItemHatchet";
+_spawnTaviGroupLeaderg15g addweapon "ItemKnife";
+_spawnTaviGroupLeaderg15g addWeapon "NVGoggles";
+
+_spawnTaviGroupLeaderg15g addWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g addMagazine "75Rnd_545x39_RPK";
+_spawnTaviGroupLeaderg15g selectWeapon "RPK_74";
+_spawnTaviGroupLeaderg15g setVariable ["bodyname",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g setVariable ["delmeplease",_bodynameig15g,false];
+_spawnTaviGroupLeaderg15g disableConversation true;
+_spawnTaviGroupLeaderg15g setDir (random(360));
+
+_spawnTaviGroupLeaderg15g setdamage 0.01;
+
+_spawnTaviGroupLeaderg15g moveInTurret [_object11AI11, [0]];
+};
+};     
+
+diag_log("DEBUG: Spawning Taviana Guards from Group g15g at position");
+diag_log("Taviana Guards spawn Group g15g end");
+};
 
 diag_log "Armory start";
 
@@ -1583,6 +3483,7 @@ _io1 = [] call start_guardsg01g;
 _iog13g = [] call start_guardsg13g;
 _iog14g = [] call raid_helis;
 _io1c = [] call start_civilian1c; 
+_iog15g = [] call start_guardsg15g;
 
 
 diag_log("Armory End");
