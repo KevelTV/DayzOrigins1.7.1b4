@@ -556,6 +556,10 @@ private["_spawnTaviGroupLeaderg01g","_AISgroupg01g","_x10","_rndCountg01g","_rnd
 east setFriend [west,0];
 east setFriend [sideLogic,1];
 
+_object5AI5 = createVehicle ["UAZ_MG_DZ", [22884.246, 19841.74, 10.601068], [], 0, "CAN_COLLIDE"];
+_object5AI5 setvelocity [0,0,1];
+_object5AI5 setFuel 1;
+
 _AISgroupg01g = createGroup east;   
 _modelarrayg01g = ["SectorB_def","SectorB_def","SectorB_def"];
 
@@ -600,6 +604,7 @@ _spawnTaviGroupLeaderg01g addMagazine "ItemBandage";
 _spawnTaviGroupLeaderg01g addweapon "ItemMap";
 _spawnTaviGroupLeaderg01g addweapon "ItemHatchet";
 _spawnTaviGroupLeaderg01g addweapon "ItemKnife";
+_spawnTaviGroupLeaderg01g addWeapon "NVGoggles";
 
 _spawnTaviGroupLeaderg01g addweapon "Sa58V_EP1";
 _spawnTaviGroupLeaderg01g addMagazine "30Rnd_762x39_SA58";
@@ -645,6 +650,7 @@ _spawnAISg01g addMagazine "100Rnd_762x54_PK";
 _spawnAISg01g addMagazine "100Rnd_762x54_PK";
 _spawnAISg01g addMagazine "100Rnd_762x54_PK";
 _spawnAISg01g selectWeapon "Pecheneg_DZ";
+_spawnAISg01g addWeapon "NVGoggles";
 };
 if((_x >= 7) and (_x <= 11)) then {
 _spawnAISg01g addweapon "AK_47_M";
@@ -655,6 +661,7 @@ _spawnAISg01g addMagazine "30Rnd_762x39_AK47";
 _spawnAISg01g addMagazine "30Rnd_762x39_AK47";
 _spawnAISg01g addMagazine "30Rnd_762x39_AK47";
 _spawnAISg01g selectWeapon "AK_47_M";
+_spawnAISg01g addWeapon "NVGoggles";
 };
 if((_x >= 12) and (_x <= 16)) then {
 _spawnAISg01g addweapon "AK_47_M";
@@ -678,6 +685,7 @@ _spawnAISg01g addMagazine "30Rnd_556x45_G36";
 _spawnAISg01g addMagazine "30Rnd_556x45_G36";
 _spawnAISg01g addMagazine "30Rnd_556x45_G36";
 _spawnAISg01g selectWeapon "G36C_camo";
+_spawnAISg01g addWeapon "NVGoggles";
 };
 if((_x >= 22) and (_x <= 26)) then {
 _spawnAISg01g addweapon "SVD";
@@ -690,6 +698,7 @@ _spawnAISg01g addMagazine "10Rnd_762x54_SVD";
 _spawnAISg01g addMagazine "10Rnd_762x54_SVD";
 _spawnAISg01g addMagazine "10Rnd_762x54_SVD";
 _spawnAISg01g selectWeapon "SVD";
+_spawnAISg01g addWeapon "NVGoggles";
 };
 if((_x >= 27) and (_x <= 31)) then {
 _spawnAISg01g addweapon "FN_FAL";
@@ -700,6 +709,7 @@ _spawnAISg01g addMagazine "20Rnd_762x51_FNFAL";
 _spawnAISg01g addMagazine "20Rnd_762x51_FNFAL";
 _spawnAISg01g addMagazine "20Rnd_762x51_FNFAL";
 _spawnAISg01g selectWeapon "FN_FAL";
+_spawnAISg01g addWeapon "NVGoggles";
 };
 if((_x >= 32) and (_x <= 36)) then {
 _spawnAISg01g addweapon "LeeEnfield";
@@ -710,6 +720,7 @@ _spawnAISg01g addMagazine "10x_303";
 _spawnAISg01g addMagazine "10x_303";
 _spawnAISg01g addMagazine "10x_303";
 _spawnAISg01g selectWeapon "LeeEnfield";
+_spawnAISg01g addWeapon "NVGoggles";
 };
 if((_x >= 37) and (_x <= 41)) then {
 _spawnAISg01g addweapon "Sa58V_EP1";
@@ -722,9 +733,12 @@ _spawnAISg01g addMagazine "30Rnd_762x39_SA58";
 _spawnAISg01g addMagazine "30Rnd_762x39_SA58";
 _spawnAISg01g addMagazine "30Rnd_762x39_SA58";
 _spawnAISg01g selectWeapon "Sa58V_EP1";
+_spawnAISg01g addWeapon "NVGoggles";
 };
 
-if(_x >= 42) then {
+if(_x == 42) then {
+_spawnAISg01g createunit [[23031.76, 19346.992, 9.9921618],_AISgroupg01g, "_spawnAISg01g = this;"];
+_spawnAISg01g setPosASL [23031.76, 19346.992, 9.9921618];
 _spawnAISg01g addweapon "RPK_74";
 _spawnAISg01g addMagazine "75Rnd_545x39_RPK";
 _spawnAISg01g addMagazine "75Rnd_545x39_RPK";
@@ -732,7 +746,49 @@ _spawnAISg01g addMagazine "75Rnd_545x39_RPK";
 _spawnAISg01g addMagazine "75Rnd_545x39_RPK";
 _spawnAISg01g addMagazine "75Rnd_545x39_RPK";
 _spawnAISg01g selectWeapon "RPK_74";
+_spawnAISg01g addWeapon "NVGoggles";
 };
+
+if(_x == 43) then {
+_spawnAISg01g createunit [[23032.328, 19372.33, 9.9963274],_AISgroupg01g, "_spawnAISg01g = this;"];
+_spawnAISg01g setPosASL [23032.328, 19372.33, 9.9963274];
+_spawnAISg01g addweapon "RPK_74";
+_spawnAISg01g addMagazine "75Rnd_545x39_RPK";
+_spawnAISg01g addMagazine "75Rnd_545x39_RPK";
+_spawnAISg01g addMagazine "75Rnd_545x39_RPK";
+_spawnAISg01g addMagazine "75Rnd_545x39_RPK";
+_spawnAISg01g addMagazine "75Rnd_545x39_RPK";
+_spawnAISg01g selectWeapon "RPK_74";
+_spawnAISg01g addWeapon "NVGoggles";
+};
+
+if(_x == 44) then {
+_spawnAISg01g createunit [[23032.229, 19397.83, 9.9918137],_AISgroupg01g, "_spawnAISg01g = this;"];
+_spawnAISg01g setPosASL [23032.229, 19397.83, 9.9918137];
+_spawnAISg01g addweapon "RPK_74";
+_spawnAISg01g addMagazine "75Rnd_545x39_RPK";
+_spawnAISg01g addMagazine "75Rnd_545x39_RPK";
+_spawnAISg01g addMagazine "75Rnd_545x39_RPK";
+_spawnAISg01g addMagazine "75Rnd_545x39_RPK";
+_spawnAISg01g addMagazine "75Rnd_545x39_RPK";
+_spawnAISg01g selectWeapon "RPK_74";
+_spawnAISg01g addWeapon "NVGoggles";
+};
+
+if(_x == 45) then {
+_spawnAISg01g createunit [[22884.246, 19841.74, 10.601068],_AISgroupg01g, "_spawnAISg01g = this;"];
+_spawnAISg01g setPosASL [22884.246, 19841.74, 10.601068];
+_spawnAISg01g addweapon "RPK_74";
+_spawnAISg01g addMagazine "75Rnd_545x39_RPK";
+_spawnAISg01g addMagazine "75Rnd_545x39_RPK";
+_spawnAISg01g addMagazine "75Rnd_545x39_RPK";
+_spawnAISg01g addMagazine "75Rnd_545x39_RPK";
+_spawnAISg01g addMagazine "75Rnd_545x39_RPK";
+_spawnAISg01g selectWeapon "RPK_74";
+_spawnAISg01g addWeapon "NVGoggles";
+_spawnAISg01g moveInTurret [_object5AI5, [0]];
+};
+
 _spawnAISg01g setVariable ["bodyname",_bodynameig01g,false];		
 _spawnAISg01g setVariable ["delmeplease",_bodynameig01g,false];
 _spawnAISg01g addEventHandler ["Fired", {_this call player_fired;}];
@@ -926,6 +982,7 @@ _spawnTaviGroupLeaderg13g addweapon "ItemMap";
 _spawnTaviGroupLeaderg13g addweapon "ItemHatchet";
 _spawnTaviGroupLeaderg13g addweapon "ItemKnife";
 _spawnTaviGroupLeaderg13g addweapon "ItemMatchbox";
+_spawnTaviGroupLeaderg13g addWeapon "NVGoggles";
 
 _spawnTaviGroupLeaderg13g addweapon "Sa58V_EP1";
 _spawnTaviGroupLeaderg13g addMagazine "30Rnd_762x39_SA58";
@@ -934,6 +991,7 @@ _spawnTaviGroupLeaderg13g addMagazine "30Rnd_762x39_SA58";
 _spawnTaviGroupLeaderg13g addMagazine "30Rnd_762x39_SA58";
 _spawnTaviGroupLeaderg13g addMagazine "30Rnd_762x39_SA58";
 _spawnTaviGroupLeaderg13g addMagazine "30Rnd_762x39_SA58";
+_spawnTaviGroupLeaderg13g addWeapon "NVGoggles";
 _spawnTaviGroupLeaderg13g selectWeapon "Sa58V_EP1";
 _spawnTaviGroupLeaderg13g addEventHandler ["Fired", {_this call player_fired;}];
 _spawnTaviGroupLeaderg13g addmpeventhandler ["Killed",{_this call delete_guardia;}];
@@ -1006,6 +1064,7 @@ _spawnAISg13g addweapon "Colt1911";
 _spawnAISg13g addMagazine "7Rnd_45ACP_1911";
 _spawnAISg13g addMagazine "7Rnd_45ACP_1911";
 _spawnAISg13g addMagazine "7Rnd_45ACP_1911";
+_spawnAISg13g addWeapon "NVGoggles";
 
 };
 if(_x == 11) then { 
@@ -1044,6 +1103,7 @@ _spawnAISg13g addMagazine "30Rnd_545x39_AK";
 _spawnAISg13g addMagazine "30Rnd_545x39_AK";
 _spawnAISg13g addMagazine "30Rnd_545x39_AK";
 _spawnAISg13g selectWeapon "AKS_74_kobra";
+_spawnAISg13g addWeapon "NVGoggles";
 };
 if(_x == 3) then {
 _spawnAISg13g addweapon "AK_47_M";
@@ -1053,6 +1113,7 @@ _spawnAISg13g addMagazine "30Rnd_762x39_AK47";
 _spawnAISg13g addMagazine "30Rnd_762x39_AK47";
 _spawnAISg13g addMagazine "30Rnd_762x39_AK47";
 _spawnAISg13g selectWeapon "AK_47_M";
+_spawnAISg13g addWeapon "NVGoggles";
 };
 if(_x == 4) then {
 _spawnAISg13g addweapon "AK_47_M";
@@ -1060,6 +1121,7 @@ _spawnAISg13g addMagazine "30Rnd_762x39_AK47";
 _spawnAISg13g addMagazine "30Rnd_762x39_AK47";
 _spawnAISg13g addMagazine "30Rnd_762x39_AK47";
 _spawnAISg13g selectWeapon "AK_47_M";
+_spawnAISg13g addWeapon "NVGoggles";
 };
 if(_x == 5) then {
 _spawnAISg13g addweapon "AKS_74_kobra";
@@ -1068,6 +1130,7 @@ _spawnAISg13g addMagazine "30Rnd_545x39_AK";
 _spawnAISg13g addMagazine "30Rnd_545x39_AK";
 _spawnAISg13g addMagazine "30Rnd_545x39_AK";
 _spawnAISg13g selectWeapon "AKS_74_kobra";
+_spawnAISg13g addWeapon "NVGoggles";
 };
 if((_x >= 6) and (_x < 11)) then {
 _spawnAISg13g addweapon "AKS_74_kobra";
@@ -1076,6 +1139,7 @@ _spawnAISg13g addMagazine "30Rnd_545x39_AK";
 _spawnAISg13g addMagazine "30Rnd_545x39_AK";
 _spawnAISg13g addMagazine "30Rnd_545x39_AK";
 _spawnAISg13g selectWeapon "AKS_74_kobra";
+_spawnAISg13g addWeapon "NVGoggles";
 };
 _spawnAISg13g setVariable ["bodyname",_bodynameig13g,false];		
 _spawnAISg13g setVariable ["delmeplease",_bodynameig13g,false];
@@ -1113,7 +1177,6 @@ _object2AI2 setFuel 1;
 _object3AI3 = createVehicle ["MH60S", [22946.9,19574.9,0], [], 0, "CAN_COLLIDE"];
 _object3AI3 setvelocity [0,0,1];
 _object3AI3 setFuel 1;
-
 
 _AISgroupg14g = createGroup east;   
 _modelarrayg14g = ["SectorB_def","SectorB_def","SectorB_def","SectorB_def"];
@@ -1161,6 +1224,7 @@ _spawnTaviGroupLeaderg14g addweapon "ItemMap";
 _spawnTaviGroupLeaderg14g addweapon "ItemHatchet";
 _spawnTaviGroupLeaderg14g addweapon "ItemKnife";
 _spawnTaviGroupLeaderg14g addweapon "ItemMatchbox";
+_spawnTaviGroupLeaderg14g addWeapon "NVGoggles";
 
 _spawnTaviGroupLeaderg14g addweapon "Sa58V_EP1";
 _spawnTaviGroupLeaderg14g addMagazine "30Rnd_762x39_SA58";
@@ -1175,6 +1239,7 @@ _spawnTaviGroupLeaderg14g addmpeventhandler ["Killed",{_this call delete_guardia
 _spawnTaviGroupLeaderg14g setVariable ["bodyname",_bodynameig14g,false];
 _spawnTaviGroupLeaderg14g setVariable ["delmeplease",_bodynameig14g,false];
 _spawnTaviGroupLeaderg14g disableConversation true;
+_spawnTaviGroupLeaderg14g addWeapon "NVGoggles";
 
 _spawnTaviGroupLeaderg14g setdamage 0.01;
 
@@ -1396,12 +1461,6 @@ _wp14p35 setWaypointBehaviour "COMBAT";
 _wp14p35 setWaypointCombatMode "RED";
 _wp14p35 setWaypointSpeed "LIMITED";
 
-_wp14p36 = _TavianaSquadg14g addWaypoint [[14825.6,18307.1], 0];
-_wp14p36 setWaypointType "CYCLE";
-_wp14p36 setWaypointBehaviour "COMBAT";
-_wp14p36 setWaypointCombatMode "RED";
-_wp14p36 setWaypointSpeed "LIMITED";			
-
 } else {
 
 
@@ -1432,6 +1491,7 @@ _spawnAISg14g addMagazine "100Rnd_762x54_PK";
 _spawnAISg14g addMagazine "100Rnd_762x54_PK";
 _spawnAISg14g selectWeapon "Pecheneg_DZ";
 _spawnAISg14g moveindriver _object1AI1;
+_spawnAISg14g addWeapon "NVGoggles";
 };
 
 if(_x == 3) then {
@@ -1441,6 +1501,7 @@ _spawnAISg14g addMagazine "20Rnd_762x51_DMR";
 _spawnAISg14g addMagazine "20Rnd_762x51_DMR";
 _spawnAISg14g selectWeapon "DMR";
 _spawnAISg14g moveInTurret [_object1AI1, [1]];
+_spawnAISg14g addWeapon "NVGoggles";
 };
 
 
@@ -1451,6 +1512,7 @@ _spawnAISg14g addMagazine "100Rnd_762x54_PK";
 _spawnAISg14g addMagazine "100Rnd_762x54_PK";
 _spawnAISg14g selectWeapon "Pecheneg_DZ";
 _spawnAISg14g moveindriver _object2AI2;
+_spawnAISg14g addWeapon "NVGoggles";
 };
 
 if(_x == 5) then {
@@ -1460,6 +1522,7 @@ _spawnAISg14g addMagazine "100Rnd_762x54_PK";
 _spawnAISg14g addMagazine "100Rnd_762x54_PK";
 _spawnAISg14g selectWeapon "Pecheneg_DZ";
 _spawnAISg14g moveInTurret [_object2AI2, [0]];
+_spawnAISg14g addWeapon "NVGoggles";
 };
 if(_x == 6) then {
 _spawnAISg14g addweapon "Pecheneg_DZ";
@@ -1468,6 +1531,7 @@ _spawnAISg14g addMagazine "100Rnd_762x54_PK";
 _spawnAISg14g addMagazine "100Rnd_762x54_PK";
 _spawnAISg14g selectWeapon "Pecheneg_DZ";
 _spawnAISg14g moveInTurret [_object2AI2, [1]];
+_spawnAISg14g addWeapon "NVGoggles";
 };
 if(_x == 7) then {
 _spawnAISg14g addweapon "Pecheneg_DZ";
@@ -1476,6 +1540,7 @@ _spawnAISg14g addMagazine "100Rnd_762x54_PK";
 _spawnAISg14g addMagazine "100Rnd_762x54_PK";
 _spawnAISg14g selectWeapon "Pecheneg_DZ";
 _spawnAISg14g moveindriver _object3AI3;
+_spawnAISg14g addWeapon "NVGoggles";
 };
 
 if(_x == 8) then {
@@ -1485,6 +1550,7 @@ _spawnAISg14g addMagazine "100Rnd_762x54_PK";
 _spawnAISg14g addMagazine "100Rnd_762x54_PK";
 _spawnAISg14g selectWeapon "Pecheneg_DZ";
 _spawnAISg14g moveInTurret [_object3AI3, [0]];
+_spawnAISg14g addWeapon "NVGoggles";
 };
 if(_x == 9) then {
 _spawnAISg14g addweapon "Pecheneg_DZ";
@@ -1493,6 +1559,7 @@ _spawnAISg14g addMagazine "100Rnd_762x54_PK";
 _spawnAISg14g addMagazine "100Rnd_762x54_PK";
 _spawnAISg14g selectWeapon "Pecheneg_DZ";
 _spawnAISg14g moveInTurret [_object3AI3, [1]];
+_spawnAISg14g addWeapon "NVGoggles";
 };
 _spawnAISg14g setVariable ["bodyname",_bodynameig14g,false];		
 _spawnAISg14g setVariable ["delmeplease",_bodynameig14g,false];
