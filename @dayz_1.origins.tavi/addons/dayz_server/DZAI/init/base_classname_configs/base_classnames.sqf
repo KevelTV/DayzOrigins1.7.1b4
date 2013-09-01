@@ -38,7 +38,7 @@
 	DZAI_Medicals2 = ["ItemPainkiller", "ItemMorphine", "ItemBandage", "ItemBloodbag", "ItemAntibiotic","ItemEpinephrine"]; //List of all medical items
 
 	DZAI_MiscItemS = ["HandRoadFlare", "HandChemBlue", "HandChemRed", "HandChemGreen"]; //List of random miscellaneous items (1 inventory space)
-	DZAI_MiscItemL = ["ItemTent","ItemRestTent","PartWoodPile","ItemCementBag","PartScrap","ItemCeMix","ItemRocks","ItemBattery","ItemPin","ItemRWood","ItemCinderblocks"]; //List of random miscellaneous items (>1 inventory space)
+	DZAI_MiscItemL = ["ItemTent","ItemRestTent","PartWoodPile","ItemCementBag","PartScrap","ItemCeMix","ItemRocks","ItemBattery","ItemPin"]; //List of random miscellaneous items (>1 inventory space)
 
 	//Tool items are added to AI inventory upon death
 	DZAI_tools0 = [["ItemWatch",0.65],["ItemKnife",0.50],["ItemHatchet",0.40],["ItemCompass",0.35],["ItemMap",0.25],["ItemToolbox",0.10],["ItemMatchbox",0.10],["ItemFlashlightRed",0.05],["ItemGPS",0.00]];
