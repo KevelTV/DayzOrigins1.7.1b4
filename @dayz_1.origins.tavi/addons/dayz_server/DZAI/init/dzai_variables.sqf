@@ -40,8 +40,8 @@ DZAI_dynDespawnWait = 600;									//Time to wait before despawning all AI units
 //AI Helicopter patrol settings
 //IMPORTANT: Before enabling AI helicopter patrols, make sure you have properly edited your server_cleanup.fsm file. Otherwise, the helicopters will explode after spawning.
 DZAI_aiHeliPatrols = true;									//Enable or disable AI helicopter patrols. (Default: false)
-DZAI_maxHeliPatrols = 20;									//Maximum number of active AI helicopters patrols. (Default: 0).
-DZAI_heliTypes = ["UH1H_DZ","UH1Y","MH60S"];								//Classnames of helicopter types to use. Helicopter types must have at least 2 gunner seats (Default: "UH1H_DZ").
+DZAI_maxHeliPatrols = 8;									//Maximum number of active AI helicopters patrols. (Default: 0).
+DZAI_heliTypes = ["UH1H_DZ","MH60S"];								//Classnames of helicopter types to use. Helicopter types must have at least 2 gunner seats (Default: "UH1H_DZ").
 DZAI_heliLoot = true;										//Enable or disable loot generation on destroying AI helicopter. Dead crew members will be parachuted out after helicopter is destroyed (Default: true)
 
 //Extra AI Settings
@@ -59,14 +59,14 @@ DZAI_invmedicals = 2; 										//Number of selections of medical items (Invento
 DZAI_invedibles = 2;										//Number of selections of edible items (Inventory)
 DZAI_bpmedicals = 2; 										//Number of selections of medical items (Backpack)
 DZAI_bpedibles = 2;											//Number of selections of edible items (Backpack)
-DZAI_numMiscItemS = 7;										//Maximum number of items to select from DZAI_MiscItemS table.
-DZAI_numMiscItemL = 15;										//Maximum number of items to select from DZAI_MiscItemL table.
+DZAI_numMiscItemS = 5;										//Maximum number of items to select from DZAI_MiscItemS table.
+DZAI_numMiscItemL = 5;										//Maximum number of items to select from DZAI_MiscItemL table.
 
 //AI loot probability settings
 DZAI_chanceMedicals = 0.35;									//Chance to add each medical item.
 DZAI_chanceEdibles = 0.55;									//Chance to add each edible item.
-DZAI_chanceMiscItemS = 0.60;								//Chance to add random item from DZAI_MiscItemS table.
-DZAI_chanceMiscItemL = 0.60;								//Chance to add random item from DZAI_MiscItemL table.
+DZAI_chanceMiscItemS = 0.50;								//Chance to add random item from DZAI_MiscItemS table.
+DZAI_chanceMiscItemL = 0.30;								//Chance to add random item from DZAI_MiscItemL table.
 
 //AI weapon/skill probabilities (gradeChances should add up to 1.00) - [Civilian, Military, MilitarySpecial, HeliCrash] - Note: AI with higher grade weaponry will also have higher skill settings.
 DZAI_gradeChances0 = [0.43,0.33,0.23,0.01];					//equipType = 0 - most AI will have basic pistols or rifles, and occasionally common military weapons.
