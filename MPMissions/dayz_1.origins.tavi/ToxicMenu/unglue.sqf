@@ -1,1 +1,0 @@
-titleText ["Set first target in 5 secs.","PLAIN DOWN"]; titleFadeOut 5;sleep 5;_GLUETarget = cursorTarget;detach _GLUETarget;titleText ["Glue removed. Probably!","PLAIN DOWN"]; titleFadeOut 4;

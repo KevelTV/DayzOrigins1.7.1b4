@@ -1,1 +1,0 @@
-(getPos player nearestObject "LandVehicle") setVectorUp [0, 0, 1]; 
