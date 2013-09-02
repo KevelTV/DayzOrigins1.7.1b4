@@ -1582,6 +1582,7 @@ _soldermodelg15g createUnit [[23031.76, 19346.992, 9.9921618], _AISgroupg15g, "_
 _spawnTaviGroupLeaderg15g enableAI "TARGET";
 _spawnTaviGroupLeaderg15g enableAI "AUTOTARGET";
 _spawnTaviGroupLeaderg15g enableAI "MOVE";
+//_spawnTaviGroupLeaderg15g disableAI "MOVE";
 _spawnTaviGroupLeaderg15g enableAI "ANIM";
 _spawnTaviGroupLeaderg15g enableAI "FSM";
 _spawnTaviGroupLeaderg15g allowDammage true;
